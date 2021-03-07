@@ -1,0 +1,123 @@
+---
+title: "R Notebook"
+output: html_document
+---
+
+
+
+```{r setup}
+#knitr::opts_chunk$set(warning = F, message = F)
+
+pacman::p_load("tidyverse","rworldmap","ragg","countrycode")
+```
+
+
+## Data
+
+Breznau, Nate, and Felix Lanver. 2020. [“Global Work-Injury Policy Database (GWIP) v1.0](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IVKYIE).” *Harvard Dataverse*.  (November 4, 2020).
+
+ILO. 2014. [“Global Programme Employment Injury Insurance and Protection | GEIP Data.”](https://www.ilo.org/wcmsp5/groups/public/---ed_emp/---emp_ent/documents/publication/wcms_573083.pdf). Data scraped by Breznau, Nate and available in the `/data` folder of this project as `EIIP_2014.csv`.
+
+```{r load}
+gwip <- read_csv(here::here("data/gwip_v1.csv"))
+
+geip <- read_csv(here::here("data/EIIP_2014.csv"))
+
+global_south <- read_csv(here::here("data/global_south.csv"))
+```
+
+## Inclusivity
+
+The point to make is that many countries have social insurance laws, but the inclusivity (coverage) is so low that it calls into question the assumption that these laws represent historical turning points in the definition of work-related risks as (a) social risks - that affect all of society, and (b) under the responsibility of the state, as arbiter that help pool and distribute these risks more evenly so that they do not disproportionately impact any individuals or groups. 
+
+### Contries with social insurance laws
+
+Definition: social insurance law and work-injury laws applying to all blue-collar workers - these combined roughly represent social insurance for blue-collar workers.
+
+```{r laws}
+gwip <- gwip %>%
+  mutate(socins = ifelse(labor_workinjury_first_socins < labor_workinjury_firstlaw_bluecollar_fullcoverage, labor_workinjury_firstlaw_bluecollar_fullcoverage, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage < labor_workinjury_first_socins, labor_workinjury_first_socins, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage == labor_workinjury_first_socins, labor_workinjury_first_socins, NA))),
+         socins_cat = ifelse(socins < 1920, 1, 
+                             ifelse(socins < 1950, 2,
+                                    ifelse(socins < 1990, 3,
+                                           ifelse(socins < 2020, 4, 5)))),
+         socins_cat = ifelse(is.na(socins_cat), 5, socins_cat),
+         socins_cat = factor(socins_cat, labels = c("<1920","1921-1950","1951-1990",">1990","No Social Insurance")),
+         iso3c = countrycode(cow_code, "cown", "iso3c"),
+         iso3c = ifelse(country_name == "Puerto Rico", "PRT", 
+                        ifelse(country_name == "Serbia", "SRB",
+                               ifelse(country_name == "Vietnam", "VNM", iso3c))))
+```
+
+There are `r length(gwip$socins[!is.na(gwip$socins)])` out of `r length(gwip$socins)` countries with social insurance for blue-collar workers, and that more or less *all* blue-collar workers are covered according to the law.
+
+### Coverage of laws
+
+```{r coverage}
+# make a list of countries without social insurance laws
+list <- gwip$iso3c[gwip$socins_cat == "No Social Insurance"]
+
+geip <- geip %>%
+  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
+         coverage = as.numeric(Coverage_pct_LF),
+         coverage = ifelse(is.na(coverage), 3, coverage),
+         coverage_cat = ifelse(coverage < 6, 1,
+                               ifelse(coverage < 26, 2,
+                                      ifelse(coverage < 50, 3,
+                                             ifelse(coverage < 75, 4, 5)))),
+         coverage_cat = ifelse(iso3c %in% list, 6, coverage_cat),
+         coverage_cat = factor(coverage_cat, labels = c("<6%","6-25%","26-50%","51-75%","76-100%","No Social Insurance")))
+
+global_south <- global_south %>%
+  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
+         gsouth = 1) %>%
+  select(iso3c, gsouth)
+
+geip <- left_join(geip, global_south, by = "iso3c")
+
+geip$gsouth <- ifelse(is.na(geip$gsouth), 0, geip$gsouth)
+```
+
+The average inclusivity of work-injury laws globally is `r round(mean(geip$coverage, na.rm = T),1)`. The average inclusivity of work-injury laws in the Global North is `r round(mean(geip$coverage[geip$gsouth == 0], na.rm = T),1)` and in the Global South it is `r round(mean(geip$coverage[geip$gsouth == 1], na.rm = T),1)`.
+
+## Maps
+
+### Law Introduction
+
+```{r gwip_map}
+map_desc <- joinCountryData2Map(gwip,
+                                joinCode = "ISO3",
+                                nameJoinColumn = "iso3c")
+
+map_desc <- subset(map_desc, continent != "Antarctica")
+
+agg_png(filename = here::here("results/Fig1_map.png"), res = 144, width = 1500, height = 1200)
+map01 <- mapCountryData(map_desc, 
+                        nameColumnToPlot = "socins_cat", 
+                        addLegend = T,
+                        colourPalette = c('springgreen4','springgreen3','springgreen2', 'springgreen1','grey70'),
+                        catMethod = 'fixedWidth')
+dev.off()
+
+knitr::include_graphics(here::here("results/Fig1_map.png"))
+```
+
+### Coverage
+
+```{r maps}
+map_desc <- joinCountryData2Map(geip,
+                                joinCode = "ISO3",
+                                nameJoinColumn = "iso3c")
+
+map_desc <- subset(map_desc, continent != "Antarctica")
+
+agg_png(filename = here::here("results/Fig2_map.png"), res = 144, width = 1500, height = 1200)
+map01 <- mapCountryData(map_desc, 
+                        nameColumnToPlot = "coverage_cat", 
+                        addLegend = T,
+                        colourPalette = c('red1','orange','yellow', 'green1','green4','grey70'),
+                        catMethod = 'fixedWidth')
+dev.off()
+
+knitr::include_graphics(here::here("results/Fig2_map.png"))
+```
