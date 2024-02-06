@@ -1,0 +1,222 @@
+---
+title: "01 Data Extraction"
+output: html_document
+---
+
+## Setup
+
+```{r setup}
+knitr::opts_chunk$set(warning = F, message = F)
+
+packages <- c("tidyverse",
+              "countrycode")
+
+
+pacman::p_load(packages, character.only = T)
+```
+
+## Pre-Existing Data
+
+### GWIP
+
+Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), <https://doi.org/10.7910/DVN/IVKYIE/EYP0PB>, Harvard Dataverse, V1
+
+**Note** that there were minor updates to the GWIP leading to v1.1. In v2.0 these updates are included. But that is why we read from the file v1.1 rather than v1.0
+
+```{r gwip}
+gwip <- read_csv(here::here("data/gwip_v1.1.csv"))
+```
+
+### ILO - GEIP
+
+The ILO released an impressive and comprehensive database of work-injury insurance coverage in 2014. It appears that this program was discontinued or at least has not been updated since then.
+
+ILO. 2014. ["Global Programme Employment Injury Insurance and Protection | GEIP Data."](https://www.ilo.org/wcmsp5/groups/public/---ed_emp/---emp_ent/documents/publication/wcms_573083.pdf). Data scraped by Breznau, Nate and available in the `/data` folder of this project as `EIIP_2014.csv`.
+
+```{r load}
+
+
+geip <- read_csv(here::here("data/EIIP_2014.csv"))
+
+global_south <- read_csv(here::here("data/global_south.csv"))
+```
+
+### SPIN - SIED
+
+Only 37 countries. Use for point of comparison.
+
+Social Insurance Entitlements Dataset (SIED)
+
+Nelson, K., Fredriksson, D., Korpi, T., Korpi, W., Palme, J. and O. Sjöberg. 2020. The Social Policy Indicators (SPIN) database. International Journal of Social Welfare, 29(3), 285-289. <https://doi.org/10.1111/ijsw.12418>
+
+|var_name|description|
+|------|--------------------------------------|
+|azrr26si|Standard net single worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator| 
+|azrr26fa|Standard net familied worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator| |az4ind|(a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components: a single person and a four-person family, for first week after waiting days and 26 weeks with benefits|
+
+```{r sied}
+sied <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
+  subset(year > 2000) %>%
+  mutate(ISO3c = country) %>%
+  select(ISO3c, year, azrr26si, azrr26fa, az4ind) %>% 
+  group_by(ISO3c) %>%
+  mutate(RR_Sing = max(azrr26si, na.rm = T),
+         RR_Fam = max(azrr26fa, na.rm = T),
+         RR_Avg_Sing = max(az4ind, na.rm = T)) %>%
+  select(-c(azrr26si, azrr26fa, az4ind)) %>%
+  summarise_all(mean, na.rm = T) %>%
+  mutate(year = 2020) %>%
+  ungroup()
+```
+
+### Disability RR ILO
+
+This is a rough measure to help with imputation. It calculates the ratio of the average income of persons with a disability to those without.
+
+https://www.ilo.org/shinyapps/bulkexplorer44/?lang=en&id=EAR_4MTH_SEX_DSB_CUR_NB_A
+
+*Average monthly earnings of employees by sex and disability status -- Annual*
+
+With the aim of promoting international comparability, statistics presented on ILOSTAT are based on standard international definitions wherever feasible and may differ from official national figures. This series is based on the 13th ICLS definitions. For time series comparability, it includes countries that have implemented the 19th ICLS standards, for which data are also available in the Work Statistics -- 19th ICLS (WORK) database. The earnings of employees relate to the gross remuneration in cash and in kind paid to employees, as a rule at regular intervals, for time worked or work done together with remuneration for time not worked, such as annual vacation, other type of paid leave or holidays. Earnings exclude employers' contributions in respect of their employees paid to social security and pension schemes and also the benefits received by employees under these schemes. Earnings also exclude severance and termination pay. This is a harmonized series: (1) data reported as weekly, monthly and yearly are converted to hourly using data on average weekly hours if available; and (2) data are converted to U.S. dollars as the common currency, using exchange rates or using purchasing power parity (PPP) rates for private consumption expenditures. The latter series allows for international comparisons by taking account of the differences in relative prices between countries. The term disability, as defined in the International Classification of Functioning, Disability and Health (ICF), is used as an umbrella term, covering impairments, activity limitations, and participation restrictions. For measurement purposes, a person with disability is defined as a person who is limited in the kind or amount of activities that he or she can do because of ongoing difficulties due to a long-term physical condition, mental condition or health problem. For more information, refer to the Disability Labour Market Indicators (DLMI) database description.
+
+Subject: Earnings
+Database: Disability Labour Market Indicators (DLMI)
+Id: EAR_4MTH_SEX_DSB_CUR_NB_A
+Time period: 1996 - 2023
+Last updated: 04/02/2024 06:45:18
+
+
+```{r disrr}
+ilo_dis <- read_csv(here::here("data", "EAR_4MTH_SEX_DSB_CUR_NB_A-filtered-2024-02-05.csv")) %>%
+  subset(classif2.label == "Currency: 2017 PPP $" & sex.label == "Sex: Total") %>%
+  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
+         year = time) %>%
+  select(ISO3c, year, classif1.label, obs_value) %>%
+  subset(classif1.label != "Disability status (Aggregate): Total") %>%
+  group_by(ISO3c) %>%
+  mutate(maxyear = max(year, na.rm = T),
+         year_obs = year,
+         year = 2020) %>%
+  ungroup() %>%
+  subset(year_obs == maxyear) %>%
+  select(-maxyear) %>%
+  group_by(ISO3c) %>%
+  mutate(Dis_RR = round((min(obs_value)/max(obs_value))*100,3),
+         minn = min(obs_value)) %>%
+  subset(obs_value != minn, select = c(ISO3c, year, Dis_RR, year_obs)) %>%
+  ungroup()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Inclusivity
+
+The point to make is that many countries have social insurance laws, but the inclusivity (coverage) is so low that it calls into question the assumption that these laws represent historical turning points in the definition of work-related risks as (a) social risks - that affect all of society, and (b) under the responsibility of the state, as arbiter that help pool and distribute these risks more evenly so that they do not disproportionately impact any individuals or groups.
+
+### Contries with social insurance laws
+
+Definition: social insurance law and work-injury laws applying to all blue-collar workers - these combined roughly represent social insurance for blue-collar workers.
+
+```{r laws}
+gwip <- gwip %>%
+  mutate(socins = ifelse(labor_workinjury_first_socins < labor_workinjury_firstlaw_bluecollar_fullcoverage, labor_workinjury_firstlaw_bluecollar_fullcoverage, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage < labor_workinjury_first_socins, labor_workinjury_first_socins, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage == labor_workinjury_first_socins, labor_workinjury_first_socins, NA))),
+         socins_cat = ifelse(socins < 1920, 1, 
+                             ifelse(socins < 1950, 2,
+                                    ifelse(socins < 1990, 3,
+                                           ifelse(socins < 2020, 4, 5)))),
+         socins_cat = ifelse(is.na(socins_cat), 5, socins_cat),
+         socins_cat = factor(socins_cat, labels = c("<1920","1921-1950","1951-1990",">1990","No Social Insurance")),
+         iso3c = countrycode(cow_code, "cown", "iso3c"),
+         iso3c = ifelse(country_name == "Puerto Rico", "PRT", 
+                        ifelse(country_name == "Serbia", "SRB",
+                               ifelse(country_name == "Vietnam", "VNM", iso3c))))
+```
+
+There are `r length(gwip$socins[!is.na(gwip$socins)])` out of `r length(gwip$socins)` countries with social insurance for blue-collar workers, and that more or less *all* blue-collar workers are covered according to the law.
+
+### Coverage of laws
+
+```{r coverage}
+# make a list of countries without social insurance laws
+list <- gwip$iso3c[gwip$socins_cat == "No Social Insurance"]
+
+geip <- geip %>%
+  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
+         coverage = as.numeric(Coverage_pct_LF),
+         coverage = ifelse(is.na(coverage), 3, coverage),
+         coverage_cat = ifelse(coverage < 6, 1,
+                               ifelse(coverage < 26, 2,
+                                      ifelse(coverage < 50, 3,
+                                             ifelse(coverage < 75, 4, 5)))),
+         coverage_cat = ifelse(iso3c %in% list, 6, coverage_cat),
+         coverage_cat = factor(coverage_cat, labels = c("<6%","6-25%","26-50%","51-75%","76-100%","No Social Insurance")))
+
+global_south <- global_south %>%
+  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
+         gsouth = 1) %>%
+  select(iso3c, gsouth)
+
+geip <- left_join(geip, global_south, by = "iso3c")
+
+geip$gsouth <- ifelse(is.na(geip$gsouth), 0, geip$gsouth)
+```
+
+The average inclusivity of work-injury laws globally is `r round(mean(geip$coverage, na.rm = T),1)`. The average inclusivity of work-injury laws in the Global North is `r round(mean(geip$coverage[geip$gsouth == 0], na.rm = T),1)` and in the Global South it is `r round(mean(geip$coverage[geip$gsouth == 1], na.rm = T),1)`.
+
+## Maps
+
+### Law Introduction
+
+```{r gwip_map}
+map_desc <- joinCountryData2Map(gwip,
+                                joinCode = "ISO3",
+                                nameJoinColumn = "iso3c")
+
+map_desc <- subset(map_desc, continent != "Antarctica")
+
+agg_png(filename = here::here("results/Fig1_map.png"), res = 144, width = 1500, height = 1200)
+map01 <- mapCountryData(map_desc, 
+                        nameColumnToPlot = "socins_cat", 
+                        addLegend = T,
+                        colourPalette = c('springgreen4','springgreen3','springgreen2', 'springgreen1','grey70'),
+                        catMethod = 'fixedWidth')
+dev.off()
+
+knitr::include_graphics(here::here("results/Fig1_map.png"))
+```
+
+### Coverage
+
+```{r maps}
+map_desc <- joinCountryData2Map(geip,
+                                joinCode = "ISO3",
+                                nameJoinColumn = "iso3c")
+
+map_desc <- subset(map_desc, continent != "Antarctica")
+
+agg_png(filename = here::here("results/Fig2_map.png"), res = 144, width = 1500, height = 1200)
+map01 <- mapCountryData(map_desc, 
+                        nameColumnToPlot = "coverage_cat", 
+                        addLegend = T,
+                        colourPalette = c('red1','orange','yellow', 'green1','green4','grey70'),
+                        catMethod = 'fixedWidth')
+dev.off()
+
+knitr::include_graphics(here::here("results/Fig2_map.png"))
+```
