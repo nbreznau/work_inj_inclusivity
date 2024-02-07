@@ -9,7 +9,8 @@ output: html_document
 knitr::opts_chunk$set(warning = F, message = F)
 
 packages <- c("tidyverse",
-              "countrycode")
+              "countrycode",
+              "readxl")
 
 
 pacman::p_load(packages, character.only = T)
@@ -24,7 +25,10 @@ Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury 
 **Note** that there were minor updates to the GWIP leading to v1.1. In v2.0 these updates are included. But that is why we read from the file v1.1 rather than v1.0
 
 ```{r gwip}
-gwip <- read_csv(here::here("data/gwip_v1.1.csv"))
+gwip <- read_csv(here::here("data", "gwip_v1.1.csv"))
+
+## Data collection in progress
+rr_gwip <- read_csv(here::here("data", "work_injury_rr.csv"))
 ```
 
 ### ILO - GEIP
@@ -37,6 +41,7 @@ ILO. 2014. ["Global Programme Employment Injury Insurance and Protection | GEIP 
 
 
 geip <- read_csv(here::here("data/EIIP_2014.csv"))
+
 
 global_south <- read_csv(here::here("data/global_south.csv"))
 ```
@@ -51,19 +56,24 @@ Nelson, K., Fredriksson, D., Korpi, T., Korpi, W., Palme, J. and O. Sjöberg. 20
 
 |var_name|description|
 |------|--------------------------------------|
+|scovratl|Coverage ratio as proportion of labour force (SNOINSUR /SLABFORC)|
+|scovratp|Coverage ratio as proportion of population (SNOINSUR / SPOP1564)|
 |azrr26si|Standard net single worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator| 
-|azrr26fa|Standard net familied worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator| |az4ind|(a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components: a single person and a four-person family, for first week after waiting days and 26 weeks with benefits|
+|azrr26fa|Standard net familied worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator| 
+|az4ind|(a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components: a single person and a four-person family, for first week after waiting days and 26 weeks with benefits|
 
 ```{r sied}
 sied <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
   subset(year > 2000) %>%
   mutate(ISO3c = country) %>%
-  select(ISO3c, year, azrr26si, azrr26fa, az4ind) %>% 
+  select(ISO3c, year, scovratl, scovratp, azrr26si, azrr26fa, az4ind) %>% 
   group_by(ISO3c) %>%
-  mutate(RR_Sing = max(azrr26si, na.rm = T),
+  mutate(Cov_LF = max(scovratl, na.rm = T),
+         Cov_Pop = max(scovratp, na.rm = T),
+         RR_Sing = max(azrr26si, na.rm = T),
          RR_Fam = max(azrr26fa, na.rm = T),
          RR_Avg_Sing = max(az4ind, na.rm = T)) %>%
-  select(-c(azrr26si, azrr26fa, az4ind)) %>%
+  select(-c(scovratl, scovratp, azrr26si, azrr26fa, az4ind)) %>%
   summarise_all(mean, na.rm = T) %>%
   mutate(year = 2020) %>%
   ungroup()
@@ -87,7 +97,7 @@ Last updated: 04/02/2024 06:45:18
 
 
 ```{r disrr}
-ilo_dis <- read_csv(here::here("data", "EAR_4MTH_SEX_DSB_CUR_NB_A-filtered-2024-02-05.csv")) %>%
+dis_ilo <- read_csv(here::here("data", "EAR_4MTH_SEX_DSB_CUR_NB_A-filtered-2024-02-05.csv")) %>%
   subset(classif2.label == "Currency: 2017 PPP $" & sex.label == "Sex: Total") %>%
   mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
          year = time) %>%
@@ -107,8 +117,101 @@ ilo_dis <- read_csv(here::here("data", "EAR_4MTH_SEX_DSB_CUR_NB_A-filtered-2024-
   ungroup()
 ```
 
+### Social Indicators
+
+#### GDP Maddison
+
+Includes population
+
+https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020?lang=en
+
+```{r gdp}
+gdp <- read_excel(here::here("data", "mpd2020.xlsx"), sheet = "Full data") %>%
+  mutate(ISO3c = countrycode,
+         year_obs = year,
+         year = 2020) %>%
+  subset(year_obs == 2018, select = c(ISO3c, year, gdppc, pop, year_obs))
+```
 
 
+#### Gini Solt
+
+Solt, Frederick. 2020. ‘The Standardized World Income Inequality Database, Versions 8-9’. https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LM4OWF
+
+Think about calculating a redistribution score from gini_disp and gini_mkt.
+
+```{r gini}
+load(here::here("data", "swiid8_3.rda"))
+
+gini <- swiid_summary %>% 
+   mutate(ISO3c = countrycode(country, "country.name","iso3c")) %>% 
+   select(ISO3c, gini_disp, gini_mkt, year) %>% 
+   group_by(ISO3c) %>% 
+   mutate(year_max = max(year),
+          year_filter = year-year_max,
+          year_obs = year,
+          year = 2020) %>%
+   subset(year_filter > -5, select = -c(year_max, year_filter)) %>%
+   summarise_all(mean, na.rm = T) %>% 
+   subset(!is.na(ISO3c))
+
+rm(swiid, swiid_summary)
+```
+
+### LFP ILO
+
+https://www.ilo.org/shinyapps/bulkexplorer14/?lang=en&segment=indicator&id=EAP_2WAP_SEX_AGE_RT_A
+
+Labour force participation rate by sex, age and rural / urban areas -- ILO modelled estimates, Nov. 2021 (%) -- Annual
+
+Imputed observations are not based on national data, are subject to high uncertainty and should not be used for country comparisons or rankings. This series is based on the 13th ICLS definitions. The labour force participation rate is the labour force as a percent of the working-age population. The labour force is the sum of all persons of working age who are employed and those who are unemployed. For more information, refer to the ILO Modelled Estimates (ILOEST) database description.
+
+Subject: Labour force
+Database: ILO Modelled Estimates (ILOEST) | Rural and Urban Labour Markets (RURBAN)
+Id: EAP_2WAP_SEX_AGE_GEO_RT_A
+Time period: 2005 - 2020
+Last updated: 27/06/2022 12:21:39
+Number of records: 118800
+
+
+```{r lfp}
+
+
+lfp_total <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
+  subset(sex.label == "Sex: Total" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
+  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c")) %>%
+  select(ISO3c, obs_value) %>%
+  group_by(ISO3c) %>%
+  summarise_all(mean, na.rm = T) %>%
+  mutate(year = 2020) %>%
+  ungroup()
+
+lfp_female <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
+  subset(sex.label == "Sex: Female" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
+  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c")) %>%
+  select(ISO3c, obs_value) %>%
+  group_by(ISO3c) %>%
+  summarise_all(mean, na.rm = T) %>%
+  mutate(year = 2020) %>%
+  ungroup()
+```
+
+
+## Environment
+
+### Colophon
+
+```{r colophon}
+
+```
+
+### Citations
+
+```{r citations}
+packages %>%
+  map(citation) %>%
+  print(style = "text")
+```
 
 
 

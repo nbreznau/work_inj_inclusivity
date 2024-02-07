@@ -1,6 +1,6 @@
 Country,Program Type,Contribution_Worker,Contribution_Employer,Contribution_SelfEmp,Contribution_Gov,Coverage_pct_LF
 Algeria ,Social insurance ,No contribution ,1.25% of gross payroll ,Not covered ,No contribution ,53.8
-Angola ,Employer liability ,No contribution ,Whole cost (pays insurance premiums) ,Voluntary basis ,No contribution ,… 
+Angola ,Employer liability ,No contribution ,Whole cost (pays insurance premiums) ,Voluntary basis ,No contribution ,NA
 Benin ,Social insurance; employer liability ,No contribution ,1% to 4% of gross payroll according to assessed risk ,Not covered ,No contribution ,5.2
 Botswana ,Employer liability (normally involving insurance with a private carrier) ,No contribution ,Whole cost (pays insurance premiums or provides benefits directly) ,Not covered ,No contribution ,43.1
 Burkina Faso ,Social insurance (cash and medical benefits); employer liability (temporary cash benefits only) ,No contribution ,3.5% of covered payroll; whole cost for employer liability ,Not covered ,No contribution ,5.5
@@ -12,7 +12,7 @@ Chad ,Social insurance ,No contribution ,4% of gross payroll ,Not covered ,Subsi
 Congo ,Social insurance ,No contribution ,2.25% of covered payroll ,2.25% of income Voluntary basis ,No contribution ,14.2
 "Congo, Democratic Republic of ",Social insurance ,No contribution ,1.5% of monthly earnings (may be higher for high-risk industries) ,Not covered ,No contribution ,26.2
 Ivory Coast,Social insurance ,No contribution ,2% to 5% of gross payroll according to assessed risk ,Contribution varies according to assessed risk Voluntary basis ,No contribution ,14.7
-Djibouti ,Social insurance ,No contribution (cash benefits); 2% of covered earnings (medical benefits under sickness) ,1.2% (cash benefits); 5% (medical benefits under sickness) ,7% of covered earnings (medical benefits only under sickness) ,No contribution ,… 
+Djibouti ,Social insurance ,No contribution (cash benefits); 2% of covered earnings (medical benefits under sickness) ,1.2% (cash benefits); 5% (medical benefits under sickness) ,7% of covered earnings (medical benefits only under sickness) ,No contribution ,NA
 Egypt ,Social insurance ,No contribution ,3% of covered payroll ,Not covered ,No contribution ,51.1
 Equatorial Guinea ,Social insurance ,"Global contribution, under old-age (4.5% of gross earnings) ","Global contribution, under old age (21.5% of gross payroll) ",Not covered ,"Global contribution, under old age (at least 25% of annual social security receipts) ",14.5
 Ethiopia ,Social insurance; employer liability ,"Global contribution, under old age (7% of basic salary) ","Global contribution, under old age (11% or payroll (civilian) or 25% of payroll (military)); whole cost for employer liability (pays insurance premiums) ",Voluntary basis ,No contribution ,17.4
@@ -21,9 +21,9 @@ Gambia ,Employer liability ,No contribution ,1% of covered payroll ,Not covered 
 Ghana ,Employer liability (normally involving insurance with a private carrier) ,No contribution ,Whole cost (provides benefits directly) ,Not covered ,No contribution ,16.6
 Guinea ,Social insurance ,No contribution ,4% of covered payroll ,Not covered ,No contribution ,14.5
 Kenya ,Employer liability (involving insurance with a public carrier) ,No contribution ,Whole cost (pays insurance premiums or provides benefits directly) ,Not covered ,No contribution ,9.3
-Lesotho ,Social insurance ,No contribution ,"Percentage of gross monthly earnings (variable according to terms of agreement, industry mandate or ministerial directive) ",Not covered ,No contribution ,… 
+Lesotho ,Social insurance ,No contribution ,"Percentage of gross monthly earnings (variable according to terms of agreement, industry mandate or ministerial directive) ",Not covered ,No contribution ,NA
 Liberia ,Social insurance ,No contribution ,1.75% of payroll ,1.75% of declared income ,No contribution ,80.5
-Libya ,Social insurance ,"Global contribution, under old age for cash benefits (3.75% of covered earnings) and under sickness for medical benefits (1.5% of covered earnings) ","Global contribution, under old age for cash benefits (10.5% of covered earnings; 11.25% for foreign companies) and under sickness for medical benefits (2.45% of covered payroll) ","Global contribution, under old age for cash benefits (15.675% of declared income) and under sickness for medical benefits (3.5% of covered income) ","Global contribution, under old age for cash benefits (0.75% of covered earnings plus annual subsidies) and under sickness for medical benefits (5% of covered earnings) ",… 
+Libya ,Social insurance ,"Global contribution, under old age for cash benefits (3.75% of covered earnings) and under sickness for medical benefits (1.5% of covered earnings) ","Global contribution, under old age for cash benefits (10.5% of covered earnings; 11.25% for foreign companies) and under sickness for medical benefits (2.45% of covered payroll) ","Global contribution, under old age for cash benefits (15.675% of declared income) and under sickness for medical benefits (3.5% of covered income) ","Global contribution, under old age for cash benefits (0.75% of covered earnings plus annual subsidies) and under sickness for medical benefits (5% of covered earnings) ",NA
 Madagascar ,Social insurance ,No contribution ,1.25% of covered payroll 1 ,Not covered ,No contribution ,9.3
 Malawi ,Employer liability (normally involving insurance with a private) ,No contribution ,Whole cost ,Not covered ,No contribution ,6.9
 Mali ,Social insurance ,No contribution ,1% to 4% of gross payroll depending on assessed risk ,1% to 4% of gross earnings depending on assessed risk Voluntary basis ,No contribution ,9.1
@@ -51,7 +51,7 @@ Armenia ,Social insurance ,A portion of personal income tax ,No contribution ,No
 Azerbaijan ,Employer liability (involving insurance with a private carrier) ,No contribution ,Whole cost (private insurance rates vary according to industry risk) ,Whole cost (rates vary according to assessed industry risk) Voluntary basis ,Whole cost of the funeral grant ,39.7
 Bahrain ,Social insurance ,No contribution ,3% of the employee's monthly earnings ,Not covered ,No contribution ,84.6
 Bangladesh ,Employer liability ,No contribution ,Whole cost ,Not covered ,No contribution ,12.5
-Bhutan ,Employer liability (involving insurance with a public carrier) ,No contribution ,Whole cost (provides benefits directly or pays insurance premiums) ,Not covered ,No contribution ,… 
+Bhutan ,Employer liability (involving insurance with a public carrier) ,No contribution ,Whole cost (provides benefits directly or pays insurance premiums) ,Not covered ,No contribution ,NA
 Brunei Darussalam ,Employer liability ,No contribution ,Provides benefits directly to employees ,Not covered ,No contribution ,88
 China ,Social insurance; employer liability ,No contribution ,0.75% of total payroll (on average) for social insurance; whole cost for employer liability ,Only small business owners contribute as employees ,Subsidies as needed ,24.2
 Georgia ,Employer liability ,No contribution ,Whole cost ,Not covered ,No contribution ,23.3
@@ -69,7 +69,7 @@ Kyrgyzstan ,Social insurance (cash benefits); universal (medical benefits) ,"Glo
 Lao People's Dem. Rep. ,Social insurance ,No contribution ,0.5% of gross monthly insurable earnings ,Not covered ,0.5% of gross monthly insurable earnings ,6.7
 Lebanon ,Employer liability (involving insurance with a private carrier) ,No contribution ,Whole cost ,Not covered ,No contribution ,47.8
 Malaysia ,Social insurance ,No contribution ,"1.25% of monthly payroll, according to 45 wage classes ",Not covered ,No contribution ,36.2
-Myanmar ,Social insurance ,No contribution ,1 to 1.5% of covered monthly payroll (rate varies accoridng to business' size and accident rate) ,Voluntary basis ,No contribution ,… 
+Myanmar ,Social insurance ,No contribution ,1 to 1.5% of covered monthly payroll (rate varies accoridng to business' size and accident rate) ,Voluntary basis ,No contribution ,NA
 Nepal ,Employer liability (involving insurace with a private carrier) ,No contribution ,Whole cost (provides benefits directly or pays insurance premiums) ,Not covered ,No contribution ,3.8
 Oman ,Social insurance ,No contribution ,1% of payroll ,Not covered ,No contribution ,40.2
 Pakistan ,Social insurance; employer liability ,No contribution ,6% of monthly payroll; whole cost of employer liability ,Not covered ,No contribution ,28.6
@@ -103,12 +103,12 @@ Iceland ,Social insurance; social assistance ,No contribution ,"Global contribut
 Ireland ,Social insurance ,"Global contribution, under old age (0% to 4% of covered weekly earnings depending on earnings) ","Global contribution, under old-age (8.5% to 10.75% of gross wages according to weekly earnings) ",Not covered ,Any deficit (private-sector employees); whole cost (public-sector employees) ,71.8
 Italy ,Social insurance ,No contribution ,"8.25% on average (0.5% to 10.75% of gross wages, according to assessed risk) ",Variable contribution according to assessed risk ,No contribution ,72.2
 Latvia ,Social insurance ,No contribution ,"Global contribution, under old age (23.59% of covered earnings) ",Not covered ,Cost of state-guaranteed health care services (annual state budget) ,69.2
-Liechtenstein ,Social insurance ,No contribution ,Variable contribution according to assessed risk ,Variable contribution according to the extent of coverage required and assessed risk. Voluntary basis ,No contribution ,… 
+Liechtenstein ,Social insurance ,No contribution ,Variable contribution according to assessed risk ,Variable contribution according to the extent of coverage required and assessed risk. Voluntary basis ,No contribution ,NA
 Lithuania ,Social insurance ,No contribution ,"0.37% to 1.8% of earnings, according to four employment categories ",Not covered ,No contribution ,64.7
 Luxembourg ,Social insurance ,No contribution ,1% of covered payroll ,1% of covered income ,50% of the cost of administration ,77.1
 Malta ,Social insurance ,"Global contribution, under old age (10% of covered wages) ","Global contribution, under old age (10% of covered payroll) ","Global contribution, under old age. Variable amount depending on net income ",50% of the value of total contributions ,73.5
 "Moldova, Republic of ",Social insurance (cash benefits); universal (medical benefits) ,No contribution ,"Global contribution, under old age (22–23% of payroll depending on sector) ","Flat-rate contribution (6,372 lei/year; 1,584 lei/year for agricultural landowners). Voluntary basis ",No contribution ,60.2
-Monaco ,Mandatory private insurance ,No contribution ,Whole cost (pays insurance premiums which vary according to the reported risk rate) 7 ,Not covered ,No contribution ,… 
+Monaco ,Mandatory private insurance ,No contribution ,Whole cost (pays insurance premiums which vary according to the reported risk rate) 7 ,Not covered ,No contribution ,NA
 Netherlands ,Social insurance | No specific programme for employment injury ,"Global contribution, under sickness, old age, disability, survivors ","Global contribution, under sickness, old age, disability, survivors ","Global contribution, under sickness, old-age, disability and survivors ","Global contribution, under sickness, old- age, disability, survivors ",97.6
 Norway ,Social insurance (cash benefits); universal (medical benefits) and employer liability (compulsary insurance with private) ,No contribution ,"Global contribution, under old age (14.1% of gross payroll); whole cost of premiums for compulsory private insurance ",0.4% of taxable income Voluntary basis ,Any deficit ,89.6
 Poland ,Social insurance ,No contribution ,"From 0.4% to 3.6% of payroll, according to assessed risk and number of employees ",1.8% of declared earnings ,The cost of specialized procedures promoting good public health practices ,100
@@ -138,7 +138,7 @@ Colombia ,Social insurance and individual account system ,No contribution ,0.34%
 Costa Rica ,Employer liability (involving compulsory and voluntary insurance with a public carrier) ,No contribution ,Whole cost (pays insurance premiums that vary according to assessed risk) ,Not covered ,No contribution ,60.1
 Cuba ,Social insurance (cash); universal (medical care) ,"Global contribution, under old age (1% to 5% of earnings) ","Global contribution, under old age (12.5% of gross payroll for the public sector; 14.5% for the private sector) ",Not covered ,"Global contribution, under old age (any deficit) ",94.4
 Dominica ,Employer liability ,No contribution ,0.5% of employee's gross earnings ,Not covered ,No contribution ,60.8
-Dominican Republic ,Social insurance ,No contribution ,"Whole cost (1.2% of payroll on average, according to assessed risk) ",Not covered ,No contribution ,… 
+Dominican Republic ,Social insurance ,No contribution ,"Whole cost (1.2% of payroll on average, according to assessed risk) ",Not covered ,No contribution ,NA
 Ecuador ,Social insurance ,No contribution. 0.55% of gross earnings for voluntary contributors ,0.55% of payroll ,0.55% of gross declared earnings ,40% of the cost of work injury pensions ,49
 El Salvador ,Social insurance ,"Global contribution, under sickness (3% of covered earnings) ","Global contribution, under sickness (7.5% of covered payroll) ","Global contribution, under sickness (10.5% of declared income) ",An annual subsidy ,26.8
 Grenada ,Social insurance ,No contribution ,1% of gross payroll ,1% of gross earnings ,No contribution ,60.7
@@ -164,7 +164,7 @@ Australia,Employer liability (involving insurance with a public or private carri
 Fiji,Employer liability,No contribution,Whole cost (provides benefits directly),Not covered,No contribution,40.1
 Kiribati,Employer liability (involving insurance with a private carrier),No contribution,Whole cost,Not covered,No contribution,32.8
 New Zealand,Universal; employer liability (involving insurance with a public carrier),No contribution,Contribution rates set each year,Contribution rates set each year,No contribution,100
-Palau Islands,Employer liability,No contribution,Whole cost,Not covered,No contribution,…
+Palau Islands,Employer liability,No contribution,Whole cost,Not covered,No contribution,NA
 Papua New Guinea,Employer liability (involving insurance with a private carrier),No contribution,Whole cost (pays insurance premiums or provides benefits directly),Not covered,No contribution,6.4
 Samoa,Employer liability (involving insurance with a private carrier),No contribution,1% payroll,Not covered,No contribution,53.5
 Solomon Islands,Employer liability (involving insurance with a private carrier),No contribution,Whole cost,Not covered,No contribution,14.5

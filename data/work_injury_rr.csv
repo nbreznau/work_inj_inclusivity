@@ -1,0 +1,41 @@
+﻿country,replacement_rate_perm,duration_perm,replacement_rate_temp,duration_temp,qualifying_period,sources,year_obs_rr,notes
+Benin,100,,66.7,12 months,no,SSA 2019; SSA 1981,2019,
+Burkina Faso,85,,67,,,https://wageindicator.org/documents/decentworkcheck/africa/burkina-faso-english.pdf,2023,
+Bolivia,100,,90,,,SSA 2019  ,2019,"duration_temp is unreliable because this is the rate for illness, unclear about temp work-comp"
+Columbia,75,,100,,,SSA 2019,2019,
+Costa Rica,100,,81.75,,,SSA 2019,2019,"replacement_rate_temp is 45 days at 60% then 100% after that, so the result for 6 months is (45*.6+135/180="
+Ghana,100,96 months,100,24 months ,,LS 1987,1987,
+Honduras,70,,100,,,Ahmad 2020,2020,
+Iron,100,,75,,,"SSA 2018, Landinfo 2020",2018,
+Iraq,80,,100,,,Ahmad et al 2021,2020,
+Jordan,75,,75,,,SSA 2018,2018,
+Liberia,65,unlimited,65,,,SSA 2019,2019,
+Libya,100,,70,12 months,,SSA 2019,2019,
+Malawi,100,54 months,75,unlimited,,SSA 2019,2019,"A percentage of the employee’s average monthly earnings  in the 12 months before the disability began (in the last period of continuous employment if less than 12 months of 
+continuous employment) is paid, according to a schedule in law. The benefit is paid after a three-day waiting period until full recovery. 75% is just a guess, we didn't find the exact figure yet."
+Nicaragua,75,,60,,,SSA 2019,2019,"For a total disability  (at least a 67% assessed loss of earning capacity) , 20% of the insured’s average monthly earnings plus 1% for every 52 weeks of contributions exceeding 150 weeks is paid. Thus, 75% is a guess."
+Nigeria,90,,100,24 months ,,"Worugji 2013, Nigeria 2010, ISSA 2019",2010,
+Somalia,100,,67.5,,,"NATLEX, Somalia 1972, ILO 2000",1972,"60% first 90 days, 75% after, temp - so avg is 67.5"
+South Africa,75,unlimited,75,24 months ,,South Africa 2021 (a),2020,
+Sri Lanka,"550,000.00 rupees",,"5,500.00 Rupees half monthly",60 months,,Thowfeek et al 2014 ,2014, Lump sum distributed among dependent relatives.
+Tanzania,70,,70,,,The United Republic of Tanzania 2016,2016,"max threshold 3,685,852.69 shillings/month"
+Uganda,100,60 months,67,,,SSA 2019,2019,"replacement_rate_temp - The benefit amount depends on the circumstances of the accident, the assessed degree of disability, the loss of earnings, and the probable duration of the disability. 67% is a guess"
+Zambia,70,,88.5,18 months,,?,1963,"replacement_rate_perm -  50 percent of earnings, plus 15 percent of earnings for one child
+and 5 percent for each additional child. We go with 2 children to calculate 70"
+Argentina,69,53 months,100,12 months,,SSPW 2019,2012,"replacement_rate_perm - 53 times the employee's monthly base earnings multiplied by the quotient of 65 divided by the employee's age when the disability began is paid. We take 45 for calculation purposes. So if the person is 65, they get 100% for 53 months, but at 45 they get 45/65 = 69"
+Bangladesh,125000 Taka,,125000 Taka,,6 months,"Bangladesh, 2006; Afrin, 2014",,"125000 Taka (older worker), 10000 Taka (child/adolescent/young worker)"
+Brazil,100,36 months,67,,,Tixier 1935,1934,
+Cameroon,85,,66.7,,,SSA 2015,2015,
+Egypt,100,,100,,,SSA 2019,2019,
+Ethiopia,59,,87.5,12 months,,SSA 2019,2019,"replacement_rate_perm - 47% (but: If the disability pension is less than or equal to the old age pension, then the old age pensions up to 70% of the insured monthly basic salary is paid to the worker) - we interpret this as higher than 47 % in most cases, so that we take the average; replacement_rate_temp - 100% first 3 months , 75% following 3 months, minmum 50% for remaining six months, so for first 6 months, the average is 87.5"
+Gambia,60,,60,,,Gambia 1990,1990,
+Indonesia,70,80 months,100,,,ILO 2017,2016,
+Kenya,100,96 months,50,12 months,,SSA 2017,2016,"replacement_rate_(both) - maxes out at 240,000 shillings"
+Madagascar,100,,66.7,,,SSA 2019,2019,
+Malaysia,90,,80,,,SSA 2018,2018,perm max: 118.50 ringgits/day ; temp max 105.33 ringgits/day
+Mexico,70,,100,,,SSA 2019,2019,
+Morocco,95,,67,unlimited,,SSA 2019,2019,"For an assessed degree of disability of at
+least 50%, 45% of the employee’s annual earnings plus 1% of annual earnings for each assessed degree of disability exceeding 50% is paid.)"
+South Sudan,83.3,,0,,,SSA 2019; Bilo et al 2020,2019,"For a total (100%) disability, 83.33% of the insured’s average monthly earnings in the three years before the disability began is paid. Constant-attendance allowance: 50% of the permanent disability pension is paid if the insured requires the constant attendance of others to perform daily functions"
+Syria,75,,96.7,,,SSA 2016,2016,temp - 80% first month/ 100% thereafter means 5.8/6 = 
+Tunisia,95,,66.7,,,SSA 2019,2019,"perm - depends on type of disability, so we bumped it down from 100%"
