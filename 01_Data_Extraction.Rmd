@@ -20,15 +20,26 @@ pacman::p_load(packages, character.only = T)
 
 ### GWIP
 
-Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), <https://doi.org/10.7910/DVN/IVKYIE/EYP0PB>, Harvard Dataverse, V1
+Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), <https://doi.org/10.7910/DVN/IVKYIE/EYP0PB>, Harvard Dataverse, V1.1
 
 **Note** that there were minor updates to the GWIP leading to v1.1. In v2.0 these updates are included. But that is why we read from the file v1.1 rather than v1.0
+
+Notes for the current replacement rate scores.
+- These are for single workers if this can be calculated. Often the information is lacking to determine exactly what a worker gets depending on family situation
+- For high demographic transition countries we assume two children, for low one. 
+- If there are benefits that depend on multiple criteria that would adjust the amount upward, we usually add 5% to the base amount
+- If there is a range depending on severity we usually take the average. For example, in The Netherlands the range is 70-100% of earnings, so we enter 85 (the midpoint). If 100% disability is 100% but then it goes down for less, and there are no other additional benefits we calculate 90.
+- If there is a change within the first 6 months we make a calculation. For example, in Germany it is 100% for the first 6 weeks then 90 percent for the next 18, which equals 92.5 for the first 6 months. 
+- Decentralized systems (by state or province), we try to take the average by state.
 
 ```{r gwip}
 gwip <- read_csv(here::here("data", "gwip_v1.1.csv"))
 
 ## Data collection in progress
-rr_gwip <- read_csv(here::here("data", "work_injury_rr.csv"))
+rr_gwip <- as.data.frame(read_csv(here::here("data", "work_injury_rr.csv")))
+
+rr_gwip <- rr_gwip %>%
+  mutate(ISO3c = countrycode::countrycode(country, "country.name", "iso3c"))
 ```
 
 ### ILO - GEIP
@@ -40,10 +51,12 @@ ILO. 2014. ["Global Programme Employment Injury Insurance and Protection | GEIP 
 ```{r load}
 
 
-geip <- read_csv(here::here("data/EIIP_2014.csv"))
+geip <- as.data.frame(read_csv(here::here("data/EIIP_2014.csv"))) %>%
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"))
 
 
-global_south <- read_csv(here::here("data/global_south.csv"))
+global_south <- as.data.frame(read_csv(here::here("data/global_south.csv"))) %>%
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"))
 ```
 
 ### SPIN - SIED
@@ -179,8 +192,9 @@ Number of records: 118800
 
 lfp_total <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
   subset(sex.label == "Sex: Total" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
-  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c")) %>%
-  select(ISO3c, obs_value) %>%
+  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
+         lfp_total = obs_value) %>%
+  select(ISO3c, lfp_total) %>%
   group_by(ISO3c) %>%
   summarise_all(mean, na.rm = T) %>%
   mutate(year = 2020) %>%
@@ -188,12 +202,78 @@ lfp_total <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-202
 
 lfp_female <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
   subset(sex.label == "Sex: Female" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
-  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c")) %>%
-  select(ISO3c, obs_value) %>%
+  mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
+         lfp_female = obs_value) %>%
+  select(ISO3c, lfp_female) %>%
   group_by(ISO3c) %>%
   summarise_all(mean, na.rm = T) %>%
   mutate(year = 2020) %>%
   ungroup()
+```
+
+## Merge All Data
+
+### Dataframe
+
+```{r merge}
+# Setup dataframe
+df <- as.data.frame(countrycode(gwip$country_name, "country.name", "iso3c"))
+colnames(df) <- "ISO3c"
+
+# Add collected data
+
+df <- df %>%
+  left_join(sied, by = "ISO3c") %>%
+  left_join(subset(rr_gwip, select = c(replacement_rate_perm, duration_perm, replacement_rate_temp, duration_temp, qualifying_period, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(dis_ilo, select = c(Dis_RR, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(gini, select = c(gini_disp, gini_mkt, ISO3c))) %>%
+  left_join(subset(geip, select = c(Coverage_pct_LF, `Program Type`, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(lfp_female, select = c(lfp_female, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(lfp_total, select = c(lfp_total, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(global_south, select = c(Region, South, ISO3c)), by = "ISO3c") %>%
+  left_join(subset(gdp, select = c(gdppc, pop, ISO3c)), by = "ISO3c")
+```
+
+### Fix Missing Labels
+
+TO DO: Add region
+
+```{r region}
+
+```
+
+### Var Labels
+
+```{r labels}
+df_labels <- as.data.frame(colnames(df)) %>%
+  mutate(variables = `colnames(df)`,
+         labels = case_when(
+           variables == "ISO3c" ~ "International Standards of Classification Country Alpha-3 Categorization",
+           variables == "year" ~ "Year for merging (observations are 2020 or closest)",
+           variables == "Cov_LF" ~ "(scovratl) Coverage of the labor force for work-injury policy, source = SIED 2020",
+           variables == "Cov_Pop" ~ "(scovratp) Coverage of the entire adult population for work-injury policy, source = SIED 2020",
+           variables == "RR_Sing" ~ "(azrr26si) Standard net single worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator, source SIED 2020",
+           variables == "RR_Fam" ~ "(azrr26fa) Standard net familied worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator, source = SIED 2020",
+           variables == "RR_Avg_Sing" ~ "(az4ind) (= a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components: a single person and a four-person family, for first week after waiting days and 26 weeks with benefits, source = SIED 2020",
+           variables == "replacement_rate_perm" ~ "The replacement rate for a permanent disability compared to previous wages, or average wage if so calculated, in the first 12 months of disability. Coded from Social Policy Programs Throughout the World, or best available info. Source = GWIP v2.0",
+           variables == "duration_perm" ~ "The length of time a person who has a permanent disability caused by a work-injury is covered, source = GWIP v2.0",
+           variables == "replacement_rate_temp" ~ "The replacement rate for a temporary incapacity to work compared to previous wages, or average wage if so calculated, in the first 6 months of incapacity, source = GWIP v2.0",
+           variables == "duration_temp" ~ "The length of time a perosn who has a temporary incapacity to work can recieve benefits. Unlimited = until healed. Source = GWIP v2.0",
+           variables == "qualifying_period" ~ "If any duration of work or other qualifications other than a work-injury have an impact on the rate or duration of benefits, source = GWIP v2.0",
+           variables == "Dis_RR" ~ "The ratio of income for a person with disability to one without, source = ILO 2020",
+           variables == "gini_disp" ~ "Disposable Gini. The income inequality Gini after taxes and transfers, source = Solt 2020",
+           variables == "gini_mkt" ~ "Market Gini. The income inequality Gini before taxes and transfers, source = ILO 2020",
+           variables == "Coverage_pct_LF" ~ "Percent of labor force de Facto covered by work-injury policy, source Global Empoyment Injury Protection ILO 2014",
+           variables == "`Program Type`" ~ "Program type based on GEIP 2014, source ILO 2014",
+           variables == "lfp_female" ~ "Labor force participation among adult females, source = ILO 2020",
+           variables == "lfp_total" ~ "Labor force participation among all adults, source = ILO 2020",
+           variables == "gdppc" ~ "Gross Domestic Product per capita, source = Maddison 2020",
+           variables == "pop" ~ "Population, source = Maddison 2020",
+           .default = NA)) %>%
+  subset(., select = c(variables, labels))
+
+write_csv(df, here::here("data", "df.csv"))
+write_csv(df_labels, here::here("data", "df_labels.csv"))
 ```
 
 
@@ -202,7 +282,7 @@ lfp_female <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-20
 ### Colophon
 
 ```{r colophon}
-
+sessionInfo()
 ```
 
 ### Citations
@@ -221,105 +301,3 @@ packages %>%
 
 
 
-
-
-
-
-
-
-
-## Inclusivity
-
-The point to make is that many countries have social insurance laws, but the inclusivity (coverage) is so low that it calls into question the assumption that these laws represent historical turning points in the definition of work-related risks as (a) social risks - that affect all of society, and (b) under the responsibility of the state, as arbiter that help pool and distribute these risks more evenly so that they do not disproportionately impact any individuals or groups.
-
-### Contries with social insurance laws
-
-Definition: social insurance law and work-injury laws applying to all blue-collar workers - these combined roughly represent social insurance for blue-collar workers.
-
-```{r laws}
-gwip <- gwip %>%
-  mutate(socins = ifelse(labor_workinjury_first_socins < labor_workinjury_firstlaw_bluecollar_fullcoverage, labor_workinjury_firstlaw_bluecollar_fullcoverage, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage < labor_workinjury_first_socins, labor_workinjury_first_socins, ifelse(labor_workinjury_firstlaw_bluecollar_fullcoverage == labor_workinjury_first_socins, labor_workinjury_first_socins, NA))),
-         socins_cat = ifelse(socins < 1920, 1, 
-                             ifelse(socins < 1950, 2,
-                                    ifelse(socins < 1990, 3,
-                                           ifelse(socins < 2020, 4, 5)))),
-         socins_cat = ifelse(is.na(socins_cat), 5, socins_cat),
-         socins_cat = factor(socins_cat, labels = c("<1920","1921-1950","1951-1990",">1990","No Social Insurance")),
-         iso3c = countrycode(cow_code, "cown", "iso3c"),
-         iso3c = ifelse(country_name == "Puerto Rico", "PRT", 
-                        ifelse(country_name == "Serbia", "SRB",
-                               ifelse(country_name == "Vietnam", "VNM", iso3c))))
-```
-
-There are `r length(gwip$socins[!is.na(gwip$socins)])` out of `r length(gwip$socins)` countries with social insurance for blue-collar workers, and that more or less *all* blue-collar workers are covered according to the law.
-
-### Coverage of laws
-
-```{r coverage}
-# make a list of countries without social insurance laws
-list <- gwip$iso3c[gwip$socins_cat == "No Social Insurance"]
-
-geip <- geip %>%
-  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
-         coverage = as.numeric(Coverage_pct_LF),
-         coverage = ifelse(is.na(coverage), 3, coverage),
-         coverage_cat = ifelse(coverage < 6, 1,
-                               ifelse(coverage < 26, 2,
-                                      ifelse(coverage < 50, 3,
-                                             ifelse(coverage < 75, 4, 5)))),
-         coverage_cat = ifelse(iso3c %in% list, 6, coverage_cat),
-         coverage_cat = factor(coverage_cat, labels = c("<6%","6-25%","26-50%","51-75%","76-100%","No Social Insurance")))
-
-global_south <- global_south %>%
-  mutate(iso3c = countrycode(Country, "country.name", "iso3c"),
-         gsouth = 1) %>%
-  select(iso3c, gsouth)
-
-geip <- left_join(geip, global_south, by = "iso3c")
-
-geip$gsouth <- ifelse(is.na(geip$gsouth), 0, geip$gsouth)
-```
-
-The average inclusivity of work-injury laws globally is `r round(mean(geip$coverage, na.rm = T),1)`. The average inclusivity of work-injury laws in the Global North is `r round(mean(geip$coverage[geip$gsouth == 0], na.rm = T),1)` and in the Global South it is `r round(mean(geip$coverage[geip$gsouth == 1], na.rm = T),1)`.
-
-## Maps
-
-### Law Introduction
-
-```{r gwip_map}
-map_desc <- joinCountryData2Map(gwip,
-                                joinCode = "ISO3",
-                                nameJoinColumn = "iso3c")
-
-map_desc <- subset(map_desc, continent != "Antarctica")
-
-agg_png(filename = here::here("results/Fig1_map.png"), res = 144, width = 1500, height = 1200)
-map01 <- mapCountryData(map_desc, 
-                        nameColumnToPlot = "socins_cat", 
-                        addLegend = T,
-                        colourPalette = c('springgreen4','springgreen3','springgreen2', 'springgreen1','grey70'),
-                        catMethod = 'fixedWidth')
-dev.off()
-
-knitr::include_graphics(here::here("results/Fig1_map.png"))
-```
-
-### Coverage
-
-```{r maps}
-map_desc <- joinCountryData2Map(geip,
-                                joinCode = "ISO3",
-                                nameJoinColumn = "iso3c")
-
-map_desc <- subset(map_desc, continent != "Antarctica")
-
-agg_png(filename = here::here("results/Fig2_map.png"), res = 144, width = 1500, height = 1200)
-map01 <- mapCountryData(map_desc, 
-                        nameColumnToPlot = "coverage_cat", 
-                        addLegend = T,
-                        colourPalette = c('red1','orange','yellow', 'green1','green4','grey70'),
-                        catMethod = 'fixedWidth')
-dev.off()
-
-knitr::include_graphics(here::here("results/Fig2_map.png"))
-```

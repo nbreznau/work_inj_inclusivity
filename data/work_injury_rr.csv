@@ -1,41 +1,184 @@
 ﻿country,replacement_rate_perm,duration_perm,replacement_rate_temp,duration_temp,qualifying_period,sources,year_obs_rr,notes
-Benin,100,,66.7,12 months,no,SSA 2019; SSA 1981,2019,
-Burkina Faso,85,,67,,,https://wageindicator.org/documents/decentworkcheck/africa/burkina-faso-english.pdf,2023,
-Bolivia,100,,90,,,SSA 2019  ,2019,"duration_temp is unreliable because this is the rate for illness, unclear about temp work-comp"
-Columbia,75,,100,,,SSA 2019,2019,
-Costa Rica,100,,81.75,,,SSA 2019,2019,"replacement_rate_temp is 45 days at 60% then 100% after that, so the result for 6 months is (45*.6+135/180="
+Albania,90,60 months,75,60 months,,SSA 2019,2019,"perm - the worker gets 100 percent of their earnings for 60 months as a lump sum if the disability is 100%, otherwise it is variable depending on the degree of the injury, therefore we also put 75% for temp"
+Algeria,90,unlimited,100,unlimited,,SSA 2019,2019,
+Andorra,100,unlimited,65,unlimited,,SSA 2019,2019,
+Angola,70,unlimited,70,unlimited,,SSA 2019,2019,
+Antigua and Barbuda,90,60 months,75,60 months,,SSA 2019,2019,
+Argentina,69,53 months,100,12 months,,SSA 2019,2019,"replacement_rate_perm - 53 times the employee's monthly base earnings multiplied by the quotient of 65 divided by the employee's age when the disability began is paid. We take 45 for calculation purposes. So if the person is 65, they get 100% for 53 months, but at 45 they get 45/65 = 69"
+Armenia,115,unlimited,80,unlimited,,SSA 2019,2019,
+Australia,75,unlimited,95,3.25 months,,SSA 2019,2019,The permanent disability goes through the social security system. It varies by state. Difficult ot calculate.
+Austria,66.7,unlimited,76.7,unlimited,,SSA 2019,2019,"50% of the insured’s  assessment base is paid after a 16-week waiting period for six weeks; thereafter, 60%. (The employer pays up to 100%  of the insured’s earnings for the first 12 weeks, and 50% for  the next four weeks) this leaves 76.7 for 6 months. "
+Azerbaijan,60,variable,100,unlimited,duration depends on length of work,SSA 2019,2019,perm - lump sum plus disability beneift pension (which depends on length of work)
+Bahamas,66.6,unlimited,66.6,10 months,,SSA 2019,2019,The maximum weekly temporary disability benefit is B$446.67.
+Bahrain,75,unlimited,100,unlimited,,SSA 2019,2019,
+Bangladesh,41.7,12 months,41.7,12 months,6 months,"Bangladesh, 2006; Afrin, 2014",2014,"125000 Taka (older worker), 10000 Taka (child/adolescent/young worker). The average income is about 300,000 Taka. So that is a lump sum that is 41.7% of the average income over 12 monts"
+Barbados,85,unlimited,90,12 months,,SSA 2019,2019,"max calculable earnings B$4,820"
+Belarus,45,unlimited,100,unlimited,,SSA 2019,2019,
+Belize,60,unlimited,75,6 months,,SSA 2019,2019,80 % first 5 months then 60 percent
+Benin,90,unlimited,66.7,12 months,,SSA 2019; SSA 1981,2019,
+Belgium,90,unlimted,90,unlimited,,SSA 2019,2019,"€43,460.34 maximum earnings for calculation, also percentage of disability reduces the amount so we put 90 even thought permanent 100% disability is 100% of income."
+Bhutan,100,12 months,70,unlimited,rate depends on length of work,SSA 2019,2019,disability pension plus lump sum is the employee is unable to work after 5 years
+Bolivia,75,unlimited,100,6 months,,SSA 2019  ,2019,"duration_temp is unreliable because this is the rate for illness, unclear about temp work-comp"
+Botswana,100,60 months,50,6 months,,SSA 2019,2019,variable based on commision and previous income
+Brazil,90,unlimited,91,unlimited,,SSA 2019,2019,"max monthly earnings for calculation 5,839.45 reais, 100% is for 100% disability, so we calculate 90%"
+Brunei,100,60 months,66.7,60 months,,SSA 2019,2019,
+Bulgaria,47,unlimited,90,unlimited,,SSA 2019,2019,"perm - monthly old-age pension is paid at minimum 200 leva, but adjusted depending on disability and care needs. The avg income is around 2,600 leva. That means 7%; however, the worker gets between 30-40 percent of previous income as a disability pension. so together that is 47."
+Burkina Faso,85,unlimited,66.7,unlimited,,SSA 2019,2019,
+Burma,70,unlimited,70,12 months,,SSA 2019,2019,
+Burundi,100,unlimited,62,6 months,,SSA 2019,2019,
+Cabo Verde,70,unlimited,66.7,unlimited,,SSA 2019,2019,
+Cambodia,70,unlimited,75,unlimited,4 days of hospitalization,SSA 2019,2019,The benefit is only paid for disabilities requiring at least four days of hospitalization.
+Cameroon,85,unlimited,66.7,unlimited,,SSA 2015,2015,
+Canada,85,unlimted,87.5,unlimited,,SSA 2019,2019,"Organized by province - 75% to 90% of the insured’s net covered earnings is paid, depending on province/territory. The maximum annual covered earnings used to calculate benefits varies from 
+C$55,000 to C$127,000."
+Central African Republic,90,192 months,63.8,unlimited,,SSA 2019,2019,"The maximum annual earnings used to calculate contributions are 7,200,000 CFA francs."
+Chad,90,unlimited,66.7,unlimited,,SSA 2019,2019,
+Chile,70,unlimited,100,12 months,,SSA 2019,2019,
+China,85,unlimited,100,12 months,,SSA 2019,2019,
+Colombia,75,unlimited,100,6 months,,SSA 2019,2019,
+Costa Rica,90,unlimited,81.75,24 months ,,SSA 2019,2019,"replacement_rate_temp is 45 days at 60% then 100% after that, so the result for 6 months is (45*.6+135/180="
+Croatia,100,18 months,100,18 months,,SSA 2019,2019,"It drops to 50% after 18 months, but this falls outside our variable definitions"
+Cuba,70,unlimited,80,6 months,,SSA 2019,2019,
+Cyprus,65,unlimited,60,unlimited,,SSA 2019,2019,"Basic covered earnings max €9,067.38 at 60%, everything above at 50%. But 80% with one dependent."
+Czech Republic,75,unlimited,100,12 months,,SSA 2019,2019,"perm - is a flat rate disability plus an income related. If the personal assessment base is greater than
+13,191 koruna a month, the monthly earnings used to calculate
+benefits are 100% of earnings up to 13,191 koruna and
+26% of earnings from 13,192 koruna to 119,916 koruna.
+The maximum monthly earnings used to calculate benefits
+are 119,916 koruna."
+Democratic Republic of the Congo,80,unlimited,66.7,unlimited,,SSA 2019,2019,
+Denmark,83,unlimited,100,5.5 months,,SSA 2019,2019,"max 527,000 kroner per year as calculation"
+Djibouti,90,unlimited,70.8,unlimited,,SSA 2019,2019,
+Dominica,70,unlimited,60,6 months,,SSA 2019,2019,
+Dominican Republic,90,unlimited,75,12 months,,SSA 2019,2019,
+Ecuador,85,unlimited,70.5,24 months ,,SSA 2019,2019,
+Egypt,90,unlimited,100,unlimited,,SSA 2019,2019,
+El Salvador,75,unlimited,75,12 months,,SSA 2019,2019,
+Equitorial Guinea,55,48 months,50,unlimited,,SSA 2019,2019,
+Estonia,50,unlimited,100,6 months,,SSA 2019,2019,perm - extrememly complicated to calculate. Starts with 175 Euro base then has supplements. It is still very low compared to the national average income. We guess 50
+Ethiopia,59,unlimited,87.5,12 months,,SSA 2019,2019,"replacement_rate_perm - 47% (but: If the disability pension is less than or equal to the old age pension, then the old age pensions up to 70% of the insured monthly basic salary is paid to the worker) - we interpret this as higher than 47 % in most cases, so that we take the average; replacement_rate_temp - 100% first 3 months , 75% following 3 months, minmum 50% for remaining six months, so for first 6 months, the average is 87.5"
+Fiji,60,60 months,66,60 months,,SSA 2019,2019,"The maximum total temporary disability benefit is F$50,000 (partial disability) or F$67,000 (total disability). Perm - The maximum permanent disability benefit is F$67,000 this is 100% of a very low income, therefore we put 60%"
+Finland,85,unlimited,75,unlimited,,SSA 2018,2018,"perm - only until age 65, then 70% of earnings; complicated formula"
+France,100,unlimited,76.7,unlimited,,SSA 2019,2019,"The maximum daily temporary disability benefit is €198.82 during the first 28 days and €265.09 thereafter; Temp - 60% 1st month, then 80% thereafter leaving 76.7 in the first 6 months"
+Gabon,90,unlimited,100,unlimited,,SSA 2019,2019,
+Gambia,53,unlimited,60,6 months,,SSA 2019,2019,
+Georgia,50,variable,100,unlimited,rate depends on length of work,SSA 2019,2019,"perm - a court determines the payout, length of service could be a factor"
+Germany,70,unlimited,92.5,6 months,,SSA 2019,2019,"1st six weeks is 100%, then it is 90% net earnings (which is 70% gross, but the taxes are lower), thus we calculate 92.5%. The perm disability is variable and goes down over time so we put 70."
 Ghana,100,96 months,100,24 months ,,LS 1987,1987,
-Honduras,70,,100,,,Ahmad 2020,2020,
-Iron,100,,75,,,"SSA 2018, Landinfo 2020",2018,
-Iraq,80,,100,,,Ahmad et al 2021,2020,
-Jordan,75,,75,,,SSA 2018,2018,
-Liberia,65,unlimited,65,,,SSA 2019,2019,
-Libya,100,,70,12 months,,SSA 2019,2019,
-Malawi,100,54 months,75,unlimited,,SSA 2019,2019,"A percentage of the employee’s average monthly earnings  in the 12 months before the disability began (in the last period of continuous employment if less than 12 months of 
+Greece,45,unlimited,60,variable,duration depends on length of work,,2019,"perm - 100% of the old-age pension is paid, which was 384 Euro plus adjustments. It is very low compared to the average income."
+Grenada,75,unlimited,70,12 months,,SSA 2019,2019,
+Guatemala,50,unlimited,60,unlimited,,SSA 2019,2019,"The maximum daily temporary disability benefit is 120 quetzales; perm-f 495 to 4,950 quetzales is paid based on the
+assessed degree of disability but can be combined with disability pension"
+Guinea,70,unlimited,64,unlimited,,SSA 2019,2019,
+Guinea-Bissau,70,unlimited,68,unlimited,,SSA 2019,2019,
+Guyana,70,unlimited,70,6 months,,SSA 2019,2019,
+Haiti,60,unlimited,66.7,unlimited,,SSA 2019,2019,
+Honduras,70,unlimited,100,6 months,,Ahmad 2020,2020,
+Hungary,30,unlimited,98,6 months,,SSA 2019,2019,temp - it is 100% by only 90 if during a commute so we put 98
+Iceland,80,unlimited,45,12 months,,SSA 2019,2019,"temp - 60k kronur per month plus 15k for a child. That is far less than the 580k avg income. Max is 75%. This is a guess. There are various income supplements for perm, it appears to be high."
+India,80,unlimited,90,unlimited,,SSA 2019,2019,"perm - max 90%, assesd based on daily wages"
+Indonesia,70,80 months,100,6 months,,ILO 2017,2016,
+Iraq,80,unlimited,100,12 months,,Ahmad et al 2021,2020,
+Iran,100,unlimited,75,unlimited,,"SSA 2018, Landinfo 2020",2018,
+Ireland,60,unlimited,35,5 months,,SSA 2019,2019,"temp - roughly 800 a month flat rate with benefit if they require care, plus 400 for a child, perm is similarbut includes an incapacity supplment of roughly 800"
+Israel,75,unlimited,67.5,3 months,,SSA 2019,2019,temp - 90% of earnings and then 75% of that = 67.5
+Italy,87.5,unlimited,67.5,unlimited,,SSA 2018,2018,"perm - max annual earnings €30,076.80, very complex formula, should be between 75 and 100, so we guess 87.5"
+Ivory Coast,100,unlimited,66.7,variable,,SSA 2019,2019,there is a schedule linking injuries with their duration
+Jamaica,60,unlimited,60,12 months,,SSA 2019,2019,"J$3,200 per week for both, this is roughly 60% of the average income"
+Japan,150,unlimited,80,unlimited,,SSA 2019,2019,"max daily benefit 25,219 yen for temp, for perm it goes up to 300% depending on the disability, but keep in mind there is a cap, so we move it down to 150"
+Jordan,75,unlimited,75,12 months,,SSA 2018,2018,
+Kazakhstan,100,36 months,100,unlimited,,SSA 2019,2019,"duration of pay (lump amount) depends on occupational status, we take a midpoint"
+Kenya,90,96 months,50,12 months,,SSA 2017,2016,"replacement_rate_(both) - maxes out at 240,000 shillings"
+Kiribati,100,48 months,90,unlimited,,SSA 2019,2019,"100% but only up to a minimal pay threshold, then declines rapidly. Perm - lump sum."
+Kuwait,72,unlimited,100,6 months,,SSA 2019,2019,
+Kyrgyzstan,40,unlimited,100,unlimited,rate depends on length of work,SSA 2019,2019,
+South Korea,70,unlimited,75,unlimited,,SSA 2018,2020,"The maximum daily temporary disability benefit is
+205,686 won"
+Laos,75,variable,70,6 months,rate depends on length of work,SSA 2019,2019,
+Latvia,90,unlimited,80,3 months,,SSA 2019,2019,
+Lebanon,80,26 months,75,unlimited,,SSA 2018,2019,"perm - 100 only applies to those who earn the legal minimum wage, it is 25% of wages above that so we round down to 80. If you earn double the legal minimum you would get 62.5%"
+Lesotho,100,60 months,75,6 months,,SSA 2019,2019,"For a total (100%) disability, a lump sum of up to 267,200 maloti is paid."
+Liberia,65,unlimited,65,unlimited,,SSA 2019,2019,
+Libya,90,unlimited,70,12 months,,SSA 2019,2019,
+Liechtenstein,80,unlimited,50,unlimited,,SSA 2019,2019,
+Lithuania,75,unlimited,100,unlimited,,SSA 2019,2019,The maximum temporary disability benefit is two times the national average monthly wage in the previous quarter. Perm is linked to the national average monthly wage
+Luxembourg,100,unlimited,100,12 months,,SSA 2019,2019,"The maximum monthly disability pension is five times the
+legal monthly social minimum wage."
+Madagascar,90,unlimited,66.7,12 months,,SSA 2019,2019,
+Malawi,90,54 months,75,unlimited,,SSA 2019,2019,"A percentage of the employee’s average monthly earnings  in the 12 months before the disability began (in the last period of continuous employment if less than 12 months of 
 continuous employment) is paid, according to a schedule in law. The benefit is paid after a three-day waiting period until full recovery. 75% is just a guess, we didn't find the exact figure yet."
-Nicaragua,75,,60,,,SSA 2019,2019,"For a total disability  (at least a 67% assessed loss of earning capacity) , 20% of the insured’s average monthly earnings plus 1% for every 52 weeks of contributions exceeding 150 weeks is paid. Thus, 75% is a guess."
-Nigeria,90,,100,24 months ,,"Worugji 2013, Nigeria 2010, ISSA 2019",2010,
-Somalia,100,,67.5,,,"NATLEX, Somalia 1972, ILO 2000",1972,"60% first 90 days, 75% after, temp - so avg is 67.5"
-South Africa,75,unlimited,75,24 months ,,South Africa 2021 (a),2020,
-Sri Lanka,"550,000.00 rupees",,"5,500.00 Rupees half monthly",60 months,,Thowfeek et al 2014 ,2014, Lump sum distributed among dependent relatives.
-Tanzania,70,,70,,,The United Republic of Tanzania 2016,2016,"max threshold 3,685,852.69 shillings/month"
-Uganda,100,60 months,67,,,SSA 2019,2019,"replacement_rate_temp - The benefit amount depends on the circumstances of the accident, the assessed degree of disability, the loss of earnings, and the probable duration of the disability. 67% is a guess"
-Zambia,70,,88.5,18 months,,?,1963,"replacement_rate_perm -  50 percent of earnings, plus 15 percent of earnings for one child
-and 5 percent for each additional child. We go with 2 children to calculate 70"
-Argentina,69,53 months,100,12 months,,SSPW 2019,2012,"replacement_rate_perm - 53 times the employee's monthly base earnings multiplied by the quotient of 65 divided by the employee's age when the disability began is paid. We take 45 for calculation purposes. So if the person is 65, they get 100% for 53 months, but at 45 they get 45/65 = 69"
-Bangladesh,125000 Taka,,125000 Taka,,6 months,"Bangladesh, 2006; Afrin, 2014",,"125000 Taka (older worker), 10000 Taka (child/adolescent/young worker)"
-Brazil,100,36 months,67,,,Tixier 1935,1934,
-Cameroon,85,,66.7,,,SSA 2015,2015,
-Egypt,100,,100,,,SSA 2019,2019,
-Ethiopia,59,,87.5,12 months,,SSA 2019,2019,"replacement_rate_perm - 47% (but: If the disability pension is less than or equal to the old age pension, then the old age pensions up to 70% of the insured monthly basic salary is paid to the worker) - we interpret this as higher than 47 % in most cases, so that we take the average; replacement_rate_temp - 100% first 3 months , 75% following 3 months, minmum 50% for remaining six months, so for first 6 months, the average is 87.5"
-Gambia,60,,60,,,Gambia 1990,1990,
-Indonesia,70,80 months,100,,,ILO 2017,2016,
-Kenya,100,96 months,50,12 months,,SSA 2017,2016,"replacement_rate_(both) - maxes out at 240,000 shillings"
-Madagascar,100,,66.7,,,SSA 2019,2019,
-Malaysia,90,,80,,,SSA 2018,2018,perm max: 118.50 ringgits/day ; temp max 105.33 ringgits/day
-Mexico,70,,100,,,SSA 2019,2019,
-Morocco,95,,67,unlimited,,SSA 2019,2019,"For an assessed degree of disability of at
+Mali,90,unlimited,100,unlimited,,SSA 2019,2019,
+Malta,40,unlimited,56,12 months,,SSA 2019,2019,"temp - flat rate 900 Euro per month, avg income is 1600"
+Malaysia,90,unlimited,80,6 months,,SSA 2018,2018,perm max: 118.50 ringgits/day ; temp max 105.33 ringgits/day
+Mauritania,90,unlimited,66.7,unlimited,,SSA 2019,2019,"The maximum monthly earnings used to calculate benefits are 7,000 ouguiyas."
+Mexico,70,unlimited,100,unlimited,,SSA 2019,2019,
+Moldova,80,unlimited,100,6 months,,SSA 2019,2019,"perm - complex calculation based on the normal penion, plus a top-up from injury"
+Monaco,100,unlimited,63.8,unlimited,,SSA 2019,2019,
+Morocco,95,unlimited,67,unlimited,,SSA 2019,2019,"For an assessed degree of disability of at
 least 50%, 45% of the employee’s annual earnings plus 1% of annual earnings for each assessed degree of disability exceeding 50% is paid.)"
-South Sudan,83.3,,0,,,SSA 2019; Bilo et al 2020,2019,"For a total (100%) disability, 83.33% of the insured’s average monthly earnings in the three years before the disability began is paid. Constant-attendance allowance: 50% of the permanent disability pension is paid if the insured requires the constant attendance of others to perform daily functions"
-Syria,75,,96.7,,,SSA 2016,2016,temp - 80% first month/ 100% thereafter means 5.8/6 = 
-Tunisia,95,,66.7,,,SSA 2019,2019,"perm - depends on type of disability, so we bumped it down from 100%"
+Mozambique,85,unlimited,70,unlimited,,SSA 2019,2019,
+Namibia,70,unlimited,75,12 months,,SSA 2019,2019,
+Netherlands,85,26 months,85,26 months,,SSA 2019,2019,"there is no distinction between work-injury and normal, so all sicknesses are covered under health coverage, The legal daily maximum wage(and benefit) is €209.26"
+New Zealand,100,unlimited,80,12 months,,SSA 2019,2019,"maximum gross weekly temporary disability benefit is  NZ$1,976.46. perm - is a lump sum of 133,802 NZ$ for 80% incapacity or higher, we calculate this over 3 years as this is considered permanent and this becomes roughly the income"
+Nicaragua,75,unlimited,60,6 months,,SSA 2019,2019,"For a total disability  (at least a 67% assessed loss of earning capacity) , 20% of the insured’s average monthly earnings plus 1% for every 52 weeks of contributions exceeding 150 weeks is paid. Thus, 75% is a guess."
+Niger,100,unlimited,63.8,unlimited,,SSA 2019,2019,"The maximum annual earnings used to calculate benefits are 6,228,333 CFA francs."
+Nigeria,90,unlimited,100,24 months ,,"Worugji 2013, Nigeria 2010, ISSA 2019",2010,
+Norway,95,unlimited,100,12 months,,SSA 2018,2018,"perm - 66 % plus 40% for one child, but overall 95% maximum"
+Oman,70,unlimited,100,6 months,,SSA 2019,2019,
+Pakistan,65,60 months,60,6 months,,SSA 2019,2019,perm - lump sum   
+Panama,55,unlimited,73.3,unlimited,,SSA 2018,2019,"temp - 100 for first 2 then 60 thereafter. For 6 mo that is avg ; perm - The maximum monthly permanent disability pension is 1,500 balboas."
+Papua New Guinea,70,unlimited,NA,NA,,SSA 2019,2019,"perm - capped, so we knock it from 80 to 70"
+Paraguay,75,unlimited,75,12 months,,SSA 2019,2019,
+Peru,80,unlimited,100,11 months,,SSA 2019,2019,
+Philippines,60,unlimited,90,4 months,,SSA 2019,2019,complex calculation for perm
+Poland,100,12 months,100,6 months,,SSA 2019,2019,
+Portugal,90,unlimited,70,unlimited,,SSA 2019,2019,"perm - it ranges from 80 to 100 depending on number of dependent, so we put 90."
+Qatar,100,unlimited,100,6 months,,SSA 2019,2019,
+Republic of the Congo,60,unlimited,55.6,unlimited,,SSA 2019,2019,"100 1st month, 66.7 2-3rd months, 33.3 thereafter =  55.6, perm has many factors including a ruling of wether the employer was negligent "
+Romania,85,variable,85,6 months,,SSA 2019,2019,"temp - 80% normally, but 100% in case of emergency medical treatment, so we put 85, perm - has a very complex calculate based on the pension system so we put simply 85"
+Russia,100,unlimited,100,unlimited,,SSA 2019,2019,"74,097.66 rubles (Febru ary 2018) maximum per month"
+Rwanda,85,unlimited,75,6 months,,SSA 2019,2019,
+Saint Kitts and Nevits,75,unlimited,75,6 months,,SSA 2019,2019,
+Saint Lucia,65,variable,65,12 months,duration depends on length of work,SSA 2019,2019,
+Saint Vincent and the Grenadines,60,unlimited,70,6 months,,SSA 2019,2019,
+Saudi Arabia,100,54 months,100,unlimited,,SSA 2019,2019,"For a Saudi worker with a total (100%) disability, 100% of the insured’s average monthly earnings is paid. For a non-Saudi worker with a total (100%) disability, a lump sum of 84 months of the insured’s average monthly earnings is paid. 58% of the LF is non-Saudi."
+San Marino,90,unlimited,100,unlimited,,SSA 2019,2019,
+São Tomé and Príncipe,70,unlimited,98,24 months ,rate depends on length of work,SSA 2019,2019,
+Senegal,100,unlimited,63.9,unlimited,,SSA 2019,2019,"temp - 50 for 1st month, 66.7 thereafter = 63.9"
+Serbia,65,unlimited,100,unlimited,rate depends on length of work,SSA 2019,2019,
+Seychelles,40,unlimited,58,6 months,,SSA 2019,2019,"100 % 1st month Thereafter, up to 2,480 rupees a month is paid by the Agency for Social Protection for up to six months."
+Sierra Leone,100,56 months,60,96 months,,SSA 2019,2019,A percentage of the difference between the employee’s earnings before and after the disability began is paid after a three-day waiting period for up to 96 months. Perm - 56 times a monthly earnings
+Singapore,80,72 months,97,12 months,,SSA 2019,2019,"The maximum permanent disability benefit is S$262,000."
+Slovakia,75,unlimited,45,unlimited,,SSA 2019,2019,"temp - 25% after day 3, but 80% during rehabilitation. We thus guess 45"
+Slovenia,35,unlimited,100,unlimited,,SSA 2019,2019,"perm - The maximum monthly average adjusted earnings used to calculate benefits are €3,188.64, at 15 years of work there is a 26-29% disability pension plus 1.3% for each year thereafter so we guess 35"
+Solomon Islands,100,48 months,75,unlimited,,SSA 2019,2019,temp - 50 to 100 assessed 
+Somalia,100,unlimited,67.5,6 months,,"NATLEX, Somalia 1972, ILO 2000",1972,"60% first 90 days, 75% after, temp - so avg is 67.5"
+South Africa,75,unlimited,75,24 months ,,South Africa 2021 (a),2020,
+South Sudan,83.3,unlimited,0,0 months,,SSA 2019; Bilo et al 2020,2019,"For a total (100%) disability, 83.33% of the insured’s average monthly earnings in the three years before the disability began is paid. Constant-attendance allowance: 50% of the permanent disability pension is paid if the insured requires the constant attendance of others to perform daily functions"
+Spain,100,unlimited,75,12 months,,SSA 2018,2018,"Max base income €3,751.20 for calculation; permanent disability from that person's usual line of work gets 55%, but 100% disability from any work gets 100%. We code this 100%. "
+Sri Lanka,25,12 months,100,60 months,,SSA 2019,2019, Lump sum calculation
+Sudan,83.33,unlimited,0,0 months,,SSA 2019,2019,
+Suriname,80,unlimited,80,unlimited,,SSA 2019,2019,temp - avg of 75 and 66
+Sweden,100,unlimited,80,12 months,,SSA 2018,2018,"341,250 kronor Max annually"
+Switzerland,80,unlimited,70,unlimited,,SSA 2019,2019,"Depends on the nature of disability. Maximum 12,350 francs per month as calculation."
+Syria,80,unlimited,96.7,unlimited,,SSA 2016,2016,temp - 80% first month/ 100% thereafter means 5.8/6 =; perm- can be combined with other pensions so we correct from 75 to 80 
+Taiwan,80,unlimited,70,12 months,,SSA 2019,2019,perm - complex calculation based on old-age disability pension plus injury benefits
+Tajikistan,70,unlimited,60,4 months,rate depends on length of work,SSA 2019,2019,
+Tanzania,70,unlimited,70,24 months ,,The United Republic of Tanzania 2016,2016,"max threshold 3,685,852.69 shillings/month"
+Thailand,70,unlimited,70,12 months,,SSA 2019,2019,"at least' 15 years perm is paid, this = unlimited"
+Togo,80,unlimited,66.7,unlimited,,SSA 2019,2019,
+Trinidad and Tobago,60,unlimited,66.7,12 months,,SSA 2019,2019,
+Tunisia,95,unlimited,66.7,6 months,,SSA 2019,2019,"perm - depends on type of disability, so we bumped it down from 100%"
+Turkey,75,variable,66.7,variable,duration depends on length of work,SSA 2019,2019,"perm - is 70 %, but goes up to 100% if they need constant attendance, so we put 75"
+Turkmenistan,70,unlimited,100,unlimited,,SSA 2019,2019,
+Uganda,100,60 months,67,12 months,,SSA 2019,2019,"replacement_rate_temp - The benefit amount depends on the circumstances of the accident, the assessed degree of disability, the loss of earnings, and the probable duration of the disability. 67% is a guess"
+Ukraine,70,unlimited,100,unlimited,,SSA 2019,2019,
+United Kingdom,35,unlimited,30,6 months,,SSA 2018,2018,"temp - £92.05 a week as April 2018. The average earning was around 550. That means it is around 17%. It is common in the UK to have companies with higher sickness insurance schemes. Also there are employment, support and universal credit benefits. These lead us to calculate the amount upwards to 30% to be fair. Perm - 169.70 per week, plus more if they require constant-attendance"
+United States,60,unlimited,66.7,1.5 months,,SSA 2019,2019,"varies by state, 66.7 is in most states, but because it is not all we knock it down to 60"
+Uruguay,102,unlimited,66.7,unlimited,,SSA 2019,2019,"perm - 20% disability gets 100% pay, plus 15% more if the peron needs attendance"
+Uzbekistan,65,unlimited,100,unlimited,,SSA 2019,2019,perm - rate depends on occupational status
+Venezuela,50,unlimited,100,unlimited,,SSA 2019,2019,
+Yemen,20,12 months,NA,NA,,SSA 2019,2019,
+Zambia,65,unlimited,50,24 months ,,SSA 2019,2019,"replacement_rate_perm -  50 percent of earnings, plus 15 percent of earnings for one child
+and 5 percent for each additional child. Max 800 kwacha monthly as calculation pay"
+Zimbabwe,65,unlimited,59.2,18 months,,SSA 2019,2019,"100 1 month, then 51 next 5"
