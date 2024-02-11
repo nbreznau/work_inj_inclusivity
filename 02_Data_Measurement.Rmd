@@ -1,0 +1,85 @@
+---
+title: "02_Data_Measurments"
+author: "Nate Breznau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+TODO - update GDP from Google
+
+## Setup
+
+Datafiles df.csv and df_labels.csv created in the file 01_Data_Extraction.Rmd.
+
+```{r setup}
+knitr::opts_chunk$set(warning = F, message = F)
+
+packages <- c("tidyverse",
+              "countrycode",
+              "ggplot2",
+              "ggrepel",
+              "ggpubr")
+
+pacman::p_load(packages, character.only = T)
+
+df <- as.data.frame(read_csv(here::here("data", "df.csv")))
+df_labels <- as.data.frame(read_csv(here::here("data", "df_labels.csv")))
+```
+
+## Coverage
+
+The most comprehensive data relates to coverage, therefore I start here to develop improvements in measurement and impute missing values.
+
+A first issue relates to some unusual incompatibilities of the SIED and the GEIP. Although the former is from 2020 and the latter from 2014, the legal coverage of the labor force should not be so different. It has not changed in most rich countries. The correlation is around 0.5. 
+
+### Fig 1. Comparing SIED & GEIP
+
+```{r cov}
+df %>%
+  #subset(ISO3c != "ROU") %>%
+ggplot(aes(Coverage_pct_LF, Work_Inj_Cov_LF)) +
+  geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
+  stat_cor(method = "pearson", 
+           size = 2.5, 
+           color = "#472D7BFF",
+           label.x = 90,
+           label.y = 0.6) +
+  geom_text_repel(aes(label = ISO3c), size = 2.5) +
+  xlim(60,100) +
+  theme_classic()
+  
+  
+```
+
+
+### Fig 2. Disability Pay Gap
+
+The idea is to consider increasing the predictive power of the GEIP through other variables. The first candidate is the difference in average income between normal workers and disabled persons. This should pick up on both the generosity and especially the coverage of disability insurance, which is linked to work-injury policy. But the fit is weak at best.
+
+```{r lf}
+df %>%
+  ggplot(aes(Coverage_pct_LF, Dis_RR)) +
+  geom_text_repel(aes(label = ISO3c), size = 2) +
+    stat_cor(method = "pearson", 
+           size = 2.5, 
+           color = "#472D7BFF",
+           label.x = 90,
+           label.y = 0.6) +
+  theme_classic()
+```
+
+### Tbl 1. Correlation Matrix
+
+In further seeking to understand the differences in scores in coverage measures we present a full correlation matrix with all the data at hand that includes countries both within and without of the SIED, in pairwise correlation format. 
+
+```{r pairwise_corr}
+cor1 <- df %>%
+  mutate(diff_sied_geip = Coverage_pct_LF - Work_Inj_Cov_LF) %>%
+  subset(select = c(Coverage_pct_LF, Work_Inj_Cov_LF, diff_sied_geip, Sick_Cov_LF, Sick_Cov_Pop, gdppc, pop, lfp_total, lfp_female, Dis_RR, replacement_rate_perm, replacement_rate_temp, labor_workinjury_firstlaw, labor_workinjury_firstins)) %>%
+cor(., use = "pairwise.complete.obs") %>%
+  round(.,3)
+
+cor1[upper.tri(cor1)] <- ""
+
+cor1
+```
+

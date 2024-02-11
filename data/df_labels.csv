@@ -1,8 +1,11 @@
 variables,labels
 ISO3c,International Standards of Classification Country Alpha-3 Categorization
+labor_workinjury_firstlaw,"First work-injury law, source = GWIP v1.1"
+labor_workinjury_firstins,"First law including risk-pooling (insurance or fund), source = GWIP v1.1"
 year,Year for merging (observations are 2020 or closest)
-Cov_LF,"(scovratl) Coverage of the labor force for work-injury policy, source = SIED 2020"
-Cov_Pop,"(scovratp) Coverage of the entire adult population for work-injury policy, source = SIED 2020"
+Work_Inj_Cov_LF,"(acovratl) Coverage ratio as proportion of labour force (ANOINSUR /ALABFORC), source, SIED 2020"
+Sick_Cov_LF,"(scovratl) Coverage of the labor force for work-injury policy, source = SIED 2020"
+Sick_Cov_Pop,"(scovratp) Coverage of the entire adult population for work-injury policy, source = SIED 2020"
 RR_Sing,"(azrr26si) Standard net single worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator, source SIED 2020"
 RR_Fam,"(azrr26fa) Standard net familied worker replacement rate for total 26-week period of work accident benefit, excluding prior half-year's wage income from numerator and denominator, source = SIED 2020"
 RR_Avg_Sing,"(az4ind) (= a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components: a single person and a four-person family, for first week after waiting days and 26 weeks with benefits, source = SIED 2020"
@@ -20,5 +23,5 @@ lfp_female,"Labor force participation among adult females, source = ILO 2020"
 lfp_total,"Labor force participation among all adults, source = ILO 2020"
 Region,NA
 South,NA
-gdppc,"Gross Domestic Product per capita, source = Maddison 2020"
+gdppc,"Gross Domestic Product per capita, source = Maddison 2020 & 26 very small countries Google (World Bank)"
 pop,"Population, source = Maddison 2020"
