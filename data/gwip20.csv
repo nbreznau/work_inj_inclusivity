@@ -1,0 +1,187 @@
+country_name,cow_code,independence,labor_workinjury_firstlaw,labor_workinjury_firstlaw_sspw,labor_workinjury_firstins,labor_workinjury_first_fund,labor_workinjury_firstnat_carriedover,labor_workinjury_firstlaw_programtype,labor_workinjury_firstlaw_bluecollar_fullcoverage,ISO3c,replacement_rate_perm,duration_perm,replacement_rate_temp,duration_temp,Region,global_south,Colonial_Legacy,GEIP_Coverage,SIED_workinjury_coverage_imputed,SIED_workinjury_coverage_imputed_full,SIED_RR_Sing_imputed,SIED_RR_Sing_imputed_full
+United States of America,2,1783,1908,1908,1916,1916,no,Employer liability,NA,USA,60,unlimited,66.7,1.5 months,Northern America,0,UK,0.848,0.88,0.88,0.95,0.95
+Puerto Rico,6,1953,1916,NA,1918,NA,yes,Employer liability,1928,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Canada,20,1841,1918,1908,1918,1918,no,Risk-Pooling,1949,CAN,85,unlimted,87.5,unlimited,Northern America,0,UK,0.691,0.82,0.82,0.97,0.97
+Bahamas,31,1973,1943,1943,1972,NA,yes,Employer liability,1972,BHS,66.6,unlimited,66.6,10 months,Latin America and the Caribbean,1,None,0.826,0.89,0.89,0.875,0.875
+Cuba,40,1902,1916,1916,1940,NA,no,Employer liability,1916,CUB,70,unlimited,80,6 months,Latin America and the Caribbean,0,Spain,0.944,0.956,0.956,0.965,0.965
+Haiti,41,1859,1943,1951,1951,NA,no,Risk-Pooling,1951,HTI,60,unlimited,66.7,unlimited,Latin America and the Caribbean,1,France,0.157,0.16,0.16,0.876,0.876
+Dominican Republic,42,1844,1932,1932,1932,NA,no,Employer liability,1932,DOM,90,unlimited,75,12 months,Latin America and the Caribbean,1,None,NA,NA,0.516,0.931,0.931
+Jamaica,51,1962,1937,1938,1965,1947,yes,Employer liability,1938,JAM,60,unlimited,60,12 months,Latin America and the Caribbean,1,UK,0.52,0.536,0.536,0.831,0.831
+Trinidad and Tobago,52,1962,1926,1960,1971,NA,yes,Employer liability,1926,TTO,60,unlimited,66.7,12 months,Latin America and the Caribbean,1,UK,0.655,0.741,0.741,0.876,0.876
+Barbados,53,1966,1916,1916,1943,NA,yes,Employer liability,1966,BRB,85,unlimited,90,12 months,Latin America and the Caribbean,1,UK,0.656,0.685,0.685,1.032,1.032
+Dominica,54,1967,1938,1938,1976,1976,yes,Employer liability,1938,DMA,70,unlimited,60,6 months,Latin America and the Caribbean,1,None,0.608,0.628,0.628,0.831,0.831
+Grenada,55,1967,1966,1982,1966,1966,no,Risk-Pooling,1983,GRD,75,unlimited,70,12 months,Latin America and the Caribbean,1,UK,0.607,0.624,0.624,0.898,0.898
+St. Lucia,56,1967,1964,1964,1970,1970,yes,Employer liability,1978,LCA,65,variable,65,12 months,Latin America and the Caribbean,1,None,0.495,0.522,0.522,0.865,0.865
+St. Vincent and the Grenadines,57,1967,1939,1939,1970,1970,yes,Employer liability,1970,VCT,60,unlimited,70,6 months,Latin America and the Caribbean,1,None,0.594,0.611,0.611,0.898,0.898
+Antigua & Barbuda,58,1967,1937,1956,1970,1970,yes,Employer liability,1967,ATG,90,60 months,75,60 months,Latin America and the Caribbean,1,UK,NA,NA,0.516,0.931,0.931
+St. Kitts and Nevis,60,1967,1937,1955,1968,1968,yes,Employer liability,1955,KNA,75,unlimited,75,6 months,Latin America and the Caribbean,1,None,0.806,0.857,0.857,0.931,0.931
+Mexico,70,1821,1931,1931,1931,NA,no,Risk-Pooling,1931,MEX,70,unlimited,100,unlimited,Latin America and the Caribbean,1,Spain,0.493,0.541,0.541,1.098,1.098
+Belize,80,1964,1979,1979,1979,NA,no,Risk-Pooling,1979,BLZ,60,unlimited,75,6 months,Latin America and the Caribbean,1,UK,0.806,0.809,0.809,0.931,0.931
+Guatemala,90,1868,1906,1906,1906,NA,no,Risk-Pooling,1906,GTM,50,unlimited,60,unlimited,Latin America and the Caribbean,1,Spain,0.656,0.67,0.67,0.831,0.831
+Honduras,91,1899,1959,1959,1971,NA,no,Employer liability,1971,HND,70,unlimited,100,6 months,Latin America and the Caribbean,1,Spain,0.163,0.177,0.177,1.098,1.098
+El Salvador,92,1875,1911,1911,1953,1953,no,Employer liability,1953,SLV,75,unlimited,75,12 months,Latin America and the Caribbean,1,Spain,0.268,0.293,0.293,0.931,0.931
+Nicaragua,93,1900,1930,1930,1930,NA,no,Risk-Pooling,1930,NIC,75,unlimited,60,6 months,Latin America and the Caribbean,1,Spain,0.449,0.458,0.458,0.831,0.831
+Costa Rica,94,1920,1925,1925,1925,NA,no,Risk-Pooling,1925,CRI,90,unlimited,81.75,24 months,Latin America and the Caribbean,1,Spain,0.601,0.641,0.641,0.976,0.976
+Panama,95,1903,1916,1916,1916,NA,no,Risk-Pooling,1943,PAN,55,unlimited,73.3,unlimited,Latin America and the Caribbean,1,None,0.596,0.663,0.663,0.92,0.92
+Colombia,100,1831,1915,1915,1949,NA,no,Employer liability,1915,COL,75,unlimited,100,6 months,Latin America and the Caribbean,1,Spain,0.445,0.484,0.484,1.098,1.098
+Venezuela,101,1841,1928,1923,1966,NA,no,Employer liability,1966,VEN,50,unlimited,100,unlimited,Latin America and the Caribbean,1,Spain,0.579,0.605,0.605,1.098,1.098
+Guyana,110,1966,1916,1916,1969,NA,yes,Employer liability,1969,GUY,70,unlimited,70,6 months,Latin America and the Caribbean,1,UK,0.566,0.58,0.58,0.898,0.898
+Suriname,115,1954,1947,1947,1947,NA,yes,Risk-Pooling,1947,SUR,80,unlimited,80,unlimited,Latin America and the Caribbean,1,Netherlands,NA,NA,0.423,0.965,0.965
+Ecuador,130,1854,1921,1921,1938,1938,no,Employer liability,1938,ECU,85,unlimited,70.5,24 months,Latin America and the Caribbean,1,Spain,0.49,0.518,0.518,0.901,0.901
+Peru,135,1839,1911,1911,1936,NA,no,Employer liability,1911,PER,80,unlimited,100,11 months,Latin America and the Caribbean,1,Spain,0.395,0.43,0.43,1.098,1.098
+Brazil,140,1822,1919,1919,1919,1934,no,Risk-Pooling,1934,BRA,90,unlimited,91,unlimited,Latin America and the Caribbean,1,Portugal,0.565,0.603,0.603,1.038,1.038
+Bolivia,145,1848,1924,1924,1935,1935,no,Employer liability,1939,BOL,75,unlimited,100,6 months,Latin America and the Caribbean,1,Spain,0.16,0.18,0.18,1.098,1.098
+Paraguay,150,1846,1927,1927,1943,NA,no,Employer liability,1943,PRY,75,unlimited,75,12 months,Latin America and the Caribbean,1,Spain,0.321,0.347,0.347,0.931,0.931
+Chile,155,1839,1916,1916,1968,NA,no,Employer liability,1916,CHL,70,unlimited,100,12 months,Latin America and the Caribbean,1,Spain,0.76,0.822,0.822,1.098,1.098
+Argentina,160,1841,1915,1915,1916,1916,no,Employer liability,1915,ARG,69,53 months,100,12 months,Latin America and the Caribbean,1,Spain,0.449,0.505,0.505,1.098,1.098
+Uruguay,165,1882,1920,1914,1920,1920,no,Risk-Pooling,1920,URY,102,unlimited,66.7,unlimited,Latin America and the Caribbean,1,None,0.546,0.605,0.605,0.876,0.876
+United Kingdom,200,1816,1880,1897,1934,NA,no,Employer liability,1880,GBR,35,unlimited,30,6 months,Northern Europe,0,None,0.68,0.95,0.95,0.19,0.19
+Ireland,205,1922,1897,1897,1934,1934,yes,Employer liability,1880,IRL,60,unlimited,35,5 months,Northern Europe,0,None,0.718,0.927,0.927,0.665,0.665
+Netherlands,210,1816,1901,1901,1901,NA,no,Risk-Pooling,1901,NLD,85,26 months,85,26 months,Western Europe,0,None,0.976,0.84,0.84,0.7,0.7
+Belgium,211,1830,1903,1903,1903,NA,no,Risk-Pooling,1903,BEL,90,unlimted,90,unlimited,Western Europe,0,None,0.631,0.81,0.81,1.17,1.17
+Luxembourg,212,1920,1902,1902,1902,NA,yes,Risk-Pooling,1902,LUX,100,unlimited,100,12 months,Western Europe,0,None,0.771,0.98,0.98,1.15,1.15
+France,220,1816,1894,1894,1894,NA,no,Risk-Pooling,1928,FRA,100,unlimited,76.7,unlimited,Western Europe,0,None,0.741,0.83,0.83,1.05,1.05
+Monaco,221,1993,1930,1930,1930,NA,yes,Risk-Pooling,1930,MCO,100,unlimited,63.8,unlimited,Western Europe,0,None,NA,NA,1.613,0.857,0.857
+Liechtenstein,223,1806,1910,1910,1910,NA,no,Employer liability,1931,LIE,80,unlimited,50,unlimited,Western Europe,0,None,NA,NA,1.613,0.765,0.765
+Switzerland,225,1816,1911,1911,1911,NA,no,Risk-Pooling,1911,CHE,80,unlimited,70,unlimited,Western Europe,0,None,0.667,0.96,0.96,0.87,0.87
+Spain,230,1816,1900,1900,1931,NA,no,Employer liability,1947,ESP,100,unlimited,75,12 months,Southern Europe,0,None,0.483,0.68,0.68,0.85,0.85
+Andorra,232,1993,1966,1966,1966,NA,yes,Risk-Pooling,1966,AND,100,unlimited,65,unlimited,Southern Europe,0,None,NA,NA,0.8,0.865,0.865
+Portugal,235,1816,1913,1913,1913,NA,no,Risk-Pooling,1913,PRT,90,unlimited,70,unlimited,Southern Europe,0,None,0.773,0.852,0.852,0.898,0.898
+Germany,255,1816,1871,1884,1884,NA,no,Employer liability,1884,DEU,70,unlimited,92.5,6 months,Western Europe,0,None,0.63,1,1,0.98,0.98
+Poland,290,1918,1919,1883,1924,NA,no,Risk-Pooling,1924,POL,100,12 months,100,6 months,Eastern Europe,0,None,1,0.95,0.95,1.23,1.23
+Austria,305,1919,1854,1887,1854,NA,yes,Risk-Pooling,1887,AUT,66.7,unlimited,76.7,unlimited,Western Europe,0,None,0.774,1,1,0.82,0.82
+Hungary,310,1919,1907,1900,1907,NA,yes,Risk-Pooling,1927,HUN,30,unlimited,98,6 months,Eastern Europe,0,None,0.783,0.88,0.88,1.11,1.11
+Czech Republic,316,1918,1887,1887,1887,NA,yes,Risk-Pooling,1887,CZE,75,unlimited,100,12 months,Eastern Europe,0,None,0.662,0.79,0.79,1.34,1.34
+Slovakia,317,1918,1887,1887,1887,NA,yes,Risk-Pooling,1887,SVK,75,unlimited,45,unlimited,Eastern Europe,0,None,0.664,0.79,0.79,1.13,1.13
+Italy,325,1816,1898,1898,1898,NA,no,Risk-Pooling,1919,ITA,87.5,unlimited,67.5,unlimited,Southern Europe,0,None,0.722,0.93,0.93,0.74,0.74
+San Marino,331,1992,1983,1983,1983,NA,yes,Risk-Pooling,1983,SMR,90,unlimited,100,unlimited,Southern Europe,0,None,0.969,1.106,1.106,1.098,1.098
+Malta,338,1964,1929,1929,1929,1929,yes,Risk-Pooling,1929,MLT,40,unlimited,56,12 months,Southern Europe,0,None,0.735,0.96,0.96,1.13,1.13
+Albania,339,1914,1947,1947,1947,NA,no,Risk-Pooling,1947,ALB,90,60 months,75,60 months,Southern Europe,0,None,0.347,0.379,0.379,0.931,0.931
+Croatia,344,1992,1922,2006,1922,NA,yes,Risk-Pooling,1937,HRV,100,18 months,100,18 months,Southern Europe,0,None,0.682,0.91,0.91,1.03,1.03
+Serbia,345,1878,1922,/,1922,NA,no,Risk-Pooling,1937,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Slovenia,349,1992,1922,1922,1922,NA,yes,Risk-Pooling,1937,SVN,35,unlimited,100,unlimited,Southern Europe,0,None,0.802,1,1,1.18,1.18
+Greece,350,1828,1901,1907,1901,1901,no,Risk-Pooling,1934,GRC,45,unlimited,60,variable,Southern Europe,0,None,0.469,0.541,0.541,0.831,0.831
+Cyprus,352,1960,1925,1957,1964,NA,yes,Employer liability,1953,CYP,65,unlimited,60,unlimited,Western Asia,0,None,0.682,0.82,0.82,0.6,0.6
+Bulgaria,355,1908,1906,1924,1909,1909,no,Employer liability,1918,BGR,47,unlimited,90,unlimited,Eastern Europe,0,None,0.662,0.713,0.713,1.032,1.032
+Moldova,359,1991,1973,1991,1993,1973,yes,Risk-Pooling,1991,MDA,80,unlimited,100,6 months,Eastern Europe,0,None,0.602,0.614,0.614,1.098,1.098
+Romania,360,1878,1912,1912,1912,NA,no,Risk-Pooling,1912,ROU,85,variable,85,6 months,Eastern Europe,0,None,0.631,0.56,0.56,1.5,1.5
+Russia,365,1816,1903,1903,1903,1903,no,Risk-Pooling,1922,RUS,100,unlimited,100,unlimited,Eastern Europe,0,None,0.744,0.815,0.815,1.098,1.098
+Estonia,366,1918,1903,1912,1903,NA,yes,Risk-Pooling,1924,EST,50,unlimited,100,6 months,Northern Europe,0,None,0.768,0.82,0.82,1.03,1.03
+Latvia,367,1918,1903,1912,1903,NA,yes,Risk-Pooling,1927,LVA,90,unlimited,80,3 months,Northern Europe,0,None,0.692,0.8,0.8,0.91,0.91
+Lithuania,368,1918,1903,1903,1903,NA,yes,Risk-Pooling,1926,LTU,75,unlimited,100,unlimited,Northern Europe,0,None,0.647,0.81,0.81,1.12,1.12
+Ukraine,369,1922,1922,1912,1922,NA,no,Risk-Pooling,1929,UKR,70,unlimited,100,unlimited,Eastern Europe,0,None,0.641,0.663,0.663,1.098,1.098
+Belarus,370,1991,1922,1903,1922,NA,yes,Risk-Pooling,1922,BLR,45,unlimited,100,unlimited,Eastern Europe,0,None,0.709,0.761,0.761,1.098,1.098
+Armenia,371,1918,1922,1955,1922,NA,no,Risk-Pooling,1922,ARM,115,unlimited,80,unlimited,Western Asia,0,None,0.593,0.622,0.622,0.965,0.965
+Georgia,372,1918,1922,1997,1922,NA,no,Risk-Pooling,1922,GEO,50,variable,100,unlimited,Western Asia,0,None,0.233,0.27,0.27,1.098,1.098
+Azerbaijan,373,1918,1922,1956,1922,NA,no,Risk-Pooling,1958,AZE,60,variable,100,unlimited,Western Asia,0,None,0.397,0.447,0.447,1.098,1.098
+Finland,375,1917,1895,1895,1895,NA,yes,Risk-Pooling,1918,FIN,85,unlimited,75,unlimited,Northern Europe,0,None,0.665,0.92,0.92,1.28,1.28
+Sweden,380,1816,1901,1901,1916,NA,no,Employer-liability,1904,SWE,100,unlimited,80,12 months,Northern Europe,0,None,0.848,1,1,0.81,0.81
+Norway,385,1905,1894,1894,1894,NA,yes,Risk-Pooling,1894,NOR,95,unlimited,100,12 months,Northern Europe,0,None,0.896,0.96,0.96,1,1
+Denmark,390,1816,1898,1898,1898,NA,no,Risk-Pooling,1898,DNK,83,unlimited,100,5.5 months,Northern Europe,0,None,0.88,1,1,0.62,0.62
+Iceland,395,1918,1917,1903,1925,NA,no,Risk-Pooling,1917,ISL,80,unlimited,45,12 months,Northern Europe,0,None,0.951,0.97,0.97,0.79,0.79
+Cape Verde,402,1975,1960,1960,1978,NA,yes,Employer liability,1960,CPV,70,unlimited,66.7,unlimited,Sub-Saharan Africa,1,None,0.566,0.579,0.579,0.876,0.876
+Sao Tome and Principe,403,1975,1979,1979,1979,NA,no,Risk-Pooling,1979,STP,70,unlimited,98,24 months,Sub-Saharan Africa,1,None,0.289,0.297,0.297,1.085,1.085
+Guinea-Bissau,404,1974,1960,NA,1980,NA,yes,Risk-Pooling,1980,GNB,70,unlimited,68,unlimited,Sub-Saharan Africa,1,Portugal,NA,NA,0.26,0.885,0.885
+Equatorial Guinea,411,1968,1947,1947,1965,1965,yes,Employer liability,1965,GNQ,55,48 months,50,unlimited,Sub-Saharan Africa,1,Spain,0.145,0.24,0.24,0.765,0.765
+Gambia,420,1965,1942,1940,1990,NA,yes,Employer liability,1990,GMB,53,unlimited,60,6 months,Sub-Saharan Africa,1,UK,0.234,0.236,0.236,0.831,0.831
+Mali,432,1960,1926,1932,1962,NA,yes,Employer liability,1926,MLI,90,unlimited,100,unlimited,Sub-Saharan Africa,1,France,0.091,0.095,0.095,1.098,1.098
+Senegal,433,1960,1926,1932,1973,1973,yes,Employer liability,1927,SEN,100,unlimited,63.9,unlimited,Sub-Saharan Africa,1,France,0.273,0.277,0.277,0.857,0.857
+Benin,434,1960,1959,1959,1998,1998,no,Employer liability,1960,BEN,90,unlimited,66.7,12 months,Sub-Saharan Africa,1,France,0.052,0.059,0.059,0.876,0.876
+Mauritania,435,1960,1926,1932,1967,1967,yes,Employer liability,1928,MRT,90,unlimited,66.7,unlimited,Sub-Saharan Africa,1,France,0.086,0.096,0.096,0.876,0.876
+Niger,436,1960,1961,1961,1965,NA,no,Employer liability,1965,NER,100,unlimited,63.8,unlimited,Sub-Saharan Africa,1,France,0.909,0.896,0.896,0.857,0.857
+Ivory Coast,437,1960,1925,1957,1964,NA,yes,Employer liability,1957,CIV,100,unlimited,66.7,variable,Sub-Saharan Africa,1,France,0.147,0.157,0.157,0.876,0.876
+Guinea,438,1958,1926,1932,1960,NA,yes,Employer liability,1929,GIN,70,unlimited,64,unlimited,Sub-Saharan Africa,1,France,0.145,0.148,0.148,0.858,0.858
+Burkina Faso,439,1960,1926,1959,2006,NA,yes,Employer liability,1926,BFA,85,unlimited,66.7,unlimited,Sub-Saharan Africa,1,France,0.055,0.059,0.059,0.876,0.876
+Liberia,450,1862,1943,1943,1980,NA,no,Employer liability,1961,LBR,65,unlimited,65,unlimited,Sub-Saharan Africa,1,None,0.805,0.793,0.793,0.865,0.865
+Sierra Leone,451,1961,1940,1939,2001,2001,yes,Employer liability,1954,SLE,100,56 months,60,96 months,Sub-Saharan Africa,1,UK,0.061,0.066,0.066,0.831,0.831
+Ghana,452,1957,1940,1940,none,NA,yes,Employer liability,1965,GHA,100,96 months,100,24 months,Sub-Saharan Africa,1,UK,0.166,0.178,0.178,1.098,1.098
+Togo,461,1960,1964,1964,1964,1964,no,Risk-Pooling,1964,TGO,80,unlimited,66.7,unlimited,Sub-Saharan Africa,1,France,0.842,0.832,0.832,0.876,0.876
+Cameroon,471,1960,1959,1944,1960,NA,no,Risk-Pooling,1959,CMR,85,unlimited,66.7,unlimited,Sub-Saharan Africa,1,France,0.124,0.132,0.132,0.876,0.876
+Nigeria,475,1960,1941,1942,1987,NA,yes,Employer liability,1950,NGA,90,unlimited,100,24 months,Sub-Saharan Africa,1,UK,0.328,0.34,0.34,1.098,1.098
+Gabon,481,1958,1935,1935,1975,NA,yes,Employer liability,NA,GAB,90,unlimited,100,unlimited,Sub-Saharan Africa,1,France,0.45,0.502,0.502,1.098,1.098
+Central African Republic,482,1958,1935,1935,2006,NA,yes,Employer liability,NA,CAF,90,192 months,63.8,unlimited,Sub-Saharan Africa,1,None,0.139,0.139,0.139,0.857,0.857
+Chad,483,1958,1935,1935,1970,NA,yes,Employer liability,NA,TCD,90,unlimited,66.7,unlimited,Sub-Saharan Africa,1,France,0.047,0.053,0.053,0.876,0.876
+Congo,484,1958,1928,1962,1957,NA,yes,Employer liability,1957,COG,60,unlimited,55.6,unlimited,Sub-Saharan Africa,1,France,0.142,0.159,0.159,0.802,0.802
+Democratic Republic of the Congo,490,1960,1949,1949,1949,1949,yes,Risk-Pooling,1949,COD,80,unlimited,66.7,unlimited,Sub-Saharan Africa,1,Belgium,0.262,0.26,0.26,0.876,0.876
+Uganda,500,1962,1946,1946,1969,NA,yes,Employer liability,1946,UGA,100,60 months,67,12 months,Sub-Saharan Africa,1,UK,0.16,0.164,0.164,0.878,0.878
+Kenya,501,1963,1940,1946,1974,NA,yes,Employer liability,1949,KEN,90,96 months,50,12 months,Sub-Saharan Africa,1,UK,0.093,0.103,0.103,0.765,0.765
+Tanzania,510,1961,1948,1948,1965,NA,yes,Employer liability,1948,TZA,70,unlimited,70,24 months,Sub-Saharan Africa,1,UK,0.088,0.096,0.096,0.898,0.898
+Burundi,516,1962,1949,1949,1949,1949,yes,Risk-Pooling,1949,BDI,100,unlimited,62,6 months,Sub-Saharan Africa,1,Belgium,0.049,0.05,0.05,0.845,0.845
+Rwanda,517,1962,1949,1949,1950,1950,yes,Risk-Pooling,1950,RWA,85,unlimited,75,6 months,Sub-Saharan Africa,1,Belgium,0.045,0.051,0.051,0.931,0.931
+Somalia,520,1960,1972,NA,none,NA,no,Employer liability,1972,SOM,100,unlimited,67.5,6 months,Sub-Saharan Africa,1,UK,NA,NA,0.459,0.881,0.881
+Djibouti,522,1977,1957,1957,2002,NA,yes,Employer liability,1957,DJI,90,unlimited,70.8,unlimited,Sub-Saharan Africa,1,France,NA,NA,0.536,0.903,0.903
+Ethiopia,530,1816,1962,1963,2011,NA,no,Employer liability,2011,ETH,59,unlimited,87.5,12 months,Sub-Saharan Africa,1,None,0.174,0.177,0.177,1.015,1.015
+Angola,540,1975,1990,1990,1990,2004,no,Risk-Pooling,1990,AGO,70,unlimited,70,unlimited,Sub-Saharan Africa,1,Portugal,NA,NA,0.294,0.898,0.898
+Mozambique,541,1975,1957,1957,none,NA,yes,Employer liability,1957,MOZ,85,unlimited,70,unlimited,Sub-Saharan Africa,1,Portugal,NA,NA,0.21,0.898,0.898
+Zambia,551,1964,1929,1929,1945,NA,yes,Employer liability,1945,ZMB,65,unlimited,50,24 months,Sub-Saharan Africa,1,UK,0.119,0.129,0.129,0.765,0.765
+Zimbabwe,552,1965,1922,1922,1934,NA,yes,Employer liability,1920,ZWE,65,unlimited,59.2,18 months,Sub-Saharan Africa,1,UK,0.254,0.255,0.255,0.826,0.826
+Malawi,553,1964,1946,1946,1953,NA,yes,Employer liability,1946,MWI,90,54 months,75,unlimited,Sub-Saharan Africa,1,UK,0.069,0.072,0.072,0.931,0.931
+South Africa,560,1910,1914,1914,1934,NA,no,Employer liability,1941,ZAF,75,unlimited,75,24 months,Sub-Saharan Africa,1,UK,0.675,0.705,0.705,0.931,0.931
+Namibia,565,1990,1924,1941,1941,1941,yes,Employer liability,1994,NAM,70,unlimited,75,12 months,Sub-Saharan Africa,1,None,0.471,0.494,0.494,0.931,0.931
+Lesotho,570,1966,1977,1977,1977,NA,no,Employer liability,1977,LSO,100,60 months,75,6 months,Sub-Saharan Africa,1,UK,NA,NA,0.315,0.931,0.931
+Botswana,571,1966,1936,1936,1998,NA,yes,Employer liability,1952,BWA,100,60 months,50,6 months,Sub-Saharan Africa,1,UK,0.431,0.478,0.478,0.765,0.765
+Swaziland,572,1968,1963,1963,1983,NA,yes,Employer liability,1963,SWZ,NA,NA,NA,NA,Sub-Saharan Africa,1,UK,0.626,0.642,0.642,NA,0.914
+Madagascar,580,1960,1925,1925,1968,NA,yes,Employer liability,1968,MDG,90,unlimited,66.7,12 months,Sub-Saharan Africa,1,France,0.093,0.096,0.096,0.876,0.876
+Comoros,581,1975,1946,NA,2006,NA,yes,Employer liability,1959,COM,NA,NA,NA,NA,Sub-Saharan Africa,1,France,NA,NA,0.398,NA,0.887
+Mauritius,590,1968,1931,1931,1976,NA,yes,Employer liability,1931,MUS,NA,NA,NA,NA,Sub-Saharan Africa,1,None,0.682,0.739,0.739,NA,0.862
+Seychelles,591,1976,1970,1970,1987,NA,yes,Employer liability,1987,SYC,40,unlimited,58,6 months,Sub-Saharan Africa,0,None,0.691,0.78,0.78,0.818,0.818
+Morocco,600,1956,1927,1927,1927,NA,yes,Risk-Pooling,1927,MAR,95,unlimited,67,unlimited,Northern Africa,1,France,0.39,0.412,0.412,0.878,0.878
+Algeria,615,1962,1919,1919,1949,NA,yes,Employer liability,1949,DZA,90,unlimited,100,unlimited,Northern Africa,1,France,0.538,0.577,0.577,1.098,1.098
+Tunisia,616,1956,1921,1921,1957,NA,yes,Employer liability,1957,TUN,95,unlimited,66.7,6 months,Northern Africa,1,France,0.42,0.451,0.451,0.876,0.876
+Libya,620,1951,1923,1958,1957,NA,yes,Risk-Pooling,1957,LBY,90,unlimited,70,12 months,Northern Africa,1,UK,NA,NA,0.579,0.898,0.898
+Sudan,625,2011,1908,1947,1974,NA,yes,Employer liability,1949,SDN,83.33,unlimited,0,0 months,Northern Africa,1,UK,0.621,0.621,0.621,0.431,0.431
+South Sudan,626,2011,1908,NA,1974,NA,yes,Employer liability,1949,SSD,83.3,unlimited,0,0 months,Sub-Saharan Africa,1,None,NA,NA,0.252,0.431,0.431
+Iran,630,1855,1936,1936,1943,NA,no,Employer liability,1943,IRN,100,unlimited,75,unlimited,Southern Asia,1,None,0.387,0.438,0.438,0.931,0.931
+Turkey,640,1816,1923,1945,1923,1923,no,Risk-Pooling,1936,TUR,75,variable,66.7,variable,Western Asia,0,None,0.684,0.738,0.738,0.876,0.876
+Iraq,645,1932,1936,1936,1964,NA,no,Employer liability,1936,IRQ,80,unlimited,100,12 months,Western Asia,1,UK,NA,NA,0.597,1.098,1.098
+Egypt,651,1922,1936,1936,1936,NA,no,Employer liability,1936,EGY,90,unlimited,100,unlimited,Northern Africa,1,UK,0.511,0.543,0.543,1.098,1.098
+Syria,652,1946,1943,1959,1959,NA,yes,Employer liability,1946,SYR,80,unlimited,96.7,unlimited,Western Asia,1,France,0.478,0.481,0.481,1.076,1.076
+Lebanon,660,1946,1943,1943,1963,NA,yes,Employer liability,1966,LBN,80,26 months,75,unlimited,Western Asia,1,France,0.478,0.513,0.513,0.931,0.931
+Jordan,663,1946,1960,1978,1980,NA,no,Employer liability,1984,JOR,75,unlimited,75,12 months,Western Asia,1,UK,0.446,0.478,0.478,0.931,0.931
+Israel,666,1948,1953,1953,1953,NA,no,Risk-Pooling,1953,ISR,75,unlimited,67.5,3 months,Western Asia,0,None,0.741,0.841,0.841,0.881,0.881
+Saudi Arabia,670,1816,1969,1969,1969,NA,no,Risk-Pooling,1969,SAU,100,54 months,100,unlimited,Western Asia,1,None,0.774,0.933,0.933,1.098,1.098
+Yemen,679,1990,1991,1991,1991,NA,no,Risk-Pooling,1991,YEM,20,12 months,NA,NA,Western Asia,1,UK,0.377,0.378,0.378,NA,1.095
+Kuwait,690,1961,1976,1976,1976,NA,no,Risk-Pooling,1976,KWT,72,unlimited,100,6 months,Western Asia,0,UK,0.951,1.159,1.159,1.098,1.098
+Bahrain,692,1971,1976,1976,1976,NA,no,Risk-Pooling,1976,BHR,75,unlimited,100,unlimited,Western Asia,1,UK,0.846,0.966,0.966,1.098,1.098
+Qatar,694,1971,2004,2004,none,NA,no,Employer liability,2004,QAT,100,unlimited,100,6 months,Western Asia,0,UK,NA,NA,2.163,1.098,1.098
+United Arab Emirates,696,1971,1980,NA,none,NA,no,Employer liability,1980,ARE,NA,NA,NA,NA,Western Asia,0,UK,NA,NA,1.211,NA,1.07
+Oman,698,1971,1977,1977,1977,NA,no,Risk-Pooling,1977,OMN,70,unlimited,100,6 months,Western Asia,1,Portugal,0.402,0.52,0.52,1.098,1.098
+Afghanistan,700,1919,1946,1946,1987,NA,no,Employer liability,1946,AFG,NA,NA,NA,NA,Southern Asia,1,None,NA,NA,0.444,NA,0.921
+Turkmenistan,701,1991,1995,1995,1995,NA,no,Risk-Pooling,1995,TKM,70,unlimited,100,unlimited,Central Asia,1,None,0.526,0.607,0.607,1.098,1.098
+Tajikistan,702,1991,1989,NA,1997,1989,yes,Risk-Pooling,1989,TJK,70,unlimited,60,4 months,Central Asia,1,None,NA,NA,0.497,0.831,0.831
+Kyrgyzstan,703,1991,1922,1922,1922,NA,yes,Risk-Pooling,1922,KGZ,40,unlimited,100,unlimited,Central Asia,1,None,0.44,0.45,0.45,1.098,1.098
+Uzbekistan,704,1991,1993,1997,2005,NA,no,Employer liability,1993,UZB,65,unlimited,100,unlimited,Central Asia,1,None,0.441,0.472,0.472,1.098,1.098
+Kazakhstan,705,1991,1955,1955,2005,NA,yes,Employer liability,1991,KAZ,100,36 months,100,unlimited,Central Asia,0,None,0.561,0.638,0.638,1.098,1.098
+China,710,1860,1951,1951,1951,1951,no,Risk-Pooling,2004,CHN,85,unlimited,100,12 months,Eastern Asia,1,None,0.242,0.283,0.283,1.098,1.098
+Mongolia,712,1911,1994,NA,1994,NA,no,Risk-Pooling,1994,MNG,NA,NA,NA,NA,Eastern Asia,1,None,NA,NA,0.495,NA,0.846
+Taiwan,713,1949,1958,1950,1958,NA,no,Risk-Pooling,1958,TWN,80,unlimited,70,12 months,Eastern Asia,0,None,0.741,0.881,0.881,0.898,0.898
+North Korea,731,1948,1938,1953,1938,NA,yes,Risk-Pooling,2000,PRK,NA,NA,NA,NA,Eastern Asia,1,None,NA,NA,0.245,NA,0.994
+South Korea,732,1948,1938,1953,1938,NA,yes,Risk-Pooling,2000,KOR,70,unlimited,75,unlimited,Eastern Asia,0,None,0.852,1,1,0.87,0.87
+Japan,740,1860,1905,1905,1931,NA,no,Employer liability,1947,JPN,150,unlimited,80,unlimited,Eastern Asia,0,None,0.85,0.88,0.88,1.11,1.11
+India,750,1947,1923,1923,1948,NA,yes,Employer liability,1923,IND,80,unlimited,90,unlimited,Southern Asia,1,UK,0.079,0.101,0.101,1.032,1.032
+Bhutan,760,1971,1979,1994,none,NA,no,Employer liability,2007,BTN,100,12 months,70,unlimited,Southern Asia,1,None,NA,NA,0.319,0.898,0.898
+Pakistan,770,1947,1923,1923,1962,NA,yes,Employer liability,1923,PAK,65,60 months,60,6 months,Southern Asia,1,UK,0.286,0.3,0.3,0.831,0.831
+Bangladesh,771,1971,1923,1923,2006,2006,yes,Employer liability,1923,BGD,41.7,12 months,41.7,12 months,Southern Asia,1,None,0.125,0.137,0.137,0.709,0.709
+Myanmar,775,1948,1934,1923,1954,NA,yes,Employer liability,1923,MMR,70,unlimited,70,12 months,South-eastern Asia,1,UK,NA,NA,0.416,0.898,0.898
+Sri Lanka,780,1948,1934,1934,1954,NA,yes,Employer liability,1923,LKA,25,12 months,100,60 months,Southern Asia,1,UK,0.423,0.455,0.455,1.098,1.098
+Nepal,790,1816,1959,1959,2017,2017,no,Employer liability,2017,NPL,NA,NA,NA,NA,Southern Asia,1,None,0.038,0.047,0.047,NA,0.928
+Thailand,800,1816,1972,1972,1972,1972,no,Risk-Pooling,1998,THA,70,unlimited,70,12 months,South-eastern Asia,1,None,0.262,0.314,0.314,0.898,0.898
+Cambodia,811,1953,1936,NA,1997,NA,yes,Employer liability,1936,KHM,70,unlimited,75,unlimited,South-eastern Asia,1,France,NA,NA,0.262,0.931,0.931
+Laos,812,1953,1936,1999,1999,NA,yes,Employer liability,1936,LAO,75,variable,70,6 months,South-eastern Asia,1,France,0.067,0.088,0.088,0.898,0.898
+Republic of Vietnam,817,1953,1936,1947,1994,NA,yes,Employer liability,1936,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malaysia,820,1957,1932,1969,1963,NA,yes,Employer liability,1952,MYS,90,unlimited,80,6 months,South-eastern Asia,1,UK,0.362,0.441,0.441,0.965,0.965
+Singapore,830,1965,1932,1933,1975,NA,yes,Employer liability,1975,SGP,80,72 months,97,12 months,South-eastern Asia,0,None,0.726,0.948,0.948,1.078,1.078
+Brunei,835,1984,1932,1957,1957,NA,yes,Employer liability,1984,BRN,100,60 months,66.7,60 months,South-eastern Asia,1,UK,0.88,0.957,0.957,0.876,0.876
+Philippines,840,1946,1927,1928,1946,NA,yes,Risk-Pooling,1927,PHL,60,unlimited,90,4 months,South-eastern Asia,1,Spain,0.458,0.478,0.478,1.032,1.032
+Indonesia,850,1949,1939,1951,1992,NA,yes,Employer liability,1951,IDN,70,80 months,100,6 months,South-eastern Asia,1,Netherlands,0.287,0.323,0.323,1.098,1.098
+Australia,900,1901,1910,1911,1926,NA,no,Employer liability,1926,AUS,75,unlimited,95,3.25 months,Australia and New Zealand,0,UK,0.72,0.86,0.86,1,1
+Papua New Guinea,910,1975,1947,1958,none,NA,yes,Employer liability,1978,PNG,70,unlimited,NA,NA,Melanesia,1,UK,0.064,0.07,0.07,NA,0.906
+New Zealand,920,1907,1900,1900,1956,NA,yes,Employer liability,1900,NZL,100,unlimited,80,12 months,Australia and New Zealand,0,UK,1,1,1,0.82,0.82
+Vanuatu,935,1981,1983,NA,none,NA,no,Employer liability,1983,VUT,NA,NA,NA,NA,Melanesia,1,None,NA,NA,0.312,NA,1.087
+Solomon Islands,940,1978,1952,1952,1952,1952,yes,Risk-Pooling,1952,SLB,100,48 months,75,unlimited,Melanesia,1,UK,0.145,0.149,0.149,0.931,0.931
+Kiribati,946,1975,1949,1949,1949,NA,yes,Risk-Pooling,1949,KIR,100,48 months,90,unlimited,Micronesia,1,None,0.328,0.326,0.326,1.032,1.032
+Fiji,950,1970,1940,1965,1940,2017,yes,Employer liability,1940,FJI,60,60 months,66,60 months,Melanesia,1,UK,0.401,0.411,0.411,0.871,0.871
+Marshall Islands,983,1986,1991,NA,1991,NA,no,Risk-Pooling,1991,MHL,NA,NA,NA,NA,Micronesia,1,None,NA,NA,0.386,NA,1.788
+Palau,986,1994,1987,NA,1987,NA,yes,Risk-Pooling,2010,PLW,NA,NA,NA,NA,Micronesia,0,None,NA,NA,0.503,NA,1.716
+Federated States of Micronesia,987,1986,1968,NA,1982,NA,yes,Employer liability,1982,FSM,NA,NA,NA,NA,Micronesia,1,None,NA,NA,0.373,NA,1.374
+Samoa,990,1962,1960,1960,1978,NA,no,Employer liability,1978,WSM,NA,NA,NA,NA,Polynesia,1,None,0.535,0.539,0.539,NA,1.23

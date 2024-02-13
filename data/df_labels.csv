@@ -25,3 +25,7 @@ Region,NA
 South,NA
 gdppc,"Gross Domestic Product per capita, source = Maddison 2020 & 26 very small countries Google (World Bank)"
 pop,"Population, source = Maddison 2020"
+Region_factor,NA
+gdppc_k,"GDP per capita in 1,000 US$ 2020, source = Maddisson 2020 & 26 countries Google (World Bank)"
+global_south,NA
+Colonial_Legacy,"Colonial Legacy, source = https://gist.github.com/caluchko"

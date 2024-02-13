@@ -55,7 +55,8 @@ ILO. 2014. ["Global Programme Employment Injury Insurance and Protection | GEIP 
 
 
 geip <- as.data.frame(read_csv(here::here("data/EIIP_2014.csv"))) %>%
-  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"))
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
+         Coverage_pct_LF = Coverage_pct_LF/100)
 
 
 global_south <- as.data.frame(read_csv(here::here("data/global_south.csv"))) %>%
@@ -244,6 +245,11 @@ df <- df %>%
 TO DO: Add region
 
 ```{r region}
+df <- df %>%
+  mutate(Region = countrycode(ISO3c, "iso3c", "un.regionsub.name"),
+         Region = ifelse(ISO3c == "TWN", "Eastern Asia", Region),
+         Region_factor = as.factor(Region))
+
 
 ```
 
@@ -283,8 +289,27 @@ df <- df %>%
     ISO3c == "FSM" ~ 4000,
     ISO3c == "WSM" ~ 4000,
     .default = gdppc
-  ))
+  ),
+  gdppc_k = gdppc/1000)
 ```
+
+#### Global South
+
+Make a dichotomous variable with 0 and 1 rather than character. And add colonial legacies
+```{r gs}
+df <- df %>%
+  mutate(global_south = ifelse(is.na(South), 0, 1))
+
+colonies <- read_csv(here::here("data", "colonial.csv")) %>%
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
+         Colonial_Legacy = `Principal Colonial Power`) %>%
+  select(c(ISO3c, Colonial_Legacy))
+
+df <- df %>%
+  left_join(colonies, by = "ISO3c") %>%
+  mutate(Colonial_Legacy = ifelse(is.na(Colonial_Legacy), "None", Colonial_Legacy))
+```
+
 
 
 #### Var Labels
@@ -317,6 +342,8 @@ df_labels <- as.data.frame(colnames(df)) %>%
            variables == "pop" ~ "Population, source = Maddison 2020",
            variables == "labor_workinjury_firstlaw" ~ "First work-injury law, source = GWIP v1.1",
            variables == "labor_workinjury_firstins" ~ "First law including risk-pooling (insurance or fund), source = GWIP v1.1",
+           variables == "gdppc_k" ~ "GDP per capita in 1,000 US$ 2020, source = Maddisson 2020 & 26 countries Google (World Bank)",
+           variables == "Colonial_Legacy" ~ "Colonial Legacy, source = https://gist.github.com/caluchko",
            .default = NA)) %>%
   subset(., select = c(variables, labels))
 
