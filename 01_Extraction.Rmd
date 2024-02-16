@@ -98,6 +98,16 @@ sied <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
   ungroup()
 ```
 
+### CWED2
+
+Does not have work-injury policy, only sickness insurance. This blurs the health care and work-injury systems in case they are separate. 
+
+```{r cwed}
+#cwed2 <- read_csv(here::here("data", "cwed-subset.csv"))
+```
+
+
+
 ### Disability RR ILO
 
 This is a rough measure to help with imputation. It calculates the ratio of the average income of persons with a disability to those without.

@@ -1,0 +1,81 @@
+---
+title: "03_Analyses"
+author: "Nate Breznau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
+
+packages <- c("tidyverse",
+              "countrycode",
+              "ggplot2",
+              "ggrepel",
+              "ggpubr",
+              "sjPlot",
+              "ragg",
+              'rnaturalearth',
+              'sf', 
+              "ggmap")
+
+pacman::p_load(packages, character.only = T)
+  
+  
+gwip20 <- as.data.frame(read_csv(here::here("data", "gwip20.csv")))
+gwip20_labels <- as.data.frame(read_csv(here::here("data", "gwip20_labels.csv")))
+```
+
+### Figure 1. GWIP Coverage Map
+
+#### Setup
+
+```{r fig1setup}
+wi_map <- ne_countries(returnclass = "sf") %>%
+  mutate(id = iso_a3) %>%
+  select(id, geometry)
+
+# add Greenland as a row identical to Denmark for a better looking map
+gwip20_GRL <- gwip20 %>%
+  subset(ISO3c == "DNK") %>%
+  mutate(ISO3c = "GRL") 
+
+gwip20_map <- rbind(gwip20, gwip20_GRL) %>%
+  mutate(id = ISO3c)
+
+wi_map <- full_join(wi_map, gwip20_map, by = c("id")) %>%
+  subset(id != "ATA")
+
+rm(gwip20_GRL)
+```
+
+
+#### Plot Fig1
+
+```{r fig1plot}
+agg_png(here::here("results", "Fig1.png"), width = 1000, height = 800, res = 144)
+
+map1 <- wi_map %>%
+  ggplot() +
+  geom_sf(aes(fill = factor(four_cat)), size = 0.15, colour = "black") +
+  scale_fill_manual(labels = c("Enslaved Labor System",
+                               "Successful Communist Revolution",
+                               "Communist & Enslaved Labor",
+                               "Neither"),
+                      values = c("#29AF7FFF",
+                                 "#482677FF",
+                                 "#33638DFF",
+                                 "#440154FF"
+                                 ),
+                        na.value = "grey90",
+                    na.translate = F) +
+    coord_sf(label_axes = "----") +
+    labs(fill = "") +
+    theme_classic()
+map1
+
+dev.off()
+
+knitr::include_graphics(here::here("results", "map1.png"))
+```
+

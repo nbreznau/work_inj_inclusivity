@@ -1,4 +1,4 @@
-cow_code,ISO3c,SIED_workinjury_coverage_imputed,SIED_workinjury_coverage_imputed_full,SIED_RR_Sing_imputed,SIED_RR_Sing_imputed_full
+cow_code,ISO3c,workinjury_coverage_SIED_imputed,workinjury_coverage_SIED_imputed_full,workinjury_replacement_rate_single_SIED_imputed,workinjury_replacement_rate_single_SIED_imputed_full
 2,USA,0.88,0.88,0.95,0.95
 6,NA,NA,NA,NA,NA
 20,CAN,0.82,0.82,0.97,0.97
