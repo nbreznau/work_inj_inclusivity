@@ -35,6 +35,9 @@ Notes for the current replacement rate scores.
 ```{r gwip}
 gwip <- read_csv(here::here("data", "gwip_v1.1.csv")) %>%
   mutate(ISO3c = countrycode(country_name, "country.name", "iso3c"),
+         ISO3c = ifelse(country_name == "Republic of Vietnam", "VNM",
+                        ifelse(country_name == "Serbia", "SRB",
+                               ifelse(country_name == "Puerto Rico", "PRI", ISO3c))),
          labor_workinjury_firstins = ifelse(labor_workinjury_firstins == "none", NA, as.numeric(labor_workinjury_firstins))) %>%
   subset(select = c(ISO3c, labor_workinjury_firstlaw, labor_workinjury_firstins))
 
@@ -60,7 +63,8 @@ geip <- as.data.frame(read_csv(here::here("data/EIIP_2014.csv"))) %>%
 
 
 global_south <- as.data.frame(read_csv(here::here("data/global_south.csv"))) %>%
-  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"))
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
+         ISO3c = ifelse(Country == "Saint Martin", "MAF", ISO3c))
 ```
 
 ### SPIN - SIED
@@ -97,6 +101,15 @@ sied <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
   mutate(year = 2020) %>%
   ungroup()
 ```
+
+```{r corr}
+siedcor <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
+  subset(year > 2000) %>%
+  select(azrr26si, azrr26fa, az4ind) %>%
+  cor(., use = "pairwise.complete.obs") %>%
+  round(., 2)
+```
+
 
 ### CWED2
 
@@ -209,6 +222,7 @@ Number of records: 118800
 lfp_total <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
   subset(sex.label == "Sex: Total" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
   mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
+         ISO3c = ifelse(ref_area.label == "Türkiye", "TUR", ISO3c),
          lfp_total = obs_value) %>%
   select(ISO3c, lfp_total) %>%
   group_by(ISO3c) %>%
@@ -219,6 +233,7 @@ lfp_total <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-202
 lfp_female <- read_csv(here::here("data", "EAP_2WAP_SEX_AGE_GEO_RT_A-filtered-2024-02-06.csv")) %>%
   subset(sex.label == "Sex: Female" & time > 2015 & classif1.label == "Age (Youth, adults): 25+" & classif2.label == "Area type: National") %>% 
   mutate(ISO3c = countrycode::countrycode(ref_area.label, "country.name", "iso3c"),
+         ISO3c = ifelse(ref_area.label == "Türkiye", "TUR", ISO3c),
          lfp_female = obs_value) %>%
   select(ISO3c, lfp_female) %>%
   group_by(ISO3c) %>%

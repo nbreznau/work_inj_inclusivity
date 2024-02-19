@@ -1,0 +1,41 @@
+Predictors,m31,m32,m33,m34,m35
+(Intercept),1.10 ***,0.91 ***,0.96 ***,-33.38,0.91 ***
+Gini (Disposable Income),-0.00 **,,0,,
+Region [Central Asia],,0.13,0.14,36.79,0.18
+Region [Eastern Asia],,0.08,0.09,39.51,0.13
+Region [Eastern Europe],,0.26 *,0.26 *,37.04,0.31 **
+Region [Lat. Am. and Caribbean],,0.05,0.06,36.85,0.02
+Region [Melanesia],,-0.01,0,24.55,-0.01
+Region [Micronesia],,0.12,0.13,-0.67,0.17
+Region [Northern Africa],,-0.03,-0.02,-4.85,-0.04
+Region [Northern America],,0.05,0.05,30.51,0.05
+Region [Northern Europe],,-0.07,-0.07,6.18,-0.02
+Region [South-eastern Asia],,0.05,0.07,37.85,0.04
+Region [Southern Asia],,0.01,0.02,33.35,0.03
+Region [Southern Europe],,0.06,0.06,30.49,0.1
+Region [Sub-Saharan Africa],,-0.03,-0.01,31.1,-0.03
+Region [Western Asia],,0.09,0.1,30,0.11
+Region [Western Europe],,0.02,0.05,34.64,0.06
+First Law,,,,0.02,
+First Law*[Central Asia],,,,-0.02,
+First Law*[Eastern Asia],,,,-0.02,
+First Law*[Eastern Europe],,,,-0.02,
+First Law*[Lat. Am. and Caribbean],,,,-0.02,
+First Law *[Melanesia],,,,-0.01,
+First Law*[Northern Africa],,,,0,
+First Law*[Northern America],,,,-0.02,
+First Law*[Northern Europe],,,,0,
+First Law*[South-eastern Asia],,,,-0.02,
+First Law*[Southern Asia],,,,-0.02,
+First Law*[Southern Europe],,,,-0.02,
+First Law*[Sub-Saharan Africa],,,,-0.02,
+First Law*[Western Asia],,,,-0.02,
+First Law*[Western Europe],,,,-0.02,
+Colonial [France],,,,,0.01
+Colonial [Netherlands],,,,,0.09
+Colonial [None],,,,,-0.05
+Colonial [Portugal],,,,,0.04
+Colonial [Spain],,,,,0.06
+Colonial [UK],,,,,0
+N,166,169,166,169,169
+R2,0.04,0.234,0.238,0.363,0.266
