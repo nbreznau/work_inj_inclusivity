@@ -183,4 +183,98 @@ dev.off()
 
 knitr::include_graphics(here::here("results", "Fig8b.png"))
 ```
+### Institutions
+
+
+#### Individualism data
+
+https://osf.io/knvzy
+
+Santos, Henri C., Michael E. W. Varnum, and Igor Grossmann. 2017. ‘Global Increases in Individualism’. Psychological Science 28(9):1228–39. doi: 10.1177/0956797617700622.
+
+
+```{r indv}
+CCHANGE <- read_csv(here::here("data", "Global Increases in Individualism Data.csv"))
+
+# we run their R code for compiling the mean scores across countries
+source(here::here("data", "Santos_script.R"))
+
+indiv <- CCHANGE %>%
+  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
+         individualism = Values.raw) %>%
+  select(ISO3c, individualism) %>%
+  group_by(ISO3c) %>%
+  summarise_all(mean, na.rm = T) %>%
+  subset(!is.na(individualism))
+
+gwip20 <- gwip20 %>%
+  left_join(indiv, by = "ISO3c")
+  
+```
+
+#### Fig 10. Coverage and Year
+
+```{r fig10}
+agg_png(here::here("results", "Fig10.png"), res = 144, width = 1200, height = 800)
+
+gwip20 %>%
+  mutate(duration = 2020 - labor_workinjury_firstlaw) %>%
+  ggplot(aes(duration, workinjury_coverage_SIED_imputed_full)) +
+  geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
+  geom_point() +
+  #xlim(90,100) +
+  #ylim(0.65,1) +
+  stat_cor(aes(duration, workinjury_coverage_SIED_imputed_full),
+           color = "#472D7BFF",
+           label.x = 130,
+           label.y = 0.1
+           ) +
+  xlab("Years Since the Introduction\nof First Work-Injury Law") +
+  ylab("Work-Injury Coverage as a Percentage\nof the Labor Force") +
+  theme_classic()
+
+dev.off()
+
+knitr::include_graphics(here::here("results", "Fig10.png"))
+```
+
+
+#### Fig 11. Replacement Rates and Individualism
+
+```{r fig11}
+agg_png(here::here("results", "Fig11.png"), res = 144, width = 1200, height = 900)
+
+gwip20 %>%
+  ggplot(aes(individualism, workinjury_replacement_rate_single_SIED_imputed_full, label = ISO3c)) +
+  geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
+  geom_text_repel(max.overlaps = Inf) +
+  #xlim(90,100) +
+  #ylim(0.2,1) +
+  stat_cor(aes(individualism, workinjury_replacement_rate_single_SIED_imputed_full),
+           color = "#472D7BFF",
+           label.x = -1.4,
+           label.y = 0.4) +
+  xlab("Cultural Individualism Values, Averaged") +
+  ylab("Work-Injury Replacement Rate\n26-Weeks Incapacity") +
+  theme_classic()
+
+dev.off()
+
+knitr::include_graphics(here::here("results", "Fig11.png"))
+```
+
+## Colophon
+
+```{r colophon}
+sessionInfo()
+
+```
+
+## Citations
+
+```{r citations}
+packages %>%
+  map(citation) %>%
+  print(style = "text")
+```
 
