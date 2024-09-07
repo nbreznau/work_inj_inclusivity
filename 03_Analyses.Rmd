@@ -32,7 +32,8 @@ gwip20_labels <- as.data.frame(read_csv(here::here("data", "gwip20_labels.csv"))
 
 ```{r fig1setup}
 wi_map <- ne_countries(returnclass = "sf") %>%
-  mutate(id = iso_a3) %>%
+  mutate(id = iso_a3,
+         id = ifelse(id == "-99", iso_a3_eh, id)) %>%
   select(id, geometry)
 
 # add Greenland as a row identical to Denmark for a better looking map
