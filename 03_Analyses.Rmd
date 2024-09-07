@@ -17,13 +17,14 @@ packages <- c("tidyverse",
               "ragg",
               'rnaturalearth',
               'sf', 
-              "ggmap")
+              "ggmap",
+              "psych")
 
 pacman::p_load(packages, character.only = T)
   
   
-gwip20 <- as.data.frame(read_csv(here::here("data", "gwip20.csv")))
-gwip20_labels <- as.data.frame(read_csv(here::here("data", "gwip20_labels.csv")))
+gwip21 <- as.data.frame(read_csv(here::here("data", "gwip21_ext.csv")))
+gwip21_labels <- as.data.frame(read_csv(here::here("data", "gwip21_labels.csv")))
 ```
 
 ### Figure 5. GWIP Coverage Map
@@ -37,17 +38,17 @@ wi_map <- ne_countries(returnclass = "sf") %>%
   select(id, geometry)
 
 # add Greenland as a row identical to Denmark for a better looking map
-gwip20_GRL <- gwip20 %>%
+gwip21_GRL <- gwip21 %>%
   subset(ISO3c == "DNK") %>%
   mutate(ISO3c = "GRL")
 
-gwip20_map <- rbind(gwip20, gwip20_GRL) %>%
+gwip21_map <- rbind(gwip21, gwip21_GRL) %>%
   mutate(id = ISO3c)
 
-wi_map <- full_join(wi_map, gwip20_map, by = c("id")) %>%
+wi_map <- full_join(wi_map, gwip21_map, by = c("id")) %>%
   subset(id != "ATA")
 
-rm(gwip20_GRL)
+rm(gwip21_GRL)
 ```
 
 
@@ -126,7 +127,7 @@ agdata <- read_csv(here::here("data", "percent_ag_wb.csv")) %>%
          ag_pct = `Most Recent Value`) %>%
   subset(!is.na(ISO3c), select = c(ISO3c, ag_pct))
 
-gwip20 <- gwip20 %>%
+gwip21 <- gwip21 %>%
   left_join(agdata, by = "ISO3c") 
 ```
 
@@ -137,7 +138,7 @@ gwip20 <- gwip20 %>%
 ```{r fig8a}
 agg_png(here::here("results", "Fig8.png"), res = 144, width = 1200, height = 1000)
 
-gwip20 %>%
+gwip21 %>%
   subset(global_south == 1) %>%
   mutate(ag_pct_non = 100-ag_pct,
          ag_pct_non = ifelse(ag_pct_non < 25, 25, ag_pct_non)) %>%
@@ -163,7 +164,7 @@ knitr::include_graphics(here::here("results", "Fig8.png"))
 ```{r fig8b}
 agg_png(here::here("results", "Fig8b.png"), res = 144, width = 1200, height = 1000)
 
-gwip20 %>%
+gwip21 %>%
   subset(global_south == 0) %>%
   mutate(ag_pct_non = 100-ag_pct,
          ag_pct_non = ifelse(ag_pct_non < 25, 25, ag_pct_non)) %>%
@@ -208,7 +209,7 @@ indiv <- CCHANGE %>%
   summarise_all(mean, na.rm = T) %>%
   subset(!is.na(individualism))
 
-gwip20 <- gwip20 %>%
+gwip21 <- gwip21 %>%
   left_join(indiv, by = "ISO3c")
   
 ```
@@ -218,7 +219,7 @@ gwip20 <- gwip20 %>%
 ```{r fig10}
 agg_png(here::here("results", "Fig10.png"), res = 144, width = 1200, height = 800)
 
-gwip20 %>%
+gwip21 %>%
   mutate(duration = 2020 - labor_workinjury_firstlaw) %>%
   ggplot(aes(duration, workinjury_coverage_SIED_imputed_full)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
@@ -245,7 +246,7 @@ knitr::include_graphics(here::here("results", "Fig10.png"))
 ```{r fig11}
 agg_png(here::here("results", "Fig11.png"), res = 144, width = 1200, height = 900)
 
-gwip20 %>%
+gwip21 %>%
   ggplot(aes(individualism, workinjury_replacement_rate_single_SIED_imputed_full, label = ISO3c)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   geom_text_repel(max.overlaps = Inf) +

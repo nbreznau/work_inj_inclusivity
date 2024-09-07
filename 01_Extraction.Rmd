@@ -22,7 +22,7 @@ pacman::p_load(packages, character.only = T)
 
 Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), <https://doi.org/10.7910/DVN/IVKYIE/EYP0PB>, Harvard Dataverse, V1.1
 
-**Note** that there were minor updates to the GWIP leading to v1.1. In v2.0 these updates are included. But that is why we read from the file v1.1 rather than v1.0
+**Note** there were major updates to the GWIP v2. Now we are at v2.1. This version already contains the coverage data from the ILO
 
 Notes for the current replacement rate scores.
 - These are for single workers if this can be calculated. Often the information is lacking to determine exactly what a worker gets depending on family situation
@@ -33,43 +33,33 @@ Notes for the current replacement rate scores.
 - Decentralized systems (by state or province), we try to take the average by state.
 
 ```{r gwip}
-gwip <- read_csv(here::here("data", "gwip_v1.1.csv")) %>%
+gwip <- read_csv(here::here("data", "gwip21.csv")) %>%
   mutate(ISO3c = countrycode(country_name, "country.name", "iso3c"),
          ISO3c = ifelse(country_name == "Republic of Vietnam", "VNM",
                         ifelse(country_name == "Serbia", "SRB",
                                ifelse(country_name == "Puerto Rico", "PRI", ISO3c))),
-         labor_workinjury_firstins = ifelse(labor_workinjury_firstins == "none", NA, as.numeric(labor_workinjury_firstins))) %>%
-  subset(select = c(ISO3c, labor_workinjury_firstlaw, labor_workinjury_firstins))
+         labor_workinjury_firstins = ifelse(labor_workinjury_firstins == "none", NA, as.numeric(labor_workinjury_firstins)))
 
-## Data collection in progress
-rr_gwip <- as.data.frame(read_csv(here::here("data", "work_injury_rr.csv")))
 
-rr_gwip <- rr_gwip %>%
-  mutate(ISO3c = countrycode::countrycode(country, "country.name", "iso3c"))
 ```
 
-### ILO - GEIP
+### ILO
 
 The ILO released an impressive and comprehensive database of work-injury insurance coverage in 2014. It appears that this program was discontinued or at least has not been updated since then.
 
 ILO. 2014. ["Global Programme Employment Injury Insurance and Protection | GEIP Data."](https://www.ilo.org/wcmsp5/groups/public/---ed_emp/---emp_ent/documents/publication/wcms_573083.pdf). Data scraped by Breznau, Nate and available in the `/data` folder of this project as `EIIP_2014.csv`.
 
-```{r load}
+However, after careful review of the data, 3 countries' scores are most certainly off by one decimal place. These are Niger, Sudan and Togo. 
 
+This we can verify by looking at an even more impressive and most recently released World Social Protection Report (WSPR) from the ILO.
 
-geip <- as.data.frame(read_csv(here::here("data/EIIP_2014.csv"))) %>%
-  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
-         Coverage_pct_LF = Coverage_pct_LF/100)
+ILO. 2021. ["World Social Protection Report"](https://www.ilo.org/publications/flagship-reports/world-social-protection-report-2020-22-social-protection-crossroads-pursuit).
 
-
-global_south <- as.data.frame(read_csv(here::here("data/global_south.csv"))) %>%
-  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
-         ISO3c = ifelse(Country == "Saint Martin", "MAF", ISO3c))
-```
+To make things easier we have added both of these data to the GWIP in the file `gwip21.csv`, available in the `/data` folder of this project. Users can otherwise find the original data in the files as `EIIP.csv` and `Social_Prot_Report_Tbl4.2_2020`.
 
 ### SPIN - SIED
 
-Only 37 countries. Use for point of comparison.
+Only 37 countries. Use for Glolbal North point of comparison.
 
 Social Insurance Entitlements Dataset (SIED)
 
@@ -113,7 +103,10 @@ siedcor <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
 
 ### CWED2
 
-Does not have work-injury policy, only sickness insurance. This blurs the health care and work-injury systems in case they are separate. 
+Nelson, Kenneth, Daniel Fredriksson, Tomas Korpi, Walter Korpi, Joakim Palme, and Ola Sjöberg. 2020. “The Social Policy Indicators (SPIN) Database.” International Journal of Social Welfare 29(3):285–89. doi: 10.1111/ijsw.12418.
+
+
+Does not have work-injury policy, only sickness insurance. This blurs the health care and work-injury systems in case they are separate. THerefore, we leave this here as evidence that we considered it - it is afterall a central dataset in welfare state research.
 
 ```{r cwed}
 #cwed2 <- read_csv(here::here("data", "cwed-subset.csv"))
@@ -254,20 +247,17 @@ df <- as.data.frame(gwip)
 
 df <- df %>%
   left_join(sied, by = "ISO3c") %>%
-  left_join(subset(rr_gwip, select = c(replacement_rate_perm, duration_perm, replacement_rate_temp, duration_temp, qualifying_period, ISO3c)), by = "ISO3c") %>%
   left_join(subset(dis_ilo, select = c(Dis_RR, ISO3c)), by = "ISO3c") %>%
   left_join(subset(gini, select = c(gini_disp, gini_mkt, ISO3c))) %>%
-  left_join(subset(geip, select = c(Coverage_pct_LF, `Program Type`, ISO3c)), by = "ISO3c") %>%
   left_join(subset(lfp_female, select = c(lfp_female, ISO3c)), by = "ISO3c") %>%
   left_join(subset(lfp_total, select = c(lfp_total, ISO3c)), by = "ISO3c") %>%
-  left_join(subset(global_south, select = c(Region, South, ISO3c)), by = "ISO3c") %>%
   left_join(subset(gdp, select = c(gdppc, pop, ISO3c)), by = "ISO3c") %>%
   subset(!is.na(ISO3c))
 ```
 
 ### Fixes
 
-TO DO: Add region
+#### Region
 
 ```{r region}
 df <- df %>%
@@ -318,25 +308,6 @@ df <- df %>%
   gdppc_k = gdppc/1000)
 ```
 
-#### Global South
-
-Make a dichotomous variable with 0 and 1 rather than character. And add colonial legacies
-```{r gs}
-df <- df %>%
-  mutate(global_south = ifelse(is.na(South), 0, 1))
-
-colonies <- read_csv(here::here("data", "colonial.csv")) %>%
-  mutate(ISO3c = countrycode(Country, "country.name", "iso3c"),
-         Colonial_Legacy = `Principal Colonial Power`) %>%
-  select(c(ISO3c, Colonial_Legacy))
-
-df <- df %>%
-  left_join(colonies, by = "ISO3c") %>%
-  mutate(Colonial_Legacy = ifelse(is.na(Colonial_Legacy), "None", Colonial_Legacy))
-```
-
-
-
 #### Var Labels
 
 ```{r labels}
@@ -368,7 +339,7 @@ df_labels <- as.data.frame(colnames(df)) %>%
            variables == "labor_workinjury_firstlaw" ~ "First work-injury law, source = GWIP v1.1",
            variables == "labor_workinjury_firstins" ~ "First law including risk-pooling (insurance or fund), source = GWIP v1.1",
            variables == "gdppc_k" ~ "GDP per capita in 1,000 US$ 2020, source = Maddisson 2020 & 26 countries Google (World Bank)",
-           variables == "Colonial_Legacy" ~ "Colonial Legacy, source = https://gist.github.com/caluchko",
+           variables == "Colonial_Legacy" ~ "Colonial Legacy, source = https://gist.github.com/caluchko with author updates for smaller countries",
            .default = NA)) %>%
   subset(., select = c(variables, labels))
 
