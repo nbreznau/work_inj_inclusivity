@@ -17,17 +17,17 @@
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.001 <sup>***</sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.994 <sup>***</sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.910 <sup>***</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.958 <sup>***</sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.960 <sup>***</sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;13.909 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.000 <sup>***</sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.993 <sup>***</sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">gini disp</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.001 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.001 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.002 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 </tr>
@@ -37,7 +37,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.246 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.248 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">29.978 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.235 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.220 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Eastern<br>Asia]</td>
@@ -45,7 +45,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.107 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.108 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">13.463 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.124 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.108 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Eastern<br>Europe]</td>
@@ -53,21 +53,21 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.317 <sup>*</sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.312 <sup>*</sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">13.789 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.291 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.276 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Latin<br>America and the<br>Caribbean]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.166 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.182 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">17.476 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.111 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.167 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.184 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">17.436 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.085 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Melanesia]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.149 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.162 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.163 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.788 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.149 <sup></sup></td>
 </tr>
@@ -75,7 +75,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor<br>[Micronesia]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.294 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.303 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.304 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.141 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.294 <sup></sup></td>
 </tr>
@@ -85,7 +85,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.015 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.023 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;53.987 <sup>*</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.039 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.041 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Northern<br>America]</td>
@@ -101,23 +101,23 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.081 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.086 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;13.938 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.107 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.122 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor<br>[South-eastern Asia]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.142 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.154 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">16.605 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.095 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.143 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.156 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">16.973 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.077 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Southern<br>Asia]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.116 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.126 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">14.849 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.124 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.144 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.156 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">13.537 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.145 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Southern<br>Europe]</td>
@@ -125,15 +125,15 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.089 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.087 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">13.438 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.080 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.065 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor<br>[Sub-Saharan Africa]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.114 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.133 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.898 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.052 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.122 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.141 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.731 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.059 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Western<br>Asia]</td>
@@ -141,7 +141,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.114 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.121 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">20.327 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.071 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.064 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Region factor [Western<br>Europe]</td>
@@ -149,7 +149,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.043 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.046 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">21.040 <sup></sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.026 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.042 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">labor workinjury firstlaw</td>
@@ -236,7 +236,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.008 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.007 <sup></sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 </tr>
 <tr>
@@ -277,7 +277,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.017 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.028 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history<br>[Germany]</td>
@@ -293,7 +293,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.067 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.096 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history [None]</td>
@@ -301,7 +301,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.108 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.084 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history<br>[Portugal]</td>
@@ -309,7 +309,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.034 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.041 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history<br>[Russian]</td>
@@ -317,7 +317,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.036 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.057 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history [Spain]</td>
@@ -325,7 +325,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.000 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.046 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history [UK]</td>
@@ -333,7 +333,7 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.090 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.083 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">colonial history<br>[Various]</td>
@@ -341,23 +341,23 @@
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.109 <sup></sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">&#45;0.076 <sup></sup></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">167</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">170</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">167</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">170</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">170</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">162</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">165</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">162</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">165</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">165</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.001 / -0.005</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.207 / 0.130</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.191 / 0.104</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.362 / 0.224</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.280 / 0.161</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.002 / -0.004</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.211 / 0.131</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.194 / 0.105</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.368 / 0.227</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">0.289 / 0.168</td>
 </tr>
 <tr>
 <td colspan="6" style="font-style:italic; border-top:double black; text-align:right;">* p&lt;0.05&nbsp;&nbsp;&nbsp;** p&lt;0.01&nbsp;&nbsp;&nbsp;*** p&lt;0.001</td>

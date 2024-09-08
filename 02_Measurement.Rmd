@@ -24,6 +24,10 @@ pacman::p_load(packages, character.only = T)
 
 df <- as.data.frame(read_csv(here::here("data", "df.csv")))
 df_labels <- as.data.frame(read_csv(here::here("data", "df_labels.csv")))
+
+#fix region
+df <- df %>%
+  mutate(Region_factor = as.factor(Region))
 ```
 
 ## Coverage
@@ -106,7 +110,7 @@ In further seeking to understand the differences in scores in coverage measures 
 ```{r pairwise_corr}
 cor1 <- df %>%
   mutate(diff_sied_geip = Coverage_pct_LF - Work_Inj_Cov_LF) %>%
-  subset(select = c(Coverage_pct_LF, Work_Inj_Cov_LF, diff_sied_geip, Sick_Cov_LF, Sick_Cov_Pop, gdppc_k, pop, lfp_total, lfp_female, Dis_RR, workinjury_replacement_rate_perm_2020, workinjury_replacement_rate_temp_2020, labor_workinjury_firstlaw, labor_workinjury_firstins)) %>%
+  subset(select = c(Coverage_pct_LF, Work_Inj_Cov_LF, diff_sied_geip, Sick_Cov_LF, Sick_Cov_Pop, gdppc_k, pop, lfp_total, lfp_female, Dis_RR, replacement_rate_perm_sspw, replacement_rate_temp_sspw, labor_workinjury_firstlaw, labor_workinjury_firstins)) %>%
 cor(., use = "pairwise.complete.obs") %>%
   round(.,3)
 
@@ -238,7 +242,7 @@ Temp is the replacement rate for the first 6 months of disability resulting from
 The hand coded data here, mostly from the ISSA, track the single worker replacement rate.
 
 ```{r gen}
-cov_cor <- subset(df, select = c(workinjury_replacement_rate_temp_2020, RR_Sing))
+cov_cor <- subset(df, select = c(replacement_rate_temp_sspw, RR_Sing))
 
 cov_cor_R <- cov_cor %>%
   cor(., use = "pairwise.complete.obs") %>%
@@ -249,7 +253,7 @@ cov_cor_P <- paste0("R = ", round(cov_cor_R,2)[1], ", (", round(cor.test(unlist(
 agg_png(here::here("results", "Fig4.png"), res = 144, width = 800, height = 550)
 
 df %>%
-ggplot(aes(workinjury_replacement_rate_temp_2020/100, RR_Sing)) +
+ggplot(aes(replacement_rate_temp_sspw/100, RR_Sing)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4, fullrange = T) +
   annotate(geom = "text", 
            size = 3, 
@@ -272,7 +276,7 @@ knitr::include_graphics(here::here("results", "Fig4.png"))
 
 ```{r gen}
 df %>%
-ggplot(aes(workinjury_replacement_rate_temp_2020/100, RR_Avg_Sing)) +
+ggplot(aes(replacement_rate_temp_sspw/100, RR_Avg_Sing)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   stat_cor(method = "pearson", 
            size = 2.5, 
@@ -291,7 +295,7 @@ Tracks family as well.
 
 ```{r gen}
 df %>%
-ggplot(aes(workinjury_replacement_rate_temp_2020/100, RR_Fam)) +
+ggplot(aes(replacement_rate_temp_sspw/100, RR_Fam)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   stat_cor(method = "pearson", 
            size = 2.5, 
@@ -309,8 +313,8 @@ ggplot(aes(workinjury_replacement_rate_temp_2020/100, RR_Fam)) +
 
 ```{r}
 cor2 <- df %>%
-  mutate(diff_sied_gwip = workinjury_replacement_rate_temp_2020 - RR_Avg_Sing) %>%
-  subset(select = c(workinjury_replacement_rate_temp_2020, RR_Avg_Sing, diff_sied_gwip, Sick_Cov_LF, Sick_Cov_Pop, gdppc_k, pop, lfp_total, lfp_female, Dis_RR, workinjury_replacement_rate_perm_2020, labor_workinjury_firstlaw, labor_workinjury_firstins)) %>%
+  mutate(diff_sied_gwip = replacement_rate_temp_sspw - RR_Avg_Sing) %>%
+  subset(select = c(replacement_rate_temp_sspw, RR_Avg_Sing, diff_sied_gwip, Sick_Cov_LF, Sick_Cov_Pop, gdppc_k, pop, lfp_total, lfp_female, Dis_RR, replacement_rate_perm_sspw, labor_workinjury_firstlaw, labor_workinjury_firstins)) %>%
 cor(., use = "pairwise.complete.obs") %>%
   round(.,3)
 
@@ -328,11 +332,11 @@ There are a few exceptions in SDN and SSD the replacement rate is determined to 
 
 ```{r regs_rr}
 
-m11 <- lm(RR_Sing ~ workinjury_replacement_rate_temp_2020, data = df)
-m12 <- lm(RR_Sing ~ workinjury_replacement_rate_temp_2020 + gdppc_k, data = df)
-m13 <- lm(RR_Sing ~ workinjury_replacement_rate_temp_2020 + lfp_total, data = df)
-m14 <- lm(RR_Sing ~ workinjury_replacement_rate_temp_2020 + pop, data = df)
-m15 <- lm(RR_Sing ~ workinjury_replacement_rate_temp_2020 + labor_workinjury_firstins, data = df)
+m11 <- lm(RR_Sing ~ replacement_rate_temp_sspw, data = df)
+m12 <- lm(RR_Sing ~ replacement_rate_temp_sspw + gdppc_k, data = df)
+m13 <- lm(RR_Sing ~ replacement_rate_temp_sspw + lfp_total, data = df)
+m14 <- lm(RR_Sing ~ replacement_rate_temp_sspw + pop, data = df)
+m15 <- lm(RR_Sing ~ replacement_rate_temp_sspw + labor_workinjury_firstins, data = df)
 
 tab_model(m11,m12,m13,m14,m15, digits = 3, p.style = "stars", show.ci = F, file = here::here("results", "Tbl4.doc"))
 
@@ -371,9 +375,9 @@ df %>%
   mutate(RR_Sing_Pred_Only = ifelse(is.na(RR_Sing), RR_Sing_Pred, NA),
          RR_Sing_I = ifelse(is.na(RR_Sing), RR_Sing_Pred, RR_Sing)) %>%
   ggplot() +
-  geom_smooth(aes(workinjury_replacement_rate_temp_2020/100, RR_Sing_I), method = "lm", se = F, size = 1, color = "#472D7BFF") +
-  geom_point(aes(workinjury_replacement_rate_temp_2020/100, RR_Sing_Pred_Only), color = "#B8DE29FF", size = 1.5) +
-  geom_point(aes(workinjury_replacement_rate_temp_2020/100, RR_Sing), color = "#33638DFF", size = 1.5) +
+  geom_smooth(aes(replacement_rate_temp_sspw/100, RR_Sing_I), method = "lm", se = F, size = 1, color = "#472D7BFF") +
+  geom_point(aes(replacement_rate_temp_sspw/100, RR_Sing_Pred_Only), color = "#B8DE29FF", size = 1.5) +
+  geom_point(aes(replacement_rate_temp_sspw/100, RR_Sing), color = "#33638DFF", size = 1.5) +
     annotate("text", 
            x = 0.75,
            y = 0.57,
@@ -457,7 +461,9 @@ tab_model(m31,m32,m33,m34,m35, digits = 3, show.ci = F, p.style = "stars", file 
 # Polynesia does not work as a single region, recode to micronesia for the imputation
 
 df <- df %>%
-  mutate(Region_factor = ifelse(Region_factor == "Polynesia", "Micronesia", Region_factor))
+  mutate(Region_factor = case_match(Region_factor,
+                                      "Polynesia" ~ "Micronesia",
+                                      .default = Region_factor))
 
 # The regression results are unclear as to which is the better predictor
 df$xx <- predict.lm(m32, newdata = df)
@@ -505,7 +511,7 @@ knitr::include_graphics(here::here("results", "Fig4.png"))
 ### Generate
 
 ```{r gwip20}
-df <- df %>%
+gwip20 <- df %>%
   mutate(cow_code = countrycode(ISO3c, "iso3c", "cown"),
          cow_code = ifelse(ISO3c == "PRI", 6, cow_code),
          cow_code = ifelse(ISO3c == "VNM", 817, cow_code),
@@ -514,26 +520,22 @@ df <- df %>%
          workinjury_coverage_SIED_imputed_full = round(Work_Inj_Cov_LF_imputed_full,3),
          workinjury_replacement_rate_single_SIED_imputed = round(RR_Sing_imputed,3),
          workinjury_replacement_rate_single_SIED_imputed_full = round(RR_Sing_imputed_full,3)) %>%
-  select(ISO3c, cow_code, workinjury_coverage_SIED_imputed, workinjury_coverage_SIED_imputed_full, workinjury_replacement_rate_single_SIED_imputed, workinjury_replacement_rate_single_SIED_imputed_full)
+  select(country_name, ISO3c, cow_code, everything()) %>%
+  select(-c(Work_Inj_Cov_LF, Sick_Cov_LF, Sick_Cov_Pop, RR_Sing, RR_Fam, RR_Avg_Sing, Dis_RR, gini_disp, gini_mkt, lfp_female, lfp_total, gdppc, pop, Region_factor, gdppc_k, Coverage_pct_LF, Work_Inj_Cov_LF_imputed, RR_Sing_imputed, lfp_total_I, Work_Inj_Cov_LF_imputed_full, RR_Sing_imputed_full))
+  
 
-gwip21 <- read_csv(here::here("data", "gwip21.csv"))
 
-gwip21 <- gwip21 %>%
-  left_join(df, by = "cow_code") %>%
-  mutate(labor_workinjury_firstlaw_sspw = as.numeric(labor_workinjury_firstlaw_sspw),
-         labor_workinjury_firstins = as.numeric(labor_workinjury_firstins)) %>%
-  select(country_name, cow_code, ISO3c, independence, labor_workinjury_firstlaw, labor_workinjury_firstins, labor_workinjury_first_fund, labor_workinjury_first_socins, labor_workinjury_first_socins_source, labor_workinjury_firstnat, labor_workinjury_firstnat_carriedover, labor_workinjury_firstlaw_programtype, labor_workinjury_firstlaw_sspw, labor_workinjury_firstlaw_whitecollar_fullcoverage, labor_workinjury_firstlaw_bluecollar_fullcoverage, labor_workinjury_firstins_bluecollar_fullcoverage, labor_workinjury_firstlaw_agriworkers_fullcoverage, workinjury_replacement_rate_perm_2020, workinjury_duration_perm_2020, workinjury_replacement_rate_temp_2020, workinjury_duration_temp_2020, Region, global_south, workinjury_coverage_GEIP, workinjury_coverage_WSPR, colonial_history, workinjury_coverage_SIED_imputed, workinjury_coverage_SIED_imputed_full, workinjury_replacement_rate_single_SIED_imputed, workinjury_replacement_rate_single_SIED_imputed_full)
 ```
 
 
 ### Codebook
 
 ```{r codes}
-gwip21_labels <- as.data.frame(colnames(gwip21))
+gwip20_labels <- as.data.frame(colnames(gwip20))
 
-colnames(gwip21_labels) <- "variables"
+colnames(gwip20_labels) <- "variables"
 
-gwip21_labels <- gwip21_labels %>%
+gwip20_labels <- gwip20_labels %>%
   mutate(label = case_when(
     variables == "country_name" ~ "Country name in English",
     variables == "cow_code" ~ "Correlates of War standard numeric country codes",
@@ -551,9 +553,9 @@ gwip21_labels <- gwip21_labels %>%
     variables == "labor_workinjury_firstlaw_whitecollar_fullcoverage" ~ "The year that all white-collar ('commerical') workers were legally covered. This does not necessarily include owners of their own businesses, but often does. This is considered full as long as undertakings with 5 or more employees are covered.", 
     variables == "labor_workinjury_firstins_bluecollar_fullcoverage" ~ "The year that all blue-collar workers are covered with a system that qualifies as social insurance or in rare cases as employer liability with compulsory insurance to the point that this insurance is legally embedded and enforced by the government",
     variables == "labor_workinjury_firstlaw_agriworkers_fullcoverage" ~ "The is the year that agricultural workers are covered by the work-injury law. Minimum undertakings with at least 5 workers.", 
-    variables == "workinjury_replacement_rate_perm_2020" ~ "The average replacement rate after a work-injury, for a permanent or apparently permanent disability for the first 12 months of incapacity, rate for 2020 or latest available, source = GWIP 2020",
+    variables == "replacement_rate_perm_sspw" ~ "The average replacement rate after a work-injury, for a permanent or apparently permanent disability for the first 12 months of incapacity, rate for 2020 or latest available, source = GWIP 2020",
     variables == "workinjury_duration_perm_2020" ~ "Duration of benefits calculated in replacement_rate_perm, under the assumption that the worker has or appears to have a permanent disability, source = GWIP 2020.",
-    variables == "workinjury_replacement_rate_temp_2020" ~ "The average replacement rate after a work-injury, from previous income for the first 6 months of incapacity to work in 2020 or latest available, source = GWIP 2020",
+    variables == "replacement_rate_temp_sspw" ~ "The average replacement rate after a work-injury, from previous income for the first 6 months of incapacity to work in 2020 or latest available, source = GWIP 2020",
     variables == "workinjury_duration_temp_2020" ~ "Duration of the temporary benefits calculated in replacement_rate_temp, source = GWIP 2020",
     variables == "Region" ~ "UN Sub-Region, derived from R package countrycode",
     variables == "global_south" ~ "A rough categorization of the world into Global North (colonizer) and South (colonized) countries, without treatment of China and Russia as colonizers",
@@ -564,19 +566,19 @@ gwip21_labels <- gwip21_labels %>%
     variables == "workinjury_replacement_rate_single_SIED_imputed_full" ~ "The SIED variable azrr26si, replacement rate after a work-injury for the first 6 months for a standard net single worker, imputed from replacement_rate_temp and socioeconomic/historical variables, rate for 2020 or latest, source = SIED 2020 & GWIP 2020"
   ))
 
-sum_gwip <- gwip21 %>%
+sum_gwip <- gwip20 %>%
   summarise_all(mean, na.rm = T)
 
-sd_gwip <- gwip21 %>%
+sd_gwip <- gwip20 %>%
   summarise_all(sd, na.rm = T)
 
-min_gwip <- gwip21 %>%
+min_gwip <- gwip20 %>%
   summarise_all(min, na.rm = T)
 
-max_gwip <- gwip21 %>%
+max_gwip <- gwip20 %>%
   summarise_all(max, na.rm = T)
 
-nonna_gwip <- as.data.frame(t(sapply(gwip21 , function( x ) sum( !is.na( x ) ) )))
+nonna_gwip <- as.data.frame(t(sapply(gwip20 , function( x ) sum( !is.na( x ) ) )))
 
 gwip_desc <- as.data.frame(t(rbind(sum_gwip, sd_gwip, min_gwip, max_gwip, nonna_gwip)))
 
@@ -598,9 +600,9 @@ write.csv(gwip_desc, here::here("Results", "gwip_desc.csv"))
 ### Save
 
 ```{r save}
-write_csv(gwip21, here::here("data", "gwip21_ext.csv"))
+write_csv(gwip20, here::here("data", "gwip20.csv"))
 
-write_csv(gwip21_labels, here::here("data", "gwip21_labels.csv"))
+write_csv(gwip20_labels, here::here("data", "gwip20_labels.csv"))
 
 ```
 

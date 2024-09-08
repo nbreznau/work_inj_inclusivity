@@ -1,0 +1,190 @@
+"country_name","cow_code","replacement_rate_perm_sspw","duration_perm_sspw","replacement_rate_temp_sspw","duration_temp_sspw","workinjury_coverage_GEIP","workinjury_coverage_WSPR"
+"Afghanistan",700,NA,NA,NA,NA,0,4.2
+"Albania",339,90,"60 months",75,"60 months",0.347,34
+"Algeria",615,90,"unlimited",100,"unlimited",0.538,53.8
+"Andorra",232,100,"unlimited",65,"unlimited",NA,NA
+"Angola",540,70,"unlimited",70,"unlimited",NA,NA
+"Antigua & Barbuda",58,NA,NA,NA,NA,NA,NA
+"Argentina",160,69,"53 months",100,"12 months",0.449,47.4
+"Armenia",371,100,"unlimited",80,"unlimited",0.593,53.2
+"Australia",900,75,"unlimited",95,"3.25 months",0.72,72
+"Austria",305,66.7,"unlimited",76.7,"unlimited",0.774,77.4
+"Azerbaijan",373,60,"variable",100,"unlimited",0.397,32.1
+"Bahamas",31,66.6,"unlimited",66.6,"10 months",0.826,67.4
+"Bahrain",692,75,"unlimited",100,"unlimited",0.846,61.7
+"Bangladesh",771,41.7,"12 months",41.7,"12 months",0.125,12.5
+"Barbados",53,85,"unlimited",90,"12 months",0.656,65
+"Belarus",370,45,"unlimited",100,"unlimited",0.709,70.9
+"Belgium",211,90,"unlimted",90,"unlimited",0.631,63.1
+"Belize",80,60,"unlimited",75,"6 months",0.806,71.4
+"Benin",434,90,"unlimited",66.7,"12 months",0.052,4
+"Bhutan",760,100,"12 months",70,"unlimited",NA,28.4
+"Bolivia",145,75,"unlimited",100,"6 months",0.16,24.6
+"Bosnia and Herzegovina",346,NA,NA,NA,NA,NA,NA
+"Botswana",571,100,"60 months",50,"6 months",0.431,NA
+"Brazil",140,90,"unlimited",91,"unlimited",0.565,48.7
+"Brunei",835,100,"60 months",66.7,"60 months",0.88,91.2
+"Bulgaria",355,47,"unlimited",90,"unlimited",0.662,86.8
+"Burkina Faso",439,85,"unlimited",66.7,"unlimited",0.055,8.2
+"Burundi",516,100,"unlimited",62,"6 months",0.049,3.5
+"Cambodia",811,70,"unlimited",75,"unlimited",NA,17.2
+"Cameroon",471,85,"unlimited",66.7,"unlimited",0.124,6.9
+"Canada",20,85,"unlimted",87.5,"unlimited",0.691,69.1
+"Cape Verde",402,70,"unlimited",66.7,"unlimited",0.566,50
+"Central African Republic",482,90,"192 months",63.8,"unlimited",0.139,NA
+"Chad",483,90,"unlimited",66.7,"unlimited",0.047,4.7
+"Chile",155,70,"unlimited",100,"12 months",0.76,68.7
+"China",710,85,"unlimited",100,"12 months",0.242,31.8
+"Colombia",100,75,"unlimited",100,"6 months",0.445,37.7
+"Comoros",581,NA,NA,NA,NA,NA,NA
+"Congo",484,NA,NA,NA,NA,0.142,14.2
+"Costa Rica",94,90,"unlimited",81.75,"24 months",0.601,58.1
+"Croatia",344,100,"18 months",100,"18 months",0.682,68
+"Cuba",40,70,"unlimited",80,"6 months",0.944,100
+"Cyprus",352,65,"unlimited",60,"unlimited",0.682,26.2
+"Czech Republic",316,75,"unlimited",100,"12 months",0.662,68.2
+"Democratic Republic of the Congo",490,80,"unlimited",66.7,"unlimited",0.262,66.2
+"Denmark",390,83,"unlimited",100,"5.5 months",0.88,88
+"Djibouti",522,90,"unlimited",70.8,"unlimited",NA,15.1
+"Dominica",54,70,"unlimited",60,"6 months",0.608,68.3
+"Dominican Republic",42,90,"unlimited",75,"12 months",NA,45.2
+"Ecuador",130,85,"unlimited",70.5,"24 months",0.49,43.1
+"Egypt",651,90,"unlimited",100,"unlimited",0.511,36
+"El Salvador",92,75,"unlimited",75,"12 months",0.268,30.7
+"Equatorial Guinea",411,NA,NA,NA,NA,0.145,14.5
+"Estonia",366,50,"unlimited",100,"6 months",0.768,76.8
+"Eswatini",572,NA,NA,NA,NA,0.626,NA
+"Ethiopia",530,59,"unlimited",87.5,"12 months",0.174,7.8
+"Federated States of Micronesia",987,NA,NA,NA,NA,NA,NA
+"Fiji",950,60,"60 months",66,"60 months",0.401,55.7
+"Finland",375,85,"unlimited",75,"unlimited",0.665,66.5
+"France",220,100,"unlimited",76.7,"unlimited",0.741,74.1
+"Gabon",481,90,"unlimited",100,"unlimited",0.45,45
+"Gambia",420,53,"unlimited",60,"6 months",0.234,23.4
+"Georgia",372,50,"variable",100,"unlimited",0.233,48.9
+"Germany",255,70,"unlimited",92.5,"6 months",0.63,100
+"Ghana",452,100,"96 months",100,"24 months",0.166,NA
+"Greece",350,45,"unlimited",60,"variable",0.469,46.9
+"Grenada",55,75,"unlimited",70,"12 months",0.607,92.4
+"Guatemala",90,50,"unlimited",60,"unlimited",0.656,18.6
+"Guinea",438,70,"unlimited",64,"unlimited",0.145,14.5
+"Guinea-Bissau",404,70,"unlimited",68,"unlimited",NA,NA
+"Guyana",110,70,"unlimited",70,"6 months",0.566,100
+"Haiti",41,60,"unlimited",66.7,"unlimited",0.157,2.1
+"Honduras",91,70,"unlimited",100,"6 months",0.163,15.5
+"Hungary",310,30,"unlimited",98,"6 months",0.783,78.3
+"Iceland",395,80,"unlimited",45,"12 months",0.951,95.1
+"India",750,80,"unlimited",90,"unlimited",0.079,3.7
+"Indonesia",850,70,"80 months",100,"6 months",0.287,22.5
+"Iran",630,100,"unlimited",75,"unlimited",0.387,21.3
+"Iraq",645,80,"unlimited",100,"12 months",NA,NA
+"Ireland",205,60,"unlimited",35,"5 months",0.718,71.8
+"Israel",666,75,"unlimited",67.5,"3 months",0.741,74.1
+"Italy",325,87.5,"unlimited",67.5,"unlimited",0.722,72.2
+"Ivory Coast",437,100,"unlimited",66.7,"variable",0.147,14.7
+"Jamaica",51,60,"unlimited",60,"12 months",0.52,NA
+"Japan",740,150,"unlimited",80,"unlimited",0.85,83.6
+"Jordan",663,75,"unlimited",75,"12 months",0.446,57.5
+"Kazakhstan",705,100,"36 months",100,"unlimited",0.561,75.4
+"Kenya",501,90,"96 months",50,"12 months",0.093,9.3
+"Kiribati",946,100,"48 months",90,"unlimited",0.328,NA
+"Kuwait",690,72,"unlimited",100,"6 months",0.951,95.1
+"Kyrgyzstan",703,40,"unlimited",100,"unlimited",0.44,64.6
+"Laos",812,75,"variable",70,"6 months",0.067,8
+"Latvia",367,90,"unlimited",80,"3 months",0.692,69.2
+"Lebanon",660,80,"26 months",75,"unlimited",0.478,47.8
+"Lesotho",570,100,"60 months",75,"6 months",NA,NA
+"Liberia",450,65,"unlimited",65,"unlimited",0.081,7.5
+"Libya",620,90,"unlimited",70,"12 months",NA,NA
+"Liechtenstein",223,80,"unlimited",50,"unlimited",NA,NA
+"Lithuania",368,75,"unlimited",100,"unlimited",0.647,64.7
+"Luxembourg",212,100,"unlimited",100,"12 months",0.771,77.1
+"Macedonia",343,NA,NA,NA,NA,NA,NA
+"Madagascar",580,90,"unlimited",66.7,"12 months",0.093,9.3
+"Malawi",553,90,"54 months",75,"unlimited",0.069,6.9
+"Malaysia",820,90,"unlimited",80,"6 months",0.362,49.8
+"Mali",432,90,"unlimited",100,"unlimited",0.091,5.3
+"Malta",338,40,"unlimited",56,"12 months",0.735,73.5
+"Marshall Islands",983,NA,NA,NA,NA,NA,NA
+"Mauritania",435,90,"unlimited",66.7,"unlimited",0.086,6.5
+"Mauritius",590,NA,NA,NA,NA,0.682,68.2
+"Mexico",70,70,"unlimited",100,"unlimited",0.493,35.4
+"Moldova",359,80,"unlimited",100,"6 months",0.602,71.6
+"Monaco",221,100,"unlimited",63.8,"unlimited",NA,NA
+"Mongolia",712,NA,NA,NA,NA,NA,76
+"Montenegro",341,NA,NA,NA,NA,NA,NA
+"Morocco",600,95,"unlimited",67,"unlimited",0.39,39
+"Mozambique",541,85,"unlimited",70,"unlimited",NA,6.2
+"Myanmar",775,NA,NA,NA,NA,NA,8.5
+"Namibia",565,70,"unlimited",75,"12 months",0.471,NA
+"Nepal",790,NA,NA,NA,NA,0.038,4.5
+"Netherlands",210,85,"26 months",85,"26 months",0.976,97.6
+"New Zealand",920,100,"unlimited",80,"12 months",1,100
+"Nicaragua",93,75,"unlimited",60,"6 months",0.449,22.8
+"Niger",436,100,"unlimited",63.8,"unlimited",0.09,6.9
+"Nigeria",475,90,"unlimited",100,"24 months",0.328,32.8
+"North Korea",731,NA,NA,NA,NA,NA,NA
+"Norway",385,95,"unlimited",100,"12 months",0.896,89.6
+"Oman",698,70,"unlimited",100,"6 months",0.402,9.5
+"Pakistan",770,65,"60 months",60,"6 months",0.286,2.7
+"Palau",986,NA,NA,NA,NA,NA,NA
+"Panama",95,55,"unlimited",73.3,"unlimited",0.596,60.2
+"Papua New Guinea",910,70,"unlimited",NA,NA,0.064,20.5
+"Paraguay",150,75,"unlimited",75,"12 months",0.321,22.4
+"Peru",135,80,"unlimited",100,"11 months",0.395,7.4
+"Philippines",840,60,"unlimited",90,"4 months",0.458,27.8
+"Poland",290,100,"12 months",100,"6 months",1,100
+"Portugal",235,90,"unlimited",70,"unlimited",0.773,77.3
+"Puerto Rico",6,NA,NA,NA,NA,NA,100
+"Qatar",694,100,"unlimited",100,"6 months",NA,NA
+"Vietnam, Republic of ",817,NA,NA,NA,NA,0.304,26.2
+"Romania",360,85,"variable",85,"6 months",0.631,63.1
+"Russia",365,100,"unlimited",100,"unlimited",0.744,100
+"Rwanda",517,85,"unlimited",75,"6 months",0.045,8.5
+"Samoa",990,NA,NA,NA,NA,0.535,53.5
+"San Marino",331,90,"unlimited",100,"unlimited",0.969,96.9
+"Sao Tome and Principe",403,70,"unlimited",98,"24 months",0.289,20.9
+"Saudi Arabia",670,100,"54 months",100,"unlimited",0.774,74.7
+"Senegal",433,100,"unlimited",63.9,"unlimited",0.273,10
+"Serbia",345,65,"unlimited",100,"unlimited",0.662,66.2
+"Seychelles",591,40,"unlimited",58,"6 months",0.691,69.1
+"Sierra Leone",451,100,"56 months",60,"96 months",0.061,NA
+"Singapore",830,80,"72 months",97,"12 months",0.726,86
+"Slovakia",317,75,"unlimited",45,"unlimited",0.664,66.4
+"Slovenia",349,35,"unlimited",100,"unlimited",0.802,80.5
+"Solomon Islands",940,100,"48 months",75,"unlimited",0.145,33.3
+"Somalia",520,100,"unlimited",67.5,"6 months",NA,NA
+"South Africa",560,75,"unlimited",75,"24 months",0.675,19.2
+"South Korea",732,70,"unlimited",75,"unlimited",0.852,85.2
+"South Sudan",626,83.3,"unlimited",0,"0 months",NA,NA
+"Spain",230,100,"unlimited",75,"12 months",0.483,76.2
+"Sri Lanka",780,25,"12 months",100,"60 months",0.423,58
+"St. Kitts and Nevis",60,75,"unlimited",75,"6 months",0.806,NA
+"St. Lucia",56,65,"variable",65,"12 months",0.495,53.6
+"St. Vincent and the Grenadines",57,60,"unlimited",70,"6 months",0.594,NA
+"Sudan",625,83.33,"unlimited",0,"0 months",0.0621,3
+"Suriname",115,80,"unlimited",80,"unlimited",NA,NA
+"Sweden",380,100,"unlimited",80,"12 months",0.848,84.8
+"Switzerland",225,80,"unlimited",70,"unlimited",0.667,66.7
+"Syria",652,80,"unlimited",96.7,"unlimited",0.478,47.8
+"Taiwan",713,80,"unlimited",70,"12 months",0.741,NA
+"Tajikistan",702,70,"unlimited",60,"4 months",NA,NA
+"Tanzania",510,70,"unlimited",70,"24 months",0.088,8.8
+"Thailand",800,70,"unlimited",70,"12 months",0.262,31
+"Togo",461,80,"unlimited",66.7,"unlimited",0.084,8.3
+"Trinidad and Tobago",52,60,"unlimited",66.7,"12 months",0.655,67.8
+"Tunisia",616,95,"unlimited",66.7,"6 months",0.42,28.9
+"Turkey",640,75,"variable",66.7,"variable",0.684,60.3
+"Turkmenistan",701,70,"unlimited",100,"unlimited",0.526,NA
+"Uganda",500,100,"60 months",67,"12 months",0.16,NA
+"Ukraine",369,70,"unlimited",100,"unlimited",0.641,NA
+"United Arab Emirates",696,NA,NA,NA,NA,NA,1.4
+"United Kingdom",200,35,"unlimited",30,"6 months",0.68,68
+"United States of America",2,60,"unlimited",66.7,"1.5 months",0.848,84.8
+"Uruguay",165,102,"unlimited",66.7,"unlimited",0.546,71.4
+"Uzbekistan",704,65,"unlimited",100,"unlimited",0.441,44.1
+"Vanuatu",935,NA,NA,NA,NA,NA,28.1
+"Venezuela",101,50,"unlimited",100,"unlimited",0.579,NA
+"Yemen",679,20,"12 months",NA,NA,0.377,9.9
+"Zambia",551,65,"unlimited",50,"24 months",0.119,NA
+"Zimbabwe",552,65,"unlimited",59.2,"18 months",0.254,12.4

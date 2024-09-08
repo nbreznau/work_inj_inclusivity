@@ -1,44 +1,21 @@
 variables,labels
 country_name,NA
-cow_code,NA
+cow_code,Correlates of War 3-digit alpha code
 independence,NA
 labor_workinjury_firstlaw,"First work-injury law, source = GWIP v1.1"
-labor_workinjury_firstlaw_source,NA
+labor_workinjury_firstlaw_sspw,NA
 labor_workinjury_firstins,"First law including risk-pooling (insurance or fund), source = GWIP v1.1"
-labor_workinjury_firstins_source,NA
 labor_workinjury_first_fund,NA
-labor_workinjury_first_fund_source,NA
-labor_workinjury_first_socins,NA
-labor_workinjury_first_socins_source,NA
-labor_workinjury_firstnat,NA
 labor_workinjury_firstnat_carriedover,NA
 labor_workinjury_firstlaw_programtype,NA
-**_source...15,NA
-labor_workinjury_firstlaw_sspw,NA
-labor_workinjury_firstlaw_whitecollar,NA
-labor_workinjury_firstlaw_whitecollar_coverage,NA
-labor_workinjury_firstlaw_whitecollar_fullcoverage,NA
-**_source...20,NA
-labor_workinjury_firstlaw_bluecollar,NA
-labor_workinjury_firstlaw_bluecollar_coverage,NA
 labor_workinjury_firstlaw_bluecollar_fullcoverage,NA
-**_source...24,NA
-labor_workinjury_firstins_bluecollar_fullcoverage,NA
-**_source...26,NA
-labor_workinjury_firstlaw_agriworkers,NA
-labor_workinjury_firstlaw_agriworkers_coverage,NA
-labor_workinjury_firstlaw_agriworkers_fullcoverage,NA
-**_source...30,NA
-workinjury_replacement_rate_perm_2020,NA
-workinjury_duration_perm_2020,NA
-workinjury_replacement_rate_temp_2020,NA
-workinjury_duration_temp_2020,NA
-Region,NA
-global_south,NA
-workinjury_coverage_GEIP,NA
-workinjury_coverage_WSPR,NA
-colonial_history,NA
 ISO3c,International Standards of Classification Country Alpha-3 Categorization
+replacement_rate_perm_sspw,NA
+duration_perm_sspw,NA
+replacement_rate_temp_sspw,NA
+duration_temp_sspw,NA
+workinjury_coverage_GEIP,"Percent of labor force de Facto covered by work-injury policy, source Global Empoyment Injury Protection ILO 2014"
+workinjury_coverage_WSPR,"Percent of labor force de Factor covered by work-injury policy, source ILO World Social Protection Report 2020-2022"
 year,Year for merging (observations are 2020 or closest)
 Work_Inj_Cov_LF,"(acovratl) Coverage ratio as proportion of labour force (ANOINSUR /ALABFORC), source, SIED 2020"
 Sick_Cov_LF,"(scovratl) Coverage of the labor force for work-injury policy, source = SIED 2020"
@@ -53,5 +30,7 @@ lfp_female,"Labor force participation among adult females, source = ILO 2020"
 lfp_total,"Labor force participation among all adults, source = ILO 2020"
 gdppc,"Gross Domestic Product per capita, source = Maddison 2020 & 26 very small countries Google (World Bank)"
 pop,"Population, source = Maddison 2020"
-Region_factor,NA
+Region,NA
+global_south,NA
+colonial_history,"Colonial Legacy, source = https://gist.github.com/caluchko with author updates for smaller countries"
 gdppc_k,"GDP per capita in 1,000 US$ 2020, source = Maddisson 2020 & 26 countries Google (World Bank)"

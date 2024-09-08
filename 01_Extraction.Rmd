@@ -22,7 +22,7 @@ pacman::p_load(packages, character.only = T)
 
 Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), <https://doi.org/10.7910/DVN/IVKYIE/EYP0PB>, Harvard Dataverse, V1.1
 
-**Note** there were major updates to the GWIP v2. Now we are at v2.1. This version already contains the coverage data from the ILO
+**Note** we use GWIP_v1.1 which is slightly updated from GWIP_v1.
 
 Notes for the current replacement rate scores.
 - These are for single workers if this can be calculated. Often the information is lacking to determine exactly what a worker gets depending on family situation
@@ -33,7 +33,7 @@ Notes for the current replacement rate scores.
 - Decentralized systems (by state or province), we try to take the average by state.
 
 ```{r gwip}
-gwip <- read_csv(here::here("data", "gwip21.csv")) %>%
+gwip <- read_csv(here::here("data", "gwip_v11.csv")) %>%
   mutate(ISO3c = countrycode(country_name, "country.name", "iso3c"),
          ISO3c = ifelse(country_name == "Republic of Vietnam", "VNM",
                         ifelse(country_name == "Serbia", "SRB",
@@ -43,7 +43,7 @@ gwip <- read_csv(here::here("data", "gwip21.csv")) %>%
 
 ```
 
-### ILO
+### ILO & SSPW
 
 The ILO released an impressive and comprehensive database of work-injury insurance coverage in 2014. It appears that this program was discontinued or at least has not been updated since then.
 
@@ -55,7 +55,16 @@ This we can verify by looking at an even more impressive and most recently relea
 
 ILO. 2021. ["World Social Protection Report"](https://www.ilo.org/publications/flagship-reports/world-social-protection-report-2020-22-social-protection-crossroads-pursuit).
 
-To make things easier we have added both of these data to the GWIP in the file `gwip21.csv`, available in the `/data` folder of this project. Users can otherwise find the original data in the files as `EIIP.csv` and `Social_Prot_Report_Tbl4.2_2020`.
+Users can otherwise find the original data in the files as `EIIP.csv` and `Social_Prot_Report_Tbl4.2_2020` which we laredy combined in the file `data/ilo_sspw_2020.csv`
+
+We also hand coded the Social Security Programs Throughout the World (SSPW) 2018/2019 edition from https://www.ssa.gov/policy/docs/progdesc/ssptw/. We coded permanent and temporary replacement rates and their duration. More details available in the forthcoming technical paper. These data are also in the file `data/ilo_sspw_2020.csv`
+
+```{r ilo_sspw}
+ilo_sspw <- read.csv(here::here("data", "ilo_sspw_2020.csv")) %>%
+  select(-country_name)
+```
+
+
 
 ### SPIN - SIED
 
@@ -246,6 +255,7 @@ df <- as.data.frame(gwip)
 # Add collected data
 
 df <- df %>%
+  left_join(ilo_sspw, by = "cow_code") %>%
   left_join(sied, by = "ISO3c") %>%
   left_join(subset(dis_ilo, select = c(Dis_RR, ISO3c)), by = "ISO3c") %>%
   left_join(subset(gini, select = c(gini_disp, gini_mkt, ISO3c))) %>%
@@ -255,18 +265,21 @@ df <- df %>%
   subset(!is.na(ISO3c))
 ```
 
+
 ### Fixes
 
-#### Region
+#### Background
 
-```{r region}
+We add colonial legacy (including Russia/USSR), an indicator of being in the so called 'Global South' and UN region. 
+
+```{r background}
+
+background <- read.csv(here::here("data", "background.csv"))
+
 df <- df %>%
-  mutate(Region = countrycode(ISO3c, "iso3c", "un.regionsub.name"),
-         Region = ifelse(ISO3c == "TWN", "Eastern Asia", Region),
-         Region_factor = as.factor(Region))
-
-
+  left_join(background, by = "cow_code")
 ```
+
 
 #### GDP
 
@@ -314,6 +327,7 @@ df <- df %>%
 df_labels <- as.data.frame(colnames(df)) %>%
   mutate(variables = `colnames(df)`,
          labels = case_when(
+           variables == "cow_code" ~ "Correlates of War 3-digit alpha code",
            variables == "ISO3c" ~ "International Standards of Classification Country Alpha-3 Categorization",
            variables == "year" ~ "Year for merging (observations are 2020 or closest)",
            variables == "Work_Inj_Cov_LF" ~ "(acovratl) Coverage ratio as proportion of labour force (ANOINSUR /ALABFORC), source, SIED 2020",
@@ -330,7 +344,8 @@ df_labels <- as.data.frame(colnames(df)) %>%
            variables == "Dis_RR" ~ "The ratio of income for a person with disability to one without, source = ILO 2020",
            variables == "gini_disp" ~ "Disposable Gini. The income inequality Gini after taxes and transfers, source = Solt 2020",
            variables == "gini_mkt" ~ "Market Gini. The income inequality Gini before taxes and transfers, source = ILO 2020",
-           variables == "Coverage_pct_LF" ~ "Percent of labor force de Facto covered by work-injury policy, source Global Empoyment Injury Protection ILO 2014",
+           variables == "workinjury_coverage_GEIP" ~ "Percent of labor force de Facto covered by work-injury policy, source Global Empoyment Injury Protection ILO 2014",
+           variables == "workinjury_coverage_WSPR" ~ "Percent of labor force de Factor covered by work-injury policy, source ILO World Social Protection Report 2020-2022",
            variables == "`Program Type`" ~ "Program type based on GEIP 2014, source ILO 2014",
            variables == "lfp_female" ~ "Labor force participation among adult females, source = ILO 2020",
            variables == "lfp_total" ~ "Labor force participation among all adults, source = ILO 2020",
@@ -339,7 +354,7 @@ df_labels <- as.data.frame(colnames(df)) %>%
            variables == "labor_workinjury_firstlaw" ~ "First work-injury law, source = GWIP v1.1",
            variables == "labor_workinjury_firstins" ~ "First law including risk-pooling (insurance or fund), source = GWIP v1.1",
            variables == "gdppc_k" ~ "GDP per capita in 1,000 US$ 2020, source = Maddisson 2020 & 26 countries Google (World Bank)",
-           variables == "Colonial_Legacy" ~ "Colonial Legacy, source = https://gist.github.com/caluchko with author updates for smaller countries",
+           variables == "colonial_history" ~ "Colonial Legacy, source = https://gist.github.com/caluchko with author updates for smaller countries",
            .default = NA)) %>%
   subset(., select = c(variables, labels))
 
