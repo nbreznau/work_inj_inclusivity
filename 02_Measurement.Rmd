@@ -34,7 +34,7 @@ df <- df %>%
 
 ### Coverage Adjust
 
-We have 2 ILO variables for coverage, as they differ sometimes between the GEIP and WSPR, we take the average. WSPR must be divided by 10 as it is in percentage and GEIP in ratio.
+We have 2 ILO variables for coverage, as they differ sometimes between the GEIP and WSPR, we take the average. WSPR must be divided by 100 as it is in percentage and GEIP in ratio.
 
 The most comprehensive data relates to coverage, therefore I start here to develop improvements in measurement and impute missing values. Then I simply call it the ILO data from here on.
 
@@ -47,7 +47,7 @@ df <- df %>%
 ```
 
 
-A first issue relates to some incompatibilities of the SIED and the GEIP. Although the former is from 2020 and the latter from 2014, the legal coverage of the labor force should not be so different. It has not changed in most rich countries. The correlation is around 0.5. 
+A first issue relates to some incompatibilities of the SIED and the GEIP. Although the former is from 2020 and the latter from 2014, the legal coverage of the labor force should not be so different. It has not changed in most rich countries. The correlation is slightly above 0.5. 
 
 ### Fig 1. Comparing SIED & GEIP
 
@@ -274,7 +274,7 @@ knitr::include_graphics(here::here("results", "Fig4.png"))
 
 ### Fig Extra. Replacement Rates GEIP & SIED. RR Temp, Average Single Worker
 
-```{r gen}
+```{r gen2}
 df %>%
 ggplot(aes(replacement_rate_temp_sspw/100, RR_Avg_Sing)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
@@ -293,7 +293,7 @@ ggplot(aes(replacement_rate_temp_sspw/100, RR_Avg_Sing)) +
 
 Tracks family as well. 
 
-```{r gen}
+```{r gen3}
 df %>%
 ggplot(aes(replacement_rate_temp_sspw/100, RR_Fam)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
@@ -419,7 +419,7 @@ Now we make a larger leap into imputing countries for which there are no data in
 #### Coverage
 
 ```{r fullimp_cov}
-# briefly mean impute lfp_total for prediction purposes
+# mean impute lfp_total for prediction purposes
 
 df <- df %>%
   mutate(lfp_total_I = ifelse(is.na(lfp_total), mean(df$lfp_total, na.rm = T), lfp_total))
@@ -449,6 +449,13 @@ df$ISO3c[is.na(df$Work_Inj_Cov_LF_imputed_full)]
 Tested gdppc & LFP, no effects
 
 ```{r fullim_gen}
+# Polynesia does not work as a single region, recode to micronesia for the regression
+
+df <- df %>%
+  mutate(Region_factor = case_match(Region_factor,
+                                      "Polynesia" ~ "Micronesia",
+                                      .default = Region_factor))
+
 m31 <- lm(RR_Sing_imputed ~ gini_disp, data = df)
 m32 <- lm(RR_Sing_imputed ~ Region_factor, data = df)
 m33 <- lm(RR_Sing_imputed ~ gini_disp + Region_factor, data = df)
@@ -458,21 +465,18 @@ m35 <- lm(RR_Sing_imputed ~ as.factor(colonial_history) + Region_factor, data = 
 
 tab_model(m31,m32,m33,m34,m35, digits = 3, show.ci = F, p.style = "stars", file = here::here("results", "Tbl5.doc"))
 
-# Polynesia does not work as a single region, recode to micronesia for the imputation
 
-df <- df %>%
-  mutate(Region_factor = case_match(Region_factor,
-                                      "Polynesia" ~ "Micronesia",
-                                      .default = Region_factor))
 
 # The regression results are unclear as to which is the better predictor
 df$xx <- predict.lm(m32, newdata = df)
 df$xxx <- predict.lm(m34, newdata = df)
 
-# then recode back
+# then recode back for an accurate dataset in the end
 
 df <- df %>%
-  mutate(Region_factor = ifelse(ISO3c == "PYF", "Polynesia", Region_factor))
+  mutate(Region_factor = case_match(ISO3c,
+                                    "PYF" ~ "Polynesia",
+                                    .default = Region_factor))
 
 df <- df %>%
   mutate(RR_Sing_imputed_full_32 = ifelse(is.na(RR_Sing_imputed), xx, RR_Sing_imputed),
@@ -486,7 +490,7 @@ m32 and m34 have potentially useful prediction results, compare them to see how 
 
 ```{r compare}
 
-agg_png(filename = here::here("results", "Fig4.png"), res = 144, width = 750, height = 500)
+agg_png(filename = here::here("results", "Fig6.png"), res = 144, width = 750, height = 500)
 
 df %>%
   ggplot(aes(y = RR_Sing_imputed_full_32, x = RR_Sing_imputed_full_34)) +
@@ -502,7 +506,7 @@ df <- df %>%
   mutate(RR_Sing_imputed_full =  RR_Sing_imputed_full_32) %>%
   select(-c(RR_Sing_imputed_full_32, RR_Sing_imputed_full_34))
 
-knitr::include_graphics(here::here("results", "Fig4.png"))
+knitr::include_graphics(here::here("results", "Fig6.png"))
 
 ```
 
@@ -550,9 +554,8 @@ gwip20_labels <- gwip20_labels %>%
     variables == "labor_workinjury_firstnat_carriedover" ~ "This variable indicates, whether a law from colonial, foreign or imperial rule is carried over after independence. The exceptions are states that became nation states and carried the law over and did not have a geopolitical change (i.e., boundaries stayed the same); for these cases the first national law could come while not a fully autonomous nation state",
     variables == "labor_workinjury_firstlaw_programtype" ~ "The program type of a work-injury law can either be **Risk-Pooling**, meaning that there is some kind of mandatory risk pooling or **Employer liability** meaning that there is no involvement of the state in financing and risk pooling, only an obligation for the employers to compensate in the case of work accidents. In this version of the variable, **Risk-Pooling** refers to either provident funds set up by the state or made mandatory by the state or actual social insurance with a private or state carrier (as with the coding of labor_workinjury_firstins). **Employer liability** is not the same as common or civil law codes that assign fault in case of injury. **Employer liability** means that there is a specific law targeting employers in industrial accidents and deaths as something more than basic common and civil codes. This is a variable constructed from a combination of labor_workinjury_firstlaw, labor_workinjury_first_fund, and labor_workinjury_first_socins",
     variables == "labor_workinjury_firstlaw_bluecollar_fullcoverage" ~ "This is the year of full coverage for all blue-collar groups: manual labor; excluding agriculture and domestic workers. All means at least two-thirds, or all the major sectors of industry; exceptions should not be occupation or industry-specific. We code this as covering all as long as all enterprises with at least 5 or more employees are covered.",
-    variables == "labor_workinjury_firstlaw_whitecollar_fullcoverage" ~ "The year that all white-collar ('commerical') workers were legally covered. This does not necessarily include owners of their own businesses, but often does. This is considered full as long as undertakings with 5 or more employees are covered.", 
-    variables == "labor_workinjury_firstins_bluecollar_fullcoverage" ~ "The year that all blue-collar workers are covered with a system that qualifies as social insurance or in rare cases as employer liability with compulsory insurance to the point that this insurance is legally embedded and enforced by the government",
-    variables == "labor_workinjury_firstlaw_agriworkers_fullcoverage" ~ "The is the year that agricultural workers are covered by the work-injury law. Minimum undertakings with at least 5 workers.", 
+    variables == "workinjury_coverage_GEIP" ~ "Coverage rates from the ILO's Global Employment Injury Protection study of 2014",
+    variables == "workinjury_coverage_WSPR" ~ "Coverage rates from the ILO's World Social Protection Report study of 2021",
     variables == "replacement_rate_perm_sspw" ~ "The average replacement rate after a work-injury, for a permanent or apparently permanent disability for the first 12 months of incapacity, rate for 2020 or latest available, source = GWIP 2020",
     variables == "workinjury_duration_perm_2020" ~ "Duration of benefits calculated in replacement_rate_perm, under the assumption that the worker has or appears to have a permanent disability, source = GWIP 2020.",
     variables == "replacement_rate_temp_sspw" ~ "The average replacement rate after a work-injury, from previous income for the first 6 months of incapacity to work in 2020 or latest available, source = GWIP 2020",
@@ -584,7 +587,7 @@ gwip_desc <- as.data.frame(t(rbind(sum_gwip, sd_gwip, min_gwip, max_gwip, nonna_
 
 colnames(gwip_desc) <- c("Mean", "SD", "Min", "Max", "N")
 
-gwip_desc <- gwip_desc[!(rownames(gwip_desc) %in% c("country_name", "ISO3c", "cow_code", "labor_workinjury_firstlaw_programtype", "Region", "Colonial_Legacy", "workinjury_duration_perm_2020", "workinjury_duration_temp_2020","labor_workinjury_firstnat_carriedover")),]
+gwip_desc <- gwip_desc[!(rownames(gwip_desc) %in% c("country_name", "ISO3c", "cow_code", "labor_workinjury_firstlaw_programtype", "Region", "Colonial_Legacy", "workinjury_duration_perm_2020_sspw", "workinjury_duration_temp_2020_sspw","labor_workinjury_firstnat_carriedover")),]
 
 gwip_desc[,1] <- as.numeric(gwip_desc[,1])
 gwip_desc[,2] <- as.numeric(gwip_desc[,2])
@@ -592,7 +595,7 @@ gwip_desc[,3] <- as.numeric(gwip_desc[,3])
 gwip_desc[,4] <- as.numeric(gwip_desc[,4])
 gwip_desc[,5] <- as.numeric(gwip_desc[,5])
 
-gwip_desc <- round(gwip_desc, 0)
+gwip_desc <- round(gwip_desc, 2)
 
 write.csv(gwip_desc, here::here("Results", "gwip_desc.csv"))
 ```

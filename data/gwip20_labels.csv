@@ -14,8 +14,8 @@ replacement_rate_perm_sspw,"The average replacement rate after a work-injury, fo
 duration_perm_sspw,NA
 replacement_rate_temp_sspw,"The average replacement rate after a work-injury, from previous income for the first 6 months of incapacity to work in 2020 or latest available, source = GWIP 2020"
 duration_temp_sspw,NA
-workinjury_coverage_GEIP,NA
-workinjury_coverage_WSPR,NA
+workinjury_coverage_GEIP,Coverage rates from the ILO's Global Employment Injury Protection study of 2014
+workinjury_coverage_WSPR,Coverage rates from the ILO's World Social Protection Report study of 2021
 year,NA
 Region,"UN Sub-Region, derived from R package countrycode"
 global_south,"A rough categorization of the world into Global North (colonizer) and South (colonized) countries, without treatment of China and Russia as colonizers"
