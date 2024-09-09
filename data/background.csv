@@ -20,7 +20,7 @@
 434,Sub-Saharan Africa,1,France
 760,Southern Asia,1,None
 145,Latin America and the Caribbean,1,Spain
-346,,1,None
+346,Eastern Europe,1,None
 571,Sub-Saharan Africa,1,UK
 140,Latin America and the Caribbean,1,Portugal
 835,South-eastern Asia,1,UK
@@ -99,7 +99,7 @@
 223,Western Europe,0,None
 368,Northern Europe,0,Russian
 212,Western Europe,0,None
-343,,1,None
+343,Eastern Europe,1,None
 580,Sub-Saharan Africa,1,France
 553,Sub-Saharan Africa,1,UK
 820,South-eastern Asia,1,UK
@@ -112,7 +112,7 @@
 359,Eastern Europe,0,Russian
 221,Western Europe,0,None
 712,Eastern Asia,1,None
-341,,1,None
+341,Eastern Europe,1,None
 600,Northern Africa,1,France
 541,Sub-Saharan Africa,1,Portugal
 775,South-eastern Asia,1,UK

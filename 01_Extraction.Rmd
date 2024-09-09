@@ -40,6 +40,9 @@ gwip <- read_csv(here::here("data", "gwip_v11.csv")) %>%
                                ifelse(country_name == "Puerto Rico", "PRI", ISO3c))),
          labor_workinjury_firstins = ifelse(labor_workinjury_firstins == "none", NA, as.numeric(labor_workinjury_firstins)))
 
+# there are some -99 that are missing values
+gwip[gwip == -99] <- NA
+
 
 ```
 

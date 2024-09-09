@@ -535,6 +535,7 @@ gwip20 <- df %>%
 ### Codebook
 
 ```{r codes}
+
 gwip20_labels <- as.data.frame(colnames(gwip20))
 
 colnames(gwip20_labels) <- "variables"
