@@ -27,7 +27,7 @@ gwip20 <- as.data.frame(read_csv(here::here("data", "gwip20.csv")))
 gwip20_labels <- as.data.frame(read_csv(here::here("data", "gwip20_labels.csv")))
 ```
 
-### Figure 3. GWIP Coverage Map
+### Figure 1. GWIP Coverage Map
 
 #### Setup
 
@@ -55,10 +55,10 @@ rm(gwip20_GRL)
 #### Plot Fig
 
 ```{r fig1plot}
-agg_png(here::here("results", "map1.png"), width = 1000, height = 800, res = 144)
+agg_png(here::here("results", "Fig1.png"), width = 1000, height = 800, res = 144)
 
 map1 <- wi_map %>%
-  mutate(y = 100*workinjury_coverage_SIED_imputed_full) %>%
+  mutate(y = 100*workinjury_coverage_SIED_harmo_full) %>%
   ggplot() +
   geom_sf(aes(fill = y), size = 0.15) +
     scale_fill_binned(type = "viridis",
@@ -77,16 +77,16 @@ map1
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "map1.png"))
+knitr::include_graphics(here::here("results", "Fig1.png"))
 ```
 
-### Figure 7. RR Map
+### Figure 2. RR Map
 
 ```{r fig7}
-agg_png(here::here("results", "map2.png"), width = 1000, height = 800, res = 144)
+agg_png(here::here("results", "Fig2.png"), width = 1000, height = 800, res = 144)
 
 map2 <- wi_map %>%
-  mutate(y = 100*workinjury_replacement_rate_single_SIED_imputed_full) %>%
+  mutate(y = 100*workinjury_replacement_rate_single_SIED_harmo_full) %>%
   ggplot() +
   geom_sf(aes(fill = y), size = 0.15) +
     scale_fill_binned(type = "viridis",
@@ -106,7 +106,7 @@ map2
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "map2.png"))
+knitr::include_graphics(here::here("results", "Fig2.png"))
 ```
 
 ### Variation in 2020
@@ -130,22 +130,33 @@ agdata <- read_csv(here::here("data", "percent_ag_wb.csv")) %>%
 gwip20 <- gwip20 %>%
   left_join(agdata, by = "ISO3c") 
 ```
+##### Inverse Cov RR
 
-#### Figure 8. Coverage by percent Agriculture
+There is an inverse association between coverage and replacement rates.
 
-##### Global South
+```{r inv_cov}
+r_invcov <- round(cor(gwip20$workinjury_replacement_rate_single_SIED_harmo_full, gwip20$workinjury_coverage_SIED_harmo_full),3)
+
+r_p <- corr.test(gwip20$workinjury_replacement_rate_single_SIED_harmo_full, gwip20$workinjury_coverage_SIED_harmo_full)$p
+
+paste0("R = ", r_invcov, ", p =", round(r_p,3))
+```
+
+### Figure 3 & 4. Coverage by percent Agriculture
+
+#### Global South
 
 ```{r fig8a}
-agg_png(here::here("results", "Fig8.png"), res = 144, width = 1200, height = 1000)
+agg_png(here::here("results", "Fig3.png"), res = 144, width = 1200, height = 1000)
 
 gwip20 %>%
   subset(global_south == 1) %>%
   mutate(ag_pct_non = 100-ag_pct,
          ag_pct_non = ifelse(ag_pct_non < 25, 25, ag_pct_non)) %>%
-  ggplot(aes(ag_pct_non, workinjury_coverage_SIED_imputed_full, label = ISO3c)) +
+  ggplot(aes(ag_pct_non, workinjury_coverage_SIED_harmo_full, label = ISO3c)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   geom_text_repel(max.overlaps = Inf) +
-    stat_cor(aes(ag_pct_non, workinjury_coverage_SIED_imputed_full),
+    stat_cor(aes(ag_pct_non, workinjury_coverage_SIED_harmo_full),
            color = "#472D7BFF",
            label.x = 88,
            label.y = 0.05) +
@@ -157,23 +168,23 @@ gwip20 %>%
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "Fig8.png"))
+knitr::include_graphics(here::here("results", "Fig3.png"))
 ```
-##### Global North
+#### Global North
 
 ```{r fig8b}
-agg_png(here::here("results", "Fig8b.png"), res = 144, width = 1200, height = 1000)
+agg_png(here::here("results", "Fig4.png"), res = 144, width = 1200, height = 1000)
 
 gwip20 %>%
   subset(global_south == 0) %>%
   mutate(ag_pct_non = 100-ag_pct,
          ag_pct_non = ifelse(ag_pct_non < 25, 25, ag_pct_non)) %>%
-  ggplot(aes(ag_pct_non, workinjury_coverage_SIED_imputed_full, label = ISO3c)) +
+  ggplot(aes(ag_pct_non, workinjury_coverage_SIED_harmo_full, label = ISO3c)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   geom_text_repel(max.overlaps = Inf) +
   xlim(90,100) +
   ylim(0.65,1) +
-  stat_cor(aes(ag_pct_non, workinjury_coverage_SIED_imputed_full),
+  stat_cor(aes(ag_pct_non, workinjury_coverage_SIED_harmo_full),
            color = "#472D7BFF",
            label.x = 97,
            label.y = 0.67) +
@@ -183,7 +194,7 @@ gwip20 %>%
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "Fig8b.png"))
+knitr::include_graphics(here::here("results", "Fig4.png"))
 ```
 ### Institutions
 
@@ -214,19 +225,19 @@ gwip20 <- gwip20 %>%
   
 ```
 
-#### Fig 10. Coverage and Year
+#### Fig 5. Coverage and Year
 
 ```{r fig10}
-agg_png(here::here("results", "Fig10.png"), res = 144, width = 1200, height = 800)
+agg_png(here::here("results", "Fig5.png"), res = 144, width = 1200, height = 800)
 
 gwip20 %>%
   mutate(duration = 2020 - labor_workinjury_firstlaw) %>%
-  ggplot(aes(duration, workinjury_coverage_SIED_imputed_full)) +
+  ggplot(aes(duration, workinjury_coverage_SIED_harmo_full)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   geom_point() +
   #xlim(90,100) +
   #ylim(0.65,1) +
-  stat_cor(aes(duration, workinjury_coverage_SIED_imputed_full),
+  stat_cor(aes(duration, workinjury_coverage_SIED_harmo_full),
            color = "#472D7BFF",
            label.x = 130,
            label.y = 0.1
@@ -237,32 +248,32 @@ gwip20 %>%
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "Fig10.png"))
+knitr::include_graphics(here::here("results", "Fig5.png"))
 ```
 
 
-#### Fig 11. Replacement Rates and Individualism
+#### Fig 6. Replacement Rates and Individualism
 
 ```{r fig11}
-agg_png(here::here("results", "Fig11.png"), res = 144, width = 1200, height = 900)
+agg_png(here::here("results", "Fig6.png"), res = 144, width = 1200, height = 900)
 
 gwip20 %>%
-  ggplot(aes(individualism, workinjury_replacement_rate_single_SIED_imputed_full, label = ISO3c)) +
+  ggplot(aes(individualism, workinjury_replacement_rate_single_SIED_harmo_full, label = ISO3c)) +
   geom_smooth(method = "lm", color = "#472D7BFF", size = 0.4) +
   geom_text_repel(max.overlaps = Inf) +
   #xlim(90,100) +
-  #ylim(0.2,1) +
-  stat_cor(aes(individualism, workinjury_replacement_rate_single_SIED_imputed_full),
+  ylim(0.51,1.37) +
+  stat_cor(aes(individualism, workinjury_replacement_rate_single_SIED_harmo_full),
            color = "#472D7BFF",
            label.x = -1.4,
-           label.y = 0.4) +
+           label.y = 0.52) +
   xlab("Cultural Individualism Values, Averaged") +
   ylab("Work-Injury Replacement Rate\n26-Weeks Incapacity") +
   theme_classic()
 
 dev.off()
 
-knitr::include_graphics(here::here("results", "Fig11.png"))
+knitr::include_graphics(here::here("results", "Fig6.png"))
 ```
 
 ## Colophon

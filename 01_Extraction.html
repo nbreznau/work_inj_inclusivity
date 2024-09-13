@@ -394,7 +394,10 @@ the average by state.</p>
          ISO3c = ifelse(country_name == &quot;Republic of Vietnam&quot;, &quot;VNM&quot;,
                         ifelse(country_name == &quot;Serbia&quot;, &quot;SRB&quot;,
                                ifelse(country_name == &quot;Puerto Rico&quot;, &quot;PRI&quot;, ISO3c))),
-         labor_workinjury_firstins = ifelse(labor_workinjury_firstins == &quot;none&quot;, NA, as.numeric(labor_workinjury_firstins)))</code></pre>
+         labor_workinjury_firstins = ifelse(labor_workinjury_firstins == &quot;none&quot;, NA, as.numeric(labor_workinjury_firstins)))
+
+# there are some -99 that are missing values
+gwip[gwip == -99] &lt;- NA</code></pre>
 </div>
 <div id="ilo-sspw" class="section level3">
 <h3>ILO &amp; SSPW</h3>
@@ -472,31 +475,37 @@ period of work accident benefit, excluding prior half-year’s wage income
 from numerator and denominator</td>
 </tr>
 <tr class="even">
-<td>az4ind</td>
-<td>(a1stners+a1stnerf+azrr26si+azrr26fa)/4. Average of four components:
-a single person and a four-person family, for first week after waiting
-days and 26 weeks with benefits</td>
+<td>artsw26s</td>
+<td>Standard gross single worker replacement rate for total 26-week
+period of work accident benefit</td>
+</tr>
+<tr class="odd">
+<td>artsw26f</td>
+<td>Standard gross familied worker replacement rate for total 26-week
+period of work accident benefit</td>
 </tr>
 </tbody>
 </table>
 <pre class="r"><code>sied &lt;- read_csv(here::here(&quot;data&quot;, &quot;SIED 1930–2020 (2023-06).csv&quot;)) %&gt;%
   subset(year &gt; 2000) %&gt;%
   mutate(ISO3c = country) %&gt;%
-  select(ISO3c, year, acovratl, scovratl, scovratp, azrr26si, azrr26fa, az4ind) %&gt;% 
+  select(ISO3c, year, acovratl, scovratl, scovratp, azrr26si, azrr26fa, az4ind, artsw26s, artsw26f) %&gt;% 
   group_by(ISO3c) %&gt;%
   mutate(Work_Inj_Cov_LF = max(acovratl, na.rm = T),
          Sick_Cov_LF = max(scovratl, na.rm = T),
          Sick_Cov_Pop = max(scovratp, na.rm = T),
          RR_Sing = max(azrr26si, na.rm = T),
          RR_Fam = max(azrr26fa, na.rm = T),
-         RR_Avg_Sing = max(az4ind, na.rm = T)) %&gt;%
-  select(-c(acovratl, scovratl, scovratp, azrr26si, azrr26fa, az4ind)) %&gt;%
+         RR_Avg_Sing = max(az4ind, na.rm = T),
+         RRgross_Sing = max(artsw26s, na.rm = T),
+         RRgross_Fam = max(artsw26f, na.rm = T)) %&gt;%
+  select(-c(acovratl, scovratl, scovratp, azrr26si, azrr26fa, az4ind, artsw26s, artsw26f)) %&gt;%
   summarise_all(mean, na.rm = T) %&gt;%
   mutate(year = 2020) %&gt;%
   ungroup()</code></pre>
 <pre class="r"><code>siedcor &lt;- read_csv(here::here(&quot;data&quot;, &quot;SIED 1930–2020 (2023-06).csv&quot;)) %&gt;%
   subset(year &gt; 2000) %&gt;%
-  select(azrr26si, azrr26fa, az4ind) %&gt;%
+  select(azrr26si, azrr26fa, artsw26s, artsw26f) %&gt;%
   cor(., use = &quot;pairwise.complete.obs&quot;) %&gt;%
   round(., 2)</code></pre>
 </div>
