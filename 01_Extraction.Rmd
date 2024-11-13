@@ -113,6 +113,8 @@ siedcor <- read_csv(here::here("data", "SIED 1930–2020 (2023-06).csv")) %>%
   select(azrr26si, azrr26fa, artsw26s, artsw26f) %>%
   cor(., use = "pairwise.complete.obs") %>%
   round(., 2)
+
+siedcor
 ```
 
 

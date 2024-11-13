@@ -507,7 +507,14 @@ period of work accident benefit</td>
   subset(year &gt; 2000) %&gt;%
   select(azrr26si, azrr26fa, artsw26s, artsw26f) %&gt;%
   cor(., use = &quot;pairwise.complete.obs&quot;) %&gt;%
-  round(., 2)</code></pre>
+  round(., 2)
+
+siedcor</code></pre>
+<pre><code>##          azrr26si azrr26fa artsw26s artsw26f
+## azrr26si     1.00     0.91     0.89     0.86
+## azrr26fa     0.91     1.00     0.79     0.81
+## artsw26s     0.89     0.79     1.00     0.97
+## artsw26f     0.86     0.81     0.97     1.00</code></pre>
 </div>
 <div id="cwed2" class="section level3">
 <h3>CWED2</h3>
