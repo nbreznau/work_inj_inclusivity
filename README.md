@@ -18,6 +18,8 @@ Breznau, Nate; Lanver, Felix, 2020, "Breznau and Lanver 2020 Global Work-Injury 
 
 #### v2.0
 
-Covers 187 countries. This version includes the coverage and replacement rates for all countries in 2024 or year of most recent available data.
+Covers 189 countries. This version includes the coverage and replacement rates for all countries in 2020 or year of most recent available data. The datafile name is "gwip20"
+
+Breznau, Nate; Lanver, Felix, 2024, "Breznau and Lanver 2020 Global Work-Injury Policy Database (GWIP) Codebook.pdf", Global Work-Injury Policy Database (GWIP), https://doi.org/10.7910/DVN/IVKYIE/EYP0PB, Harvard Dataverse, V2
 
 
